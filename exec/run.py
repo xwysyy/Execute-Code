@@ -1,6 +1,6 @@
 import subprocess
 
-def run( problem, code):
+def run(problem : str, code : str):
     path1 = "../deer-executor" + " run "
     path2 = "../data/problems/" + problem + "/problem.json" + " "
     path3 = "../data/codes/" + problem + "/" + code + ".cpp"
