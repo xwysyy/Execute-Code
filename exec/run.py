@@ -8,4 +8,4 @@ def run(problem : str, code : str):
     res = subprocess.run(path, shell=True)
     print(res)
 
-run('APlusB', 'ac')
+run('test', 'gpt-4o-mini')

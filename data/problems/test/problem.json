@@ -1,0 +1,31 @@
+{
+    "test_cases": [
+        {
+            "handle": "0",
+            "name": "Test #0",
+            "input": "cases/0.in",
+            "output": "cases/0.out",
+            "enabled": true
+        },
+        {
+            "handle": "1",
+            "name": "Test #1",
+            "input": "cases/1.in",
+            "output": "cases/1.out",
+            "enabled": true
+        },
+        {
+            "handle": "2",
+            "name": "Test #2",
+            "input": "cases/2.in",
+            "output": "cases/2.out",
+            "enabled": true
+        }
+    ],
+    "time_limit": 1000,
+    "memory_limit": 65500,
+    "real_time_limit": 2000,
+    "file_size_limit": 52428800,
+    "uid": -1,
+    "strict_mode": true
+}
