@@ -1,22 +1,28 @@
 import subprocess
+import concurrent.futures
 import os
 import json
+import threading
 from init import problem_path, parent_path
 
 mp = {
     0: 'Accepted',
-	1: 'Presentation Error',
-	2: 'Time Limit Exceeded',
-	3: 'Memory Limit Exceeded',
-	4: 'Wrong Answer',
-	5: 'Runtime Error',
-	6: 'Output Limit Exceeded',
-	7: 'Compile Error',
-	8: 'System Error'
+    1: 'Presentation Error',
+    2: 'Time Limit Exceeded',
+    3: 'Memory Limit Exceeded',
+    4: 'Wrong Answer',
+    5: 'Runtime Error',
+    6: 'Output Limit Exceeded',
+    7: 'Compile Error',
+    8: 'System Error'
 }
 
-def run(problem: str, code: str):
+lock = threading.Lock()
 
+"""
+测评某道题目指定大模型代码, name为题目名称, code为待测试代码
+"""
+def run(problem: str, code: str):
     path1 = parent_path + '/deer-executor'
     if not os.path.exists(path1):
         raise ValueError('Deer Executor not found')
@@ -26,8 +32,8 @@ def run(problem: str, code: str):
     path3 = problem_path + '/' + problem + '/codes/' + code + '.cpp'
     if not os.path.exists(path3):
         raise ValueError('Code not found')
-    path = path1 + ' run ' + path2 + ' ' + path3 
-    path_with_detail = path1 + ' run  --detail ' + path2 + ' ' + path3 
+    path = path1 + ' run ' + path2 + ' ' + path3
+    path_with_detail = path1 + ' run  --detail ' + path2 + ' ' + path3
 
     res = subprocess.run(path, shell=True, capture_output=True)
     res = json.loads(res.stdout)
@@ -37,24 +43,35 @@ def run(problem: str, code: str):
 
     res_data = {
         'result': result,
-		'time_used': time_used,
-		'memory_used': memory_used
-	}
+        'time_used': time_used,
+        'memory_used': memory_used
+    }
 
-    result_file = problem_path + '/' + problem + '/result.json'
-    if os.path.getsize(result_file) == 0:
-        file_data = {}
-    else:
-        try:
-            with open(result_file, 'r') as f:
-                file_data = json.load(f)
-        except json.decoder.JSONDecodeError:
+    with lock:
+        result_file = problem_path + '/' + problem + '/result.json'
+        if os.path.getsize(result_file) == 0:
             file_data = {}
-    
-    file_data[code] = [res_data]
+        else:
+            try:
+                with open(result_file, 'r') as f:
+                    file_data = json.load(f)
+            except json.decoder.JSONDecodeError:
+                file_data = {}
 
-    with open(result_file, 'w') as f:
-        json.dump(file_data, f, indent=4)   
+        file_data[code] = [res_data]
 
+        with open(result_file, 'w') as f:
+            json.dump(file_data, f, indent=4)
 
-run('test', 'qwen-coder-plus')
+"""
+测评某道题目所有大模型代码, name为题目名称
+"""
+def run_all(problem: str):
+    path = problem_path + '/' + problem + '/codes'
+    if not os.path.exists(path):
+        raise ValueError('Codes not found')
+    codes = os.listdir(path)
+    codes = [code[:-4] for code in codes]
+
+    with concurrent.futures.ThreadPoolExecutor() as executor:
+        executor.map(run, [problem] * len(codes), codes)

@@ -12,10 +12,11 @@ models_list = [
     model for model in list(models_config.keys()) 
     if models_config[model].get('enabled', False) 
 ]
-print(f'Enabled models: {models_list}')
 
+"""
+调用指定大模型api生成指定问题的代码, question为问题描述, model为大模型名称
+"""
 def get_code(question: str, model: str, api_key: str, base_url: str):
-
     api_key = os.getenv(api_key)
     if api_key is None:
         raise ValueError('API Key not found')
@@ -34,8 +35,10 @@ def get_code(question: str, model: str, api_key: str, base_url: str):
     code = code.replace('```', '\n/*')
     return code
 
+"""
+调用所有启用的大模型api生成指定问题的代码, name为问题名称
+"""
 def ask(name: str):
-
     path = problem_path + '/' + name
     if not os.path.exists(path):
         raise ValueError('Problem not found')
@@ -62,3 +65,6 @@ def ask(name: str):
 
     with concurrent.futures.ThreadPoolExecutor() as executor:
         executor.map(save_code, models_list)
+
+if __name__ == '__main__':
+    print(f'Enabled models: {models_list}')
