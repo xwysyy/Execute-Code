@@ -71,11 +71,10 @@ void graph(int n, int m) {
 }
 
 int main(int argc, char* argv[]) {
-
-    int n = std::atoi(argv[1]);
-    int m = std::atoi(argv[2]);
-    std::cout << n << " " << m << "\n";
-    array(n, m);
-    array(n, m);
+    int data = std::atoi(argv[1]);
+    int N = rng(1, data);
+    int V = rng(1, data);
+    array(N, data);
+    array(N, data);
     return 0;
 }

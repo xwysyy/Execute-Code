@@ -5,24 +5,6 @@
             "name": "Test #0",
             "input": "cases/0.in",
             "output": "cases/0.out"
-        },
-        {
-            "handle": "1",
-            "name": "Test #1",
-            "input": "cases/1.in",
-            "output": "cases/1.out"
-        },
-        {
-            "handle": "2",
-            "name": "Test #2",
-            "input": "cases/2.in",
-            "output": "cases/2.out"
-        },
-        {
-            "handle": "3",
-            "name": "Test #3",
-            "input": "cases/3.in",
-            "output": "cases/3.out"
         }
     ],
     "time_limit": 1000,

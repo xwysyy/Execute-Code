@@ -1,5 +1,5 @@
 path=$(dirname "$(realpath "$0")")
-g++ $path/generate.cpp -o $path/generate
+g++ $path/generator.cpp -o $path/generator
 g++ $path/std.cpp -o $path/std
 
 i=0
@@ -11,9 +11,12 @@ do
         value=$(echo $row | jq -r --arg key "$key" '.[$key]')
         params+=($value)
     done
-    $path/generate "${params[@]}" > $path/../cases/$i.in
+    $path/generator "${params[@]}" > $path/../cases/$i.in
+    $path/std < $path/../cases/$i.in > $path/../cases/$i.out
+    ((i++))
+    $path/generator "${params[@]}" > $path/../cases/$i.in
     $path/std < $path/../cases/$i.in > $path/../cases/$i.out
     ((i++))
 done
 
-rm -f $path/generate $path/std
+rm -f $path/generator $path/std

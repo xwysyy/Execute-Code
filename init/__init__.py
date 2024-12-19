@@ -7,4 +7,6 @@ model_path = current_file_path + '/models.yaml'
 
 problem_path = parent_path + '/data/problems'
 
+data_path = parent_path + '/data'
+
 template_path = current_file_path + '/template'

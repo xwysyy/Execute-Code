@@ -13,10 +13,10 @@ models_list = [
     if models_config[model].get('enabled', False) 
 ]
 
-"""
-调用指定大模型api生成指定问题的代码, question为问题描述, model为大模型名称
-"""
 def get_code(question: str, model: str, api_key: str, base_url: str):
+    """
+    调用指定大模型api生成指定问题的代码, question为问题描述, model为大模型名称
+    """
     api_key = os.getenv(api_key)
     if api_key is None:
         raise ValueError('API Key not found')
@@ -35,10 +35,10 @@ def get_code(question: str, model: str, api_key: str, base_url: str):
     code = code.replace('```', '\n/*')
     return code
 
-"""
-调用所有启用的大模型api生成指定问题的代码, name为问题名称
-"""
 def ask(name: str):
+    """
+    调用所有启用的大模型api生成指定问题的代码, name为问题名称
+    """
     path = problem_path + '/' + name
     if not os.path.exists(path):
         raise ValueError('Problem not found')

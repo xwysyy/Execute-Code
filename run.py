@@ -19,10 +19,10 @@ mp = {
 
 lock = threading.Lock()
 
-"""
-测评某道题目指定大模型代码, name为题目名称, code为待测试代码
-"""
 def run(problem: str, code: str):
+    """
+    测评某道题目指定大模型代码, name为题目名称, code为待测试代码
+    """
     path1 = parent_path + '/deer-executor'
     if not os.path.exists(path1):
         raise ValueError('Deer Executor not found')
@@ -63,10 +63,10 @@ def run(problem: str, code: str):
         with open(result_file, 'w') as f:
             json.dump(file_data, f, indent=4)
 
-"""
-测评某道题目所有大模型代码, name为题目名称
-"""
 def run_all(problem: str):
+    """
+    测评某道题目所有大模型代码, name为题目名称
+    """
     path = problem_path + '/' + problem + '/codes'
     if not os.path.exists(path):
         raise ValueError('Codes not found')
