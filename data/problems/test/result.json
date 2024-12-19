@@ -1,37 +1,37 @@
 {
     "deepseek-chat": [
         {
-            "result": "Compile Error",
-            "time_used": 0,
-            "memory_used": 0
+            "result": "Accepted",
+            "time_used": 15,
+            "memory_used": 544
         }
     ],
     "gpt-4o-mini": [
         {
-            "result": "Compile Error",
-            "time_used": 0,
-            "memory_used": 0
+            "result": "Accepted",
+            "time_used": 14,
+            "memory_used": 536
         }
     ],
     "qwen-plus": [
         {
-            "result": "Compile Error",
-            "time_used": 0,
-            "memory_used": 0
+            "result": "Accepted",
+            "time_used": 14,
+            "memory_used": 548
         }
     ],
     "qwen-max": [
         {
-            "result": "Compile Error",
-            "time_used": 0,
-            "memory_used": 0
+            "result": "Accepted",
+            "time_used": 16,
+            "memory_used": 548
         }
     ],
     "qwen-coder-plus": [
         {
-            "result": "Compile Error",
-            "time_used": 0,
-            "memory_used": 0
+            "result": "Accepted",
+            "time_used": 45,
+            "memory_used": 4484
         }
     ]
 }
