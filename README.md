@@ -32,6 +32,7 @@
 * 请参照题目模版`init/template`的内容，构建测试体系。
 * 假设生成的题目目录为`data/problem/test`，此时已经进入到该目录下。
     * 需要在`problem.json`中配置测试用例数量和时空限制。
+      > 请注意，空间不要开得太大，在并发测试时可能会导致内存不足。
     * `generate/std.cpp`为标程。将按照std.cpp的输出结果生成测试用例。
     * 对于每个测试点的数据大小限制，请在`generate/test_data.json`中配置。
     * 请使用`generate/generate.cpp`完成测试数据的具体生成逻辑。
