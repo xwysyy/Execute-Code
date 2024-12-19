@@ -15,6 +15,7 @@ models_list = [
 print(f'Enabled models: {models_list}')
 
 def get_code(question: str, model: str, api_key: str, base_url: str):
+
     api_key = os.getenv(api_key)
     if api_key is None:
         raise ValueError('API Key not found')
@@ -26,6 +27,7 @@ def get_code(question: str, model: str, api_key: str, base_url: str):
         ],
         model = model,
     )
+    
     code = chat_completion.choices[0].message.content
     code = '/*\n\n' + code + '\n\n*/'
     code = code.replace('```cpp', '*/\n')
@@ -33,6 +35,7 @@ def get_code(question: str, model: str, api_key: str, base_url: str):
     return code
 
 def ask(name: str):
+
     path = problem_path + '/' + name
     if not os.path.exists(path):
         raise ValueError('Problem not found')

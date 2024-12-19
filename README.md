@@ -17,10 +17,11 @@
     * 生成的测试用例将存放在`cases`文件夹中。
 * 在`exec/run.py`中指定题目名称和测试的代码名称进行测试。
 
+# 调用api生成代码
 
 # 使用
-1. 在init/modules.yaml中配置需要的大模型
-2. 在.env中配置api_key
+1. 在`init/modules.yaml`中配置需要的大模型
+2. 在`.env`中配置api_key
 3. 运行ask.py文件，输入问题，在code目录下生成问题的代码文件
 
 # 可能会出现的问题：
