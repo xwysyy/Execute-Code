@@ -6,3 +6,5 @@ parent_path = os.path.abspath(os.path.dirname(current_file_path))
 model_path = current_file_path + '/models.yaml'
 
 problem_path = parent_path + '/data/problems'
+
+template_path = current_file_path + '/template'
