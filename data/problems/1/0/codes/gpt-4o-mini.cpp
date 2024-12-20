@@ -1,37 +1,38 @@
 /*
 
-Here is the C++ code to solve the 0/1 Knapsack problem:
+Here is a C++ implementation of the 0/1 Knapsack problem based on your description:
 
 */
 
 #include <iostream>
 #include <vector>
+#include <algorithm>
+
 using namespace std;
 
 int main() {
-    int N; // Number of items
-    int V; // Capacity of the backpack
+    int N, V;
     cin >> N >> V;
 
-    vector<int> v(N); // Volumes
-    vector<int> w(N); // Values
-
-    for (int i = 0; i < N; i++) {
-        cin >> v[i] >> w[i]; // Input for volumes and values
+    vector<int> v(N);
+    vector<int> w(N);
+    
+    for(int i = 0; i < N; ++i) {
+        cin >> v[i] >> w[i];
     }
 
-    // DP array for storing maximum values for each capacity
+    // Create a DP array where dp[j] will hold the max value for capacity j
     vector<int> dp(V + 1, 0);
 
-    // 0/1 Knapsack DP approach
-    for (int i = 0; i < N; i++) {
-        // Traverse backwards to prevent overwriting
-        for (int j = V; j >= v[i]; j--) {
+    // Process each item one by one
+    for (int i = 0; i < N; ++i) {
+        // Traverse the dp array backward
+        for (int j = V; j >= v[i]; --j) {
             dp[j] = max(dp[j], dp[j - v[i]] + w[i]);
         }
     }
 
-    // The maximum value that can be achieved within the capacity
+    // The maximum value is the last element in dp array
     cout << dp[V] << endl;
 
     return 0;
@@ -40,12 +41,13 @@ int main() {
 /*
 
 ### Explanation:
-1. **Input Handling:** First, we read the number of items `N` and the capacity `V` of the backpack. Then, we read the volumes and values of the items.
-2. **Dynamic Programming Array (`dp`):** We define a DP array `dp` where `dp[j]` represents the maximum value that can be achieved with a backpack capacity `j`.
-3. **Filling the DP Array:** We iterate through each item and update the `dp` array from back to front to avoid using the same item more than once.
-4. **Output:** Finally, we print the maximum value that can be achieved with the given capacity.
+1. The program starts by reading the number of items `N` and the capacity of the backpack `V`.
+2. It then reads the volume and value of each item into vectors `v` and `w`.
+3. A DP array `dp` of size `V + 1` is created to keep track of the maximum value obtainable for each capacity from `0` to `V`.
+4. The main logic involves iterating over each item and updating the `dp` array backwards (to prevent using the same item multiple times).
+5. Finally, it outputs the maximum value that can be achieved for the given backpack capacity. 
 
 ### Constraints:
-- Make sure the inputs are within the constraints \( 0 < N, V, v[i], w[i] \leq 10 \). The provided code efficiently handles those constraints.
+This implementation is efficient given the constraints (1 ≤ N, V ≤ 10), as it uses a dynamic programming approach that runs in O(N * V) time.
 
 */

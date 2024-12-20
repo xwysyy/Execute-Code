@@ -38,7 +38,8 @@
         }
     ],
     "time_limit": 1000,
-    "memory_limit": 64,
+    "memory_limit": 5000,
+    "real_memory_limit": 64,
     "real_time_limit": 2000,
     "file_size_limit": 52428800,
     "uid": -1,

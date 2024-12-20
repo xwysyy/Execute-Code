@@ -1,37 +1,192 @@
 {
-    "qwen-coder-plus": [
-        {
-            "result": "Wrong Answer",
-            "time_used": 0,
-            "memory_used": 100
-        }
-    ],
     "gpt-4o-mini": [
         {
-            "result": "Wrong Answer",
-            "time_used": 0,
-            "memory_used": 104
+            "handle": "0",
+            "result": "Accepted",
+            "time_used": 2,
+            "memory_used": 524
+        },
+        {
+            "handle": "1",
+            "result": "Accepted",
+            "time_used": 1,
+            "memory_used": 536
+        },
+        {
+            "handle": "2",
+            "result": "Accepted",
+            "time_used": 1,
+            "memory_used": 540
+        },
+        {
+            "handle": "3",
+            "result": "Accepted",
+            "time_used": 1,
+            "memory_used": 532
+        },
+        {
+            "handle": "4",
+            "result": "Accepted",
+            "time_used": 6,
+            "memory_used": 536
+        },
+        {
+            "handle": "5",
+            "result": "Accepted",
+            "time_used": 3,
+            "memory_used": 540
         }
     ],
-    "deepseek-chat": [
+    "qwen-coder-plus": [
         {
-            "result": "Wrong Answer",
+            "handle": "0",
+            "result": "Accepted",
+            "time_used": 1,
+            "memory_used": 528
+        },
+        {
+            "handle": "1",
+            "result": "Accepted",
+            "time_used": 1,
+            "memory_used": 536
+        },
+        {
+            "handle": "2",
+            "result": "Accepted",
+            "time_used": 1,
+            "memory_used": 536
+        },
+        {
+            "handle": "3",
+            "result": "Accepted",
             "time_used": 0,
-            "memory_used": 104
+            "memory_used": 564
+        },
+        {
+            "handle": "4",
+            "result": "Accepted",
+            "time_used": 21,
+            "memory_used": 2728
+        },
+        {
+            "handle": "5",
+            "result": "Accepted",
+            "time_used": 7,
+            "memory_used": 1388
         }
     ],
     "qwen-plus": [
         {
-            "result": "Wrong Answer",
-            "time_used": 0,
-            "memory_used": 100
+            "handle": "0",
+            "result": "Accepted",
+            "time_used": 1,
+            "memory_used": 536
+        },
+        {
+            "handle": "1",
+            "result": "Accepted",
+            "time_used": 1,
+            "memory_used": 532
+        },
+        {
+            "handle": "2",
+            "result": "Accepted",
+            "time_used": 1,
+            "memory_used": 544
+        },
+        {
+            "handle": "3",
+            "result": "Accepted",
+            "time_used": 1,
+            "memory_used": 568
+        },
+        {
+            "handle": "4",
+            "result": "Accepted",
+            "time_used": 19,
+            "memory_used": 2728
+        },
+        {
+            "handle": "5",
+            "result": "Accepted",
+            "time_used": 6,
+            "memory_used": 1388
         }
     ],
     "qwen-max": [
         {
-            "result": "Wrong Answer",
-            "time_used": 0,
-            "memory_used": 100
+            "handle": "0",
+            "result": "Accepted",
+            "time_used": 2,
+            "memory_used": 540
+        },
+        {
+            "handle": "1",
+            "result": "Accepted",
+            "time_used": 1,
+            "memory_used": 536
+        },
+        {
+            "handle": "2",
+            "result": "Accepted",
+            "time_used": 1,
+            "memory_used": 540
+        },
+        {
+            "handle": "3",
+            "result": "Accepted",
+            "time_used": 1,
+            "memory_used": 564
+        },
+        {
+            "handle": "4",
+            "result": "Accepted",
+            "time_used": 13,
+            "memory_used": 2740
+        },
+        {
+            "handle": "5",
+            "result": "Accepted",
+            "time_used": 4,
+            "memory_used": 1392
+        }
+    ],
+    "deepseek-chat": [
+        {
+            "handle": "0",
+            "result": "Accepted",
+            "time_used": 1,
+            "memory_used": 528
+        },
+        {
+            "handle": "1",
+            "result": "Accepted",
+            "time_used": 1,
+            "memory_used": 540
+        },
+        {
+            "handle": "2",
+            "result": "Accepted",
+            "time_used": 1,
+            "memory_used": 532
+        },
+        {
+            "handle": "3",
+            "result": "Accepted",
+            "time_used": 2,
+            "memory_used": 556
+        },
+        {
+            "handle": "4",
+            "result": "Accepted",
+            "time_used": 12,
+            "memory_used": 2740
+        },
+        {
+            "handle": "5",
+            "result": "Accepted",
+            "time_used": 5,
+            "memory_used": 1396
         }
     ]
 }

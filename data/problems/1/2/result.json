@@ -1,37 +1,192 @@
 {
-    "qwen-max": [
+    "gpt-4o-mini": [
         {
-            "result": "Runtime Error",
+            "handle": "0",
+            "result": "Accepted",
+            "time_used": 1,
+            "memory_used": 536
+        },
+        {
+            "handle": "1",
+            "result": "Accepted",
             "time_used": 0,
-            "memory_used": 28
+            "memory_used": 524
+        },
+        {
+            "handle": "2",
+            "result": "Accepted",
+            "time_used": 1,
+            "memory_used": 528
+        },
+        {
+            "handle": "3",
+            "result": "Accepted",
+            "time_used": 1,
+            "memory_used": 524
+        },
+        {
+            "handle": "4",
+            "result": "Accepted",
+            "time_used": 6,
+            "memory_used": 540
+        },
+        {
+            "handle": "5",
+            "result": "Accepted",
+            "time_used": 0,
+            "memory_used": 536
         }
     ],
     "qwen-plus": [
         {
-            "result": "Runtime Error",
-            "time_used": 0,
-            "memory_used": 28
-        }
-    ],
-    "gpt-4o-mini": [
+            "handle": "0",
+            "result": "Accepted",
+            "time_used": 1,
+            "memory_used": 536
+        },
         {
-            "result": "Runtime Error",
-            "time_used": 0,
-            "memory_used": 28
-        }
-    ],
-    "qwen-coder-plus": [
+            "handle": "1",
+            "result": "Accepted",
+            "time_used": 3,
+            "memory_used": 520
+        },
         {
-            "result": "Runtime Error",
-            "time_used": 0,
-            "memory_used": 28
+            "handle": "2",
+            "result": "Accepted",
+            "time_used": 1,
+            "memory_used": 532
+        },
+        {
+            "handle": "3",
+            "result": "Accepted",
+            "time_used": 1,
+            "memory_used": 528
+        },
+        {
+            "handle": "4",
+            "result": "Accepted",
+            "time_used": 4,
+            "memory_used": 532
+        },
+        {
+            "handle": "5",
+            "result": "Accepted",
+            "time_used": 7,
+            "memory_used": 532
         }
     ],
     "deepseek-chat": [
         {
-            "result": "Runtime Error",
-            "time_used": 0,
-            "memory_used": 28
+            "handle": "0",
+            "result": "Accepted",
+            "time_used": 1,
+            "memory_used": 532
+        },
+        {
+            "handle": "1",
+            "result": "Accepted",
+            "time_used": 1,
+            "memory_used": 528
+        },
+        {
+            "handle": "2",
+            "result": "Accepted",
+            "time_used": 1,
+            "memory_used": 544
+        },
+        {
+            "handle": "3",
+            "result": "Accepted",
+            "time_used": 1,
+            "memory_used": 528
+        },
+        {
+            "handle": "4",
+            "result": "Accepted",
+            "time_used": 9,
+            "memory_used": 536
+        },
+        {
+            "handle": "5",
+            "result": "Accepted",
+            "time_used": 5,
+            "memory_used": 540
+        }
+    ],
+    "qwen-max": [
+        {
+            "handle": "0",
+            "result": "Accepted",
+            "time_used": 1,
+            "memory_used": 540
+        },
+        {
+            "handle": "1",
+            "result": "Accepted",
+            "time_used": 1,
+            "memory_used": 540
+        },
+        {
+            "handle": "2",
+            "result": "Accepted",
+            "time_used": 1,
+            "memory_used": 540
+        },
+        {
+            "handle": "3",
+            "result": "Accepted",
+            "time_used": 2,
+            "memory_used": 540
+        },
+        {
+            "handle": "4",
+            "result": "Accepted",
+            "time_used": 12,
+            "memory_used": 2136
+        },
+        {
+            "handle": "5",
+            "result": "Accepted",
+            "time_used": 9,
+            "memory_used": 2816
+        }
+    ],
+    "qwen-coder-plus": [
+        {
+            "handle": "0",
+            "result": "Accepted",
+            "time_used": 1,
+            "memory_used": 528
+        },
+        {
+            "handle": "1",
+            "result": "Accepted",
+            "time_used": 2,
+            "memory_used": 532
+        },
+        {
+            "handle": "2",
+            "result": "Accepted",
+            "time_used": 1,
+            "memory_used": 540
+        },
+        {
+            "handle": "3",
+            "result": "Accepted",
+            "time_used": 1,
+            "memory_used": 556
+        },
+        {
+            "handle": "4",
+            "result": "Accepted",
+            "time_used": 11,
+            "memory_used": 2132
+        },
+        {
+            "handle": "5",
+            "result": "Accepted",
+            "time_used": 13,
+            "memory_used": 2828
         }
     ]
 }

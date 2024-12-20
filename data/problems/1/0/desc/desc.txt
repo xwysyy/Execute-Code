@@ -6,7 +6,9 @@ The problem is to determine which items to put into the backpack so that the tot
 
 Output the **maximum value** that can be achieved.  
 
-**Constraints:**
+**Input**:
+- The first line contains two integers, **N** and **V**.
+- The next **N** lines each contain two integers, `v[i]` and `w[i]`.
 - \( 0 < N, V, v[i], w[i] \leq \text{10} \)
 
 **Time limit**: \(\text{1000} ms\)  

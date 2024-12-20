@@ -35,18 +35,24 @@ def run(problem: str, code: str):
     path = path1 + ' run ' + path2 + ' ' + path3
     path_with_detail = path1 + ' run  --detail ' + path2 + ' ' + path3
 
-    res = subprocess.run(path, shell=True, capture_output=True)
+    res = subprocess.run(path_with_detail, shell=True, capture_output=True)
     res = json.loads(res.stdout)
-    result = mp[res['data']['judge_result']]
-    time_used = res['data']['time_used']
-    memory_used = res['data']['memory_used']
-
-    res_data = {
-        'result': result,
-        'time_used': time_used,
-        'memory_used': memory_used
-    }
-
+    with open('result.json', 'w') as f:
+        json.dump(res, f, indent=4)
+    res = res['data']['test_cases']
+    res_data = []
+    for item in res:
+        handle = item['handle']
+        result = mp[item['judge_result']]
+        time_used = item['time_used']
+        memory_used = item['memory_used']
+        res_data.append({
+            'handle': handle,
+            'result': result,
+            'time_used': time_used,
+            'memory_used': memory_used
+        })
+    
     with lock:
         result_file = problem_path + '/' + problem + '/result.json'
         if os.path.getsize(result_file) == 0:
@@ -58,14 +64,14 @@ def run(problem: str, code: str):
             except json.decoder.JSONDecodeError:
                 file_data = {}
 
-        file_data[code] = [res_data]
+        file_data[code] = res_data
 
         with open(result_file, 'w') as f:
             json.dump(file_data, f, indent=4)
 
-def run_all(problem: str):
+def run_all(problem: str, op: bool = True):
     """
-    测评某道题目所有大模型代码, name为题目名称
+    测评某道题目所有大模型代码, name为题目名称, op表示是否多线程
     """
     path = problem_path + '/' + problem + '/codes'
     if not os.path.exists(path):
@@ -73,8 +79,9 @@ def run_all(problem: str):
     codes = os.listdir(path)
     codes = [code[:-4] for code in codes]
 
-    # with concurrent.futures.ThreadPoolExecutor() as executor:
-    #     executor.map(run, [problem] * len(codes), codes)
-
-    for code in codes:
-        run(problem, code)
+    if op == True:
+        with concurrent.futures.ThreadPoolExecutor() as executor:
+            executor.map(run, [problem] * len(codes), codes)
+    else:
+        for code in codes:
+            run(problem, code)

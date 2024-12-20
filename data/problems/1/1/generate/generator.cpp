@@ -75,7 +75,8 @@ int main(int argc, char* argv[]) {
     int N = rng(1, data);
     int V = rng(1, data);
     std::cout << N << " " << V << "\n";
-    array(N, data);
-    array(N, data);
+    for (int i = 0; i < N; i++) {
+        array(2, data);
+    }
     return 0;
 }

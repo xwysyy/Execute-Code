@@ -1,6 +1,8 @@
 /*
 
-This problem is a classic example of the 0/1 Knapsack problem. Here's a C++ implementation using dynamic programming:
+Certainly! This problem is a classic example of the "0/1 Knapsack Problem" which can be solved using dynamic programming.
+
+Here is the C++ code to solve it:
 
 */
 
@@ -10,7 +12,18 @@ This problem is a classic example of the 0/1 Knapsack problem. Here's a C++ impl
 
 using namespace std;
 
-int knapsack(int N, int V, const vector<int>& v, const vector<int>& w) {
+int main() {
+    int N, V;
+    cin >> N >> V;
+
+    vector<int> v(N);
+    vector<int> w(N);
+
+    for (int i = 0; i < N; ++i) {
+        cin >> v[i] >> w[i];
+    }
+
+    // dp[i][j] will store the maximum value that can be obtained with the first i items and a backpack capacity of j
     vector<vector<int>> dp(N + 1, vector<int>(V + 1, 0));
 
     for (int i = 1; i <= N; ++i) {
@@ -23,19 +36,7 @@ int knapsack(int N, int V, const vector<int>& v, const vector<int>& w) {
         }
     }
 
-    return dp[N][V];
-}
-
-int main() {
-    int N, V;
-    cin >> N >> V;
-
-    vector<int> v(N), w(N);
-    for (int i = 0; i < N; ++i) {
-        cin >> v[i] >> w[i];
-    }
-
-    cout << knapsack(N, V, v, w) << endl;
+    cout << dp[N][V] << endl;
 
     return 0;
 }
@@ -43,10 +44,11 @@ int main() {
 /*
 
 ### Explanation:
-- We use a 2D vector `dp` where `dp[i][j]` represents the maximum value that can be achieved with the first `i` items and a backpack capacity of `j`.
-- We iterate through each item and each possible capacity, updating the `dp` table based on whether including the current item increases the total value without exceeding the capacity.
+- We use a 2D array `dp` where `dp[i][j]` represents the maximum value that can be achieved with the first `i` items and a backpack capacity of `j`.
+- We iterate over each item and each possible capacity of the backpack.
+- For each item, we decide whether to include it in the knapsack or not based on whether including it results in a higher value than excluding it.
 - Finally, `dp[N][V]` contains the maximum value that can be achieved with all `N` items and a backpack capacity of `V`.
 
-This solution runs in \(O(N \times V)\) time and uses \(O(N \times V)\) space, which is efficient given the constraints.
+This solution has a time complexity of \(O(N \times V)\), which is efficient given the constraints.
 
 */

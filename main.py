@@ -8,11 +8,9 @@ import chardet
 import json
 from concurrent.futures import ThreadPoolExecutor
 
-
 # 检测文件编码
 with open(data_path + '/data.csv', 'rb') as f:
     encoding = chardet.detect(f.read())['encoding']
-
 
 def process_row(row):
     """
@@ -95,7 +93,8 @@ def process_row(row):
         with open(f'{problem_level_path}/problem.json', 'r', encoding='utf-8') as f:
             problem_json_file = json.load(f)
         problem_json_file['time_limit'] = int(time_limit)
-        problem_json_file['memory_limit'] = int(memory_limit[level])
+        problem_json_file['memory_limit'] = max(int(memory_limit[level])+500,5000)
+        problem_json_file['real_memory_limit'] = int(memory_limit[level])
         problem_json_file['test_cases']=[]
         for order in range(len(data) * 2):
             problem_json_file["test_cases"].append({
@@ -110,22 +109,25 @@ def process_row(row):
         if flag is True:
             os.system(f'bash {problem_level_path}/generate/generate.sh')
             print(f'{tem_name} changed')
-            # ask(tem_name)
+            ask(tem_name)
+            run_all(tem_name)
         else:
             print(f'{tem_name} not changed')
-        if(level == 1):
-            run_all(tem_name)
 
-def create_problem():
+def create_problem(op: bool = True):
     """
-    读取数据并使用并发处理每一行。
+    读取数据并使用并发/非并发处理每一行。
     """
     df = pd.read_csv(data_path + '/data.csv', encoding=encoding)
 
-    with ThreadPoolExecutor() as executor:
-        executor.map(process_row, df.to_dict(orient='records'))
+    if op is True:
+        with ThreadPoolExecutor() as executor:
+            executor.map(process_row, df.to_dict(orient='records'))
+    else:
+        for _, row in df.iterrows():
+            process_row(row)
 
 if __name__ == '__main__':
     print(f'Enabled models: {models_list}')
-    # 
-    run_all('1/2')
+    create_problem()
+

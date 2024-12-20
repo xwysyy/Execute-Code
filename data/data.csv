@@ -7,7 +7,9 @@ The problem is to determine which items to put into the backpack so that the tot
 
 Output the **maximum value** that can be achieved.  
 
-**Constraints:**
+**Input**:
+- The first line contains two integers, **N** and **V**.
+- The next **N** lines each contain two integers, `v[i]` and `w[i]`.
 - \( 0 < N, V, v[i], w[i] \leq \text{@data} \)
 
 **Time limit**: \(\text{@time_limit} ms\)  
@@ -15,6 +17,9 @@ Output the **maximum value** that can be achieved.
 第i件物品的体积是vi, 价值是 wi
 求解将哪些物品装入背包，可使这些物品的总体积不超过背包容量，且总价值最大。输出最大价值。
 
+输入：
+第一行包含两个整数, N 和 V。
+接下来有 N 行，每行包含两个整数 vi 和 wi。
 0<N,V,vi,wi≤@data
 
 时间限制：@time_limit ms
@@ -109,7 +114,8 @@ int main(int argc, char* argv[]) {
     int N = rng(1, data);
     int V = rng(1, data);
     std::cout << N << "" "" << V << ""\n"";
-    array(N, data);
-    array(N, data);
+    for (int i = 0; i < N; i++) {
+        array(2, data);
+    }
     return 0;
 }",dp,easy
