@@ -1,4 +1,4 @@
-There are **N items** and a **backpack with a capacity of V**. Each item can only be used once.  
+There are **N** items and a **backpack with a capacity of V**. Each item can only be used once.  
 
 The **volume** of the i-th item is `v[i]`, and its **value** is `w[i]`.  
 

@@ -73,5 +73,8 @@ def run_all(problem: str):
     codes = os.listdir(path)
     codes = [code[:-4] for code in codes]
 
-    with concurrent.futures.ThreadPoolExecutor() as executor:
-        executor.map(run, [problem] * len(codes), codes)
+    # with concurrent.futures.ThreadPoolExecutor() as executor:
+    #     executor.map(run, [problem] * len(codes), codes)
+
+    for code in codes:
+        run(problem, code)

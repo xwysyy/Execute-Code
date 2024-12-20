@@ -1,5 +1,5 @@
 from ask import ask, models_list
-from run import run
+from run import run, run_all
 from init import problem_path, template_path, data_path
 import os
 import shutil
@@ -31,19 +31,34 @@ def process_row(row):
     test_data_num = 2
 
     for level in range(len(memory_limit)):
+        # 判断该题目配置内容是否修改或者是否新创建
+        flag = False
+
         problem_level_path = f'{problem_path}/{id}/{level}'
         if not os.path.exists(problem_level_path):
+            flag = True
             shutil.copytree(template_path, problem_level_path)
     
-        if len(generator) == 0:
+        if not generator:
             raise Exception(f'Generator not found in problem {id} level {level}')
-        if len(std) == 0:
+        if not std:
             raise Exception(f'Std not found in problem {id} level {level}')
         
-        with open(f'{problem_level_path}/generate/generator.cpp', 'w', encoding='utf-8') as f:
-            f.write(generator)
-        with open(f'{problem_level_path}/generate/std.cpp', 'w', encoding='utf-8') as f:
-            f.write(std)
+        def operate_file(file_path: str, cur_content: str):
+            full_path = f'{problem_level_path}/{file_path}'
+            nonlocal flag
+            try:
+                with open(full_path, 'r+', encoding='utf-8') as f:
+                    pre_content = f.read()
+                    if pre_content != cur_content:
+                        flag = True
+                        f.seek(0)
+                        f.write(cur_content)
+                        f.truncate()
+            except FileNotFoundError:
+                with open(full_path, 'w', encoding='utf-8') as f:
+                    f.write(cur_content)
+                flag = True 
 
         desc = desc.replace('@data', str(data[level]))
         desc_zh = desc_zh.replace('@data', str(data[level]))
@@ -51,34 +66,55 @@ def process_row(row):
         desc_zh = desc_zh.replace('@time_limit', str(time_limit))
         desc = desc.replace('@memory_limit', str(memory_limit[level]))
         desc_zh = desc_zh.replace('@memory_limit', str(memory_limit[level]))
-        with open(f'{problem_level_path}/desc/desc.txt', 'w', encoding='utf-8') as f:
-            f.write(desc)
+ 
+
+        operate_file('generate/generator.cpp', generator)
+        operate_file('generate/std.cpp', std)
+        operate_file('desc/desc.txt', desc)
         with open(f'{problem_level_path}/desc/desc_zh.txt', 'w', encoding='utf-8') as f:
             f.write(desc_zh)
 
-        test_data_file = []
-        for item in data:
-            test_data_file.append({"N": item})
-        with open(f'{problem_level_path}/generate/test_data.json', 'w', encoding='utf-8') as f:
-            json.dump(test_data_file, f, ensure_ascii=False, indent=4)
+        def operate_json(file_path: str, new_content: dict):
+            full_path = f'{problem_level_path}/{file_path}'
+            nonlocal flag
+            try:
+                with open(full_path, 'r', encoding='utf-8') as f:
+                    pre_content = json.load(f)
+                if pre_content != new_content:
+                    flag = True
+                    with open(full_path, 'w', encoding='utf-8') as f:
+                        json.dump(new_content, f, ensure_ascii=False, indent=4)
+            except (FileNotFoundError, json.JSONDecodeError):
+                with open(full_path, 'w', encoding='utf-8') as f:
+                    json.dump(new_content, f, ensure_ascii=False, indent=4)
+                flag = True
 
-        os.system(f'bash {problem_level_path}/generate/generate.sh')
+        test_data_file = [{"N": item} for item in data]
+        operate_json('generate/test_data.json', test_data_file)
 
         with open(f'{problem_level_path}/problem.json', 'r', encoding='utf-8') as f:
             problem_json_file = json.load(f)
         problem_json_file['time_limit'] = int(time_limit)
         problem_json_file['memory_limit'] = int(memory_limit[level])
-        for order in range(1, len(data)):
-            tem = {
+        problem_json_file['test_cases']=[]
+        for order in range(len(data) * 2):
+            problem_json_file["test_cases"].append({
                 "handle": f'{order}',
                 "name": f'Test #{order}',
                 "input": f'cases/{order}.in',
                 "output": f'cases/{order}.out'
-            }
-            problem_json_file['test_cases'].append(tem)
-        with open(f'{problem_level_path}/problem.json', 'w', encoding='utf-8') as f:
-            json.dump(problem_json_file, f, ensure_ascii=False, indent=4)
+            })
+        operate_json('problem.json', problem_json_file)
 
+        tem_name = f'{id}/{level}'
+        if flag is True:
+            os.system(f'bash {problem_level_path}/generate/generate.sh')
+            print(f'{tem_name} changed')
+            # ask(tem_name)
+        else:
+            print(f'{tem_name} not changed')
+        if(level == 1):
+            run_all(tem_name)
 
 def create_problem():
     """
@@ -89,5 +125,7 @@ def create_problem():
     with ThreadPoolExecutor() as executor:
         executor.map(process_row, df.to_dict(orient='records'))
 
-
-create_problem()
+if __name__ == '__main__':
+    print(f'Enabled models: {models_list}')
+    # 
+    run_all('1/2')

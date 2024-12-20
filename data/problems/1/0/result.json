@@ -1,0 +1,37 @@
+{
+    "gpt-4o-mini": [
+        {
+            "result": "Accepted",
+            "time_used": 2,
+            "memory_used": 540
+        }
+    ],
+    "qwen-max": [
+        {
+            "result": "Accepted",
+            "time_used": 8,
+            "memory_used": 1988
+        }
+    ],
+    "qwen-plus": [
+        {
+            "result": "Wrong Answer",
+            "time_used": 1,
+            "memory_used": 520
+        }
+    ],
+    "deepseek-chat": [
+        {
+            "result": "Accepted",
+            "time_used": 10,
+            "memory_used": 1964
+        }
+    ],
+    "qwen-coder-plus": [
+        {
+            "result": "Accepted",
+            "time_used": 13,
+            "memory_used": 1980
+        }
+    ]
+}

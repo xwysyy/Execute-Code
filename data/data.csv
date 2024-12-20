@@ -1,5 +1,5 @@
 id,desc,desc_zh,data,time_limit,memory_limit,std,generator,cate,difficulty
-1,"There are **N items** and a **backpack with a capacity of V**. Each item can only be used once.  
+1,"There are **N** items and a **backpack with a capacity of V**. Each item can only be used once.  
 
 The **volume** of the i-th item is `v[i]`, and its **value** is `w[i]`.  
 
@@ -12,7 +12,7 @@ Output the **maximum value** that can be achieved.
 
 **Time limit**: \(\text{@time_limit} ms\)  
 **Memory limit**: \(\text{@memory_limit} KB\)","有 N 件物品和一个容量是 V 的背包。每件物品只能使用一次。
-第i件物品的体积是vi，价值是 wi
+第i件物品的体积是vi, 价值是 wi
 求解将哪些物品装入背包，可使这些物品的总体积不超过背包容量，且总价值最大。输出最大价值。
 
 0<N,V,vi,wi≤@data
@@ -23,7 +23,7 @@ using namespace std;
 int main()
 {
     int n,m;cin>>n>>m;
-    vector dp(m+1,0);
+    vector<int>dp(m+1);
     for(int i=1;i<=n;i++)
     {
         int v,w;cin>>v>>w;

@@ -1,0 +1,37 @@
+{
+    "qwen-max": [
+        {
+            "result": "Runtime Error",
+            "time_used": 0,
+            "memory_used": 28
+        }
+    ],
+    "qwen-plus": [
+        {
+            "result": "Runtime Error",
+            "time_used": 0,
+            "memory_used": 28
+        }
+    ],
+    "gpt-4o-mini": [
+        {
+            "result": "Runtime Error",
+            "time_used": 0,
+            "memory_used": 28
+        }
+    ],
+    "qwen-coder-plus": [
+        {
+            "result": "Runtime Error",
+            "time_used": 0,
+            "memory_used": 28
+        }
+    ],
+    "deepseek-chat": [
+        {
+            "result": "Runtime Error",
+            "time_used": 0,
+            "memory_used": 28
+        }
+    ]
+}

@@ -42,9 +42,9 @@ def ask(name: str):
     path = problem_path + '/' + name
     if not os.path.exists(path):
         raise ValueError('Problem not found')
-    if not os.path.exists(path + '/desc/data.txt'):
+    if not os.path.exists(path + '/desc/desc.txt'):
         raise ValueError('Problem description not found')
-    with open(path + '/desc/data.txt', 'r', encoding='utf-8') as f:
+    with open(path + '/desc/desc.txt', 'r', encoding='utf-8') as f:
         problem = f.read()
     path += '/codes'
     if not os.path.exists(path):

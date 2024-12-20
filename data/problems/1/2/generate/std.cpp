@@ -3,7 +3,7 @@ using namespace std;
 int main()
 {
     int n,m;cin>>n>>m;
-    vector dp(m+1,0);
+    vector<int>dp(m+1);
     for(int i=1;i<=n;i++)
     {
         int v,w;cin>>v>>w;
