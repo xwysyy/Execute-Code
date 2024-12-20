@@ -109,15 +109,15 @@ def process_row(row):
             os.system(f'bash {problem_level_path}/generate/generate.sh')
             print(f'{tem_name} changed')
             ask(tem_name)
-            run_all(tem_name)
         else:
             print(f'{tem_name} not changed')
+        run_all(tem_name)
 
 def create_problem(op: bool = True):
     """
     读取数据并使用并发/非并发处理每一行。
     """
-    df = pd.read_csv(data_path + '/data.csv', encoding=encoding)
+    df = pd.read_csv(f'{data_path}/data.csv', encoding=encoding)
 
     if op is True:
         with ThreadPoolExecutor() as executor:

@@ -3,114 +3,114 @@
         {
             "handle": "0",
             "result": "Accepted",
-            "time_used": 2,
-            "memory_used": 524
+            "time_used": 1,
+            "memory_used": 4
         },
         {
             "handle": "1",
             "result": "Accepted",
             "time_used": 1,
-            "memory_used": 536
+            "memory_used": 4
         },
         {
             "handle": "2",
             "result": "Accepted",
             "time_used": 1,
-            "memory_used": 540
+            "memory_used": 8
         },
         {
             "handle": "3",
             "result": "Accepted",
-            "time_used": 1,
-            "memory_used": 532
+            "time_used": 2,
+            "memory_used": 8
         },
         {
             "handle": "4",
             "result": "Accepted",
-            "time_used": 6,
-            "memory_used": 536
+            "time_used": 7,
+            "memory_used": 16
         },
         {
             "handle": "5",
             "result": "Accepted",
             "time_used": 3,
-            "memory_used": 540
+            "memory_used": 24
         }
     ],
     "qwen-coder-plus": [
         {
             "handle": "0",
             "result": "Accepted",
-            "time_used": 1,
-            "memory_used": 528
+            "time_used": 2,
+            "memory_used": 8
         },
         {
             "handle": "1",
             "result": "Accepted",
-            "time_used": 1,
-            "memory_used": 536
+            "time_used": 2,
+            "memory_used": 12
         },
         {
             "handle": "2",
             "result": "Accepted",
             "time_used": 1,
-            "memory_used": 536
+            "memory_used": 12
         },
         {
             "handle": "3",
             "result": "Accepted",
-            "time_used": 0,
-            "memory_used": 564
+            "time_used": 2,
+            "memory_used": 44
         },
         {
             "handle": "4",
-            "result": "Accepted",
-            "time_used": 21,
-            "memory_used": 2728
+            "result": "Memory Limit Exceeded",
+            "time_used": 14,
+            "memory_used": 2216
         },
         {
             "handle": "5",
-            "result": "Accepted",
-            "time_used": 7,
-            "memory_used": 1388
+            "result": "Memory Limit Exceeded",
+            "time_used": 5,
+            "memory_used": 876
         }
     ],
     "qwen-plus": [
         {
             "handle": "0",
             "result": "Accepted",
-            "time_used": 1,
-            "memory_used": 536
+            "time_used": 2,
+            "memory_used": 8
         },
         {
             "handle": "1",
             "result": "Accepted",
-            "time_used": 1,
-            "memory_used": 532
+            "time_used": 2,
+            "memory_used": 8
         },
         {
             "handle": "2",
             "result": "Accepted",
             "time_used": 1,
-            "memory_used": 544
+            "memory_used": 16
         },
         {
             "handle": "3",
             "result": "Accepted",
-            "time_used": 1,
-            "memory_used": 568
+            "time_used": 2,
+            "memory_used": 36
         },
         {
             "handle": "4",
-            "result": "Accepted",
-            "time_used": 19,
-            "memory_used": 2728
+            "result": "Memory Limit Exceeded",
+            "time_used": 18,
+            "memory_used": 2204
         },
         {
             "handle": "5",
-            "result": "Accepted",
-            "time_used": 6,
-            "memory_used": 1388
+            "result": "Memory Limit Exceeded",
+            "time_used": 7,
+            "memory_used": 868
         }
     ],
     "qwen-max": [
@@ -118,75 +118,75 @@
             "handle": "0",
             "result": "Accepted",
             "time_used": 2,
-            "memory_used": 540
+            "memory_used": 8
         },
         {
             "handle": "1",
             "result": "Accepted",
-            "time_used": 1,
-            "memory_used": 536
+            "time_used": 2,
+            "memory_used": 12
         },
         {
             "handle": "2",
             "result": "Accepted",
-            "time_used": 1,
-            "memory_used": 540
+            "time_used": 2,
+            "memory_used": 8
         },
         {
             "handle": "3",
             "result": "Accepted",
-            "time_used": 1,
-            "memory_used": 564
+            "time_used": 2,
+            "memory_used": 44
         },
         {
             "handle": "4",
-            "result": "Accepted",
-            "time_used": 13,
-            "memory_used": 2740
+            "result": "Memory Limit Exceeded",
+            "time_used": 16,
+            "memory_used": 2212
         },
         {
             "handle": "5",
-            "result": "Accepted",
-            "time_used": 4,
-            "memory_used": 1392
+            "result": "Memory Limit Exceeded",
+            "time_used": 7,
+            "memory_used": 876
         }
     ],
     "deepseek-chat": [
         {
             "handle": "0",
             "result": "Accepted",
-            "time_used": 1,
-            "memory_used": 528
+            "time_used": 2,
+            "memory_used": 4
         },
         {
             "handle": "1",
             "result": "Accepted",
             "time_used": 1,
-            "memory_used": 540
+            "memory_used": 8
         },
         {
             "handle": "2",
             "result": "Accepted",
             "time_used": 1,
-            "memory_used": 532
+            "memory_used": 16
         },
         {
             "handle": "3",
             "result": "Accepted",
             "time_used": 2,
-            "memory_used": 556
+            "memory_used": 40
         },
         {
             "handle": "4",
-            "result": "Accepted",
-            "time_used": 12,
-            "memory_used": 2740
+            "result": "Memory Limit Exceeded",
+            "time_used": 17,
+            "memory_used": 2212
         },
         {
             "handle": "5",
-            "result": "Accepted",
-            "time_used": 5,
-            "memory_used": 1396
+            "result": "Memory Limit Exceeded",
+            "time_used": 7,
+            "memory_used": 872
         }
     ]
 }

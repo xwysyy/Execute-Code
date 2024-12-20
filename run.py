@@ -23,35 +23,37 @@ def run(problem: str, code: str):
     """
     测评某道题目指定大模型代码, name为题目名称, code为待测试代码
     """
-    path1 = parent_path + '/deer-executor'
+    path1 = f'{parent_path}/deer-executor'
     if not os.path.exists(path1):
         raise ValueError('Deer Executor not found')
-    path2 = problem_path + '/' + problem + '/problem.json'
+    path2 = f'{problem_path}/{problem}/problem.json'
     if not os.path.exists(path2):
         raise ValueError('Problem not found')
-    path3 = problem_path + '/' + problem + '/codes/' + code + '.cpp'
+    path3 = f'{problem_path}/{problem}/codes/{code}.cpp'
     if not os.path.exists(path3):
         raise ValueError('Code not found')
-    path = path1 + ' run ' + path2 + ' ' + path3
-    path_with_detail = path1 + ' run  --detail ' + path2 + ' ' + path3
+    path = f'{path1} run {path2} {path3}'
+    path_with_detail = f'{path1} run --detail {path2} {path3}'
 
     res = subprocess.run(path_with_detail, shell=True, capture_output=True)
     res = json.loads(res.stdout)
-    with open('result.json', 'w') as f:
-        json.dump(res, f, indent=4)
-    res = res['data']['test_cases']
-    
+
     with open(f'{problem_path}/{problem}/problem.json', 'r') as f:
         real_memory_limit = json.load(f)['real_memory_limit']
-
+    
+    res = res['data']['test_cases']
+    
     res_data = []
     for item in res:
         handle = item['handle']
         result = mp[item['judge_result']]
-        if result == 'Accepted' and item['time_used'] > real_memory_limit:
-            result = 'Memory Limit Exceeded'
+        memory_used = max(0, (int)(item['memory_used']) - 500)
+        if memory_used > (int)(real_memory_limit):
+            if result == 'Accepted':
+                result = 'Memory Limit Exceeded'
+            elif result == 'Time Limit Exceeded':
+                result = 'Time Limit Exceeded / Memory Limit Exceeded'
         time_used = item['time_used']
-        memory_used = item['memory_used']
         res_data.append({
             'handle': handle,
             'result': result,
@@ -60,7 +62,7 @@ def run(problem: str, code: str):
         })
     
     with lock:
-        result_file = problem_path + '/' + problem + '/result.json'
+        result_file = f'{problem_path}/{problem}/result.json'
         if os.path.getsize(result_file) == 0:
             file_data = {}
         else:
@@ -79,7 +81,7 @@ def run_all(problem: str, op: bool = True):
     """
     测评某道题目所有大模型代码, name为题目名称, op表示是否多线程
     """
-    path = problem_path + '/' + problem + '/codes'
+    path = f'{problem_path}/{problem}/codes'
     if not os.path.exists(path):
         raise ValueError('Codes not found')
     codes = os.listdir(path)

@@ -39,14 +39,14 @@ def ask(name: str):
     """
     调用所有启用的大模型api生成指定问题的代码, name为问题名称
     """
-    path = problem_path + '/' + name
+    path = f'{problem_path}/{name}'
     if not os.path.exists(path):
         raise ValueError('Problem not found')
-    if not os.path.exists(path + '/desc/desc.txt'):
+    if not os.path.exists(f'{path}/desc/desc.txt'):
         raise ValueError('Problem description not found')
-    with open(path + '/desc/desc.txt', 'r', encoding='utf-8') as f:
+    with open(f'{path}/desc/desc.txt', 'r', encoding='utf-8') as f:
         problem = f.read()
-    path += '/codes'
+    path = f'{path}/codes'
     if not os.path.exists(path):
         os.makedirs(path)
 
@@ -59,7 +59,7 @@ def ask(name: str):
             raise ValueError('API Key not found')
         base_url = models_config[model]['base_url']
         cpp_code = get_code(problem, model, api_key, base_url)
-        with open(path + '/' + model + '.cpp', 'w', encoding='utf-8') as f:
+        with open(f'{path}/{model}.cpp', 'w', encoding='utf-8') as f:
             for chunk in [cpp_code[i:i+1024] for i in range(0, len(cpp_code), 1024)]:
                 f.write(chunk)
 
