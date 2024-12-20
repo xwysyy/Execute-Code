@@ -40,10 +40,16 @@ def run(problem: str, code: str):
     with open('result.json', 'w') as f:
         json.dump(res, f, indent=4)
     res = res['data']['test_cases']
+    
+    with open(f'{problem_path}/{problem}/problem.json', 'r') as f:
+        real_memory_limit = json.load(f)['real_memory_limit']
+
     res_data = []
     for item in res:
         handle = item['handle']
         result = mp[item['judge_result']]
+        if result == 'Accepted' and item['time_used'] > real_memory_limit:
+            result = 'Memory Limit Exceeded'
         time_used = item['time_used']
         memory_used = item['memory_used']
         res_data.append({

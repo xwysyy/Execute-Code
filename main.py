@@ -65,7 +65,6 @@ def process_row(row):
         desc = desc.replace('@memory_limit', str(memory_limit[level]))
         desc_zh = desc_zh.replace('@memory_limit', str(memory_limit[level]))
  
-
         operate_file('generate/generator.cpp', generator)
         operate_file('generate/std.cpp', std)
         operate_file('desc/desc.txt', desc)
