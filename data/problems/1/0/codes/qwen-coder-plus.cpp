@@ -1,6 +1,6 @@
 /*
 
-Here is a C++ implementation using dynamic programming to solve the 0/1 Knapsack problem:
+Here's a C++ implementation of the 0/1 Knapsack problem using dynamic programming:
 
 */
 
@@ -14,14 +14,12 @@ int main() {
     int N, V;
     cin >> N >> V;
 
-    vector<int> v(N);
-    vector<int> w(N);
-
+    vector<int> v(N), w(N);
     for (int i = 0; i < N; ++i) {
         cin >> v[i] >> w[i];
     }
 
-    // Initialize the DP table
+    // Initialize DP table
     vector<vector<int>> dp(N + 1, vector<int>(V + 1, 0));
 
     // Fill the DP table
@@ -35,7 +33,7 @@ int main() {
         }
     }
 
-    // The answer is in dp[N][V]
+    // Output the maximum value
     cout << dp[N][V] << endl;
 
     return 0;
@@ -44,11 +42,9 @@ int main() {
 /*
 
 ### Explanation:
-- We use a 2D DP table `dp` where `dp[i][j]` represents the maximum value that can be achieved with the first `i` items and a backpack capacity of `j`.
-- For each item, we decide whether to include it in the knapsack or not.
-- If the volume of the current item is less than or equal to the current capacity `j`, we have two choices:
-  - Include the item and add its value to the maximum value achievable with the remaining capacity (`j - v[i-1]`).
-  - Exclude the item and carry forward the maximum value achievable without it.
-- The final result is stored in `dp[N][V]`, which gives the maximum value that can be achieved with all `N` items and a backpack capacity of `V`.
+- We use a 2D dynamic programming table `dp` where `dp[i][j]` represents the maximum value that can be achieved with the first `i` items and a knapsack capacity of `j`.
+- We iterate over each item and for each item, we iterate over all possible capacities from `0` to `V`.
+- If the volume of the current item is less than or equal to the current capacity, we decide whether to include the item or not by comparing the value of including it (`dp[i-1][j-v[i-1]] + w[i-1]`) with not including it (`dp[i-1][j]`).
+- Finally, the answer will be in `dp[N][V]`, which gives the maximum value achievable with `N` items and a knapsack capacity of `V`.
 
 */

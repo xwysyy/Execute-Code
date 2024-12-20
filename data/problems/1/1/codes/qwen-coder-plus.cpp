@@ -1,14 +1,11 @@
 /*
 
-Certainly! This problem is a classic example of the "0/1 Knapsack Problem" which can be solved using dynamic programming.
-
-Here is the C++ code to solve it:
+Here's a C++ implementation using dynamic programming to solve the 0/1 Knapsack problem:
 
 */
 
 #include <iostream>
 #include <vector>
-#include <algorithm>
 
 using namespace std;
 
@@ -23,7 +20,7 @@ int main() {
         cin >> v[i] >> w[i];
     }
 
-    // dp[i][j] will store the maximum value that can be obtained with the first i items and a backpack capacity of j
+    // dp[i][j] will store the maximum value that can be obtained with first i items and capacity j
     vector<vector<int>> dp(N + 1, vector<int>(V + 1, 0));
 
     for (int i = 1; i <= N; ++i) {
@@ -44,11 +41,14 @@ int main() {
 /*
 
 ### Explanation:
-- We use a 2D array `dp` where `dp[i][j]` represents the maximum value that can be achieved with the first `i` items and a backpack capacity of `j`.
-- We iterate over each item and each possible capacity of the backpack.
-- For each item, we decide whether to include it in the knapsack or not based on whether including it results in a higher value than excluding it.
-- Finally, `dp[N][V]` contains the maximum value that can be achieved with all `N` items and a backpack capacity of `V`.
+- We use a 2D vector `dp` where `dp[i][j]` represents the maximum value that can be achieved using the first `i` items with a backpack capacity of `j`.
+- We iterate over each item and for each capacity from `0` to `V`.
+- If the current item's volume `v[i-1]` is less than or equal to the current capacity `j`, we have two choices:
+  - Do not include the item: `dp[i][j] = dp[i-1][j]`
+  - Include the item: `dp[i][j] = dp[i-1][j-v[i-1]] + w[i-1]`
+- We take the maximum of these two choices.
+- Finally, `dp[N][V]` gives us the maximum value that can be achieved with `N` items and a backpack capacity of `V`.
 
-This solution has a time complexity of \(O(N \times V)\), which is efficient given the constraints.
+This approach ensures that we efficiently compute the solution within the given constraints.
 
 */

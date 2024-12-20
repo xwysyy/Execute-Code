@@ -1,5 +1,5 @@
 path=$(dirname "$(realpath "$0")")
-g++ $path/generator.cpp -o $path/generator
+g++ $path/generator.cpp -o $path/generator -std=c++17
 g++ $path/std.cpp -o $path/std
 
 i=0

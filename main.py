@@ -109,9 +109,9 @@ def process_row(row):
             os.system(f'bash {problem_level_path}/generate/generate.sh')
             print(f'{tem_name} changed')
             ask(tem_name)
+            run_all(tem_name)
         else:
             print(f'{tem_name} not changed')
-        run_all(tem_name)
 
 def create_problem(op: bool = True):
     """

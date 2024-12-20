@@ -13,33 +13,36 @@ using namespace std;
 int main() {
     int N, V;
     cin >> N >> V;
-    
+
     vector<int> v(N), w(N);
     for (int i = 0; i < N; ++i) {
         cin >> v[i] >> w[i];
     }
-    
-    vector<int> dp(V + 1, 0);
-    
-    for (int i = 0; i < N; ++i) {
-        for (int j = V; j >= v[i]; --j) {
-            dp[j] = max(dp[j], dp[j - v[i]] + w[i]);
+
+    vector<vector<int>> dp(N + 1, vector<int>(V + 1, 0));
+
+    for (int i = 1; i <= N; ++i) {
+        for (int j = 0; j <= V; ++j) {
+            dp[i][j] = dp[i - 1][j];
+            if (j >= v[i - 1]) {
+                dp[i][j] = max(dp[i][j], dp[i - 1][j - v[i - 1]] + w[i - 1]);
+            }
         }
     }
-    
-    cout << dp[V] << endl;
-    
+
+    cout << dp[N][V] << endl;
+
     return 0;
 }
 
 /*
 
 ### Explanation:
-- **Input Reading**: The first line reads `N` (number of items) and `V` (backpack capacity). The next `N` lines read the volume `v[i]` and value `w[i]` of each item.
-- **Dynamic Programming Array**: `dp[j]` represents the maximum value that can be achieved with a backpack capacity of `j`.
-- **DP Update**: For each item, update the `dp` array in reverse to ensure that each item is used only once.
-- **Output**: The final result is `dp[V]`, which is the maximum value that can be achieved with the given capacity.
-
-This solution has a time complexity of \(O(N \times V)\) and a space complexity of \(O(V)\), which is efficient given the constraints.
+- `dp[i][j]` represents the maximum value that can be achieved with the first `i` items and a backpack capacity of `j`.
+- The outer loop iterates over each item.
+- The inner loop iterates over each possible capacity from `0` to `V`.
+- If the current capacity `j` is greater than or equal to the volume of the current item `v[i-1]`, we consider whether to include the item or not.
+- We take the maximum of either including the item or not including it.
+- Finally, `dp[N][V]` gives the maximum value that can be achieved with all `N` items and a backpack capacity of `V`.
 
 */

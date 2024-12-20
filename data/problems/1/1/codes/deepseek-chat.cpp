@@ -1,6 +1,6 @@
 /*
 
-Here's the C++ code to solve the 0/1 Knapsack problem:
+Here is the C++ code to solve the 0/1 Knapsack problem:
 
 */
 
@@ -38,9 +38,11 @@ int main() {
 /*
 
 ### Explanation:
-- **Input Reading**: The first line reads `N` (number of items) and `V` (backpack capacity). The next `N` lines read the volume `v[i]` and value `w[i]` of each item.
-- **Dynamic Programming Table**: `dp[i][j]` represents the maximum value that can be achieved using the first `i` items and a backpack capacity of `j`.
-- **DP Transition**: For each item `i` and capacity `j`, we decide whether to include the item or not. If we include the item, we add its value to the best solution without it.
-- **Output**: The final result is `dp[N][V]`, which gives the maximum value that can be achieved with the given constraints.
+- `dp[i][j]` represents the maximum value that can be achieved using the first `i` items and a backpack capacity of `j`.
+- The outer loop iterates over each item.
+- The inner loop iterates over each possible capacity from `0` to `V`.
+- If the current capacity `j` is greater than or equal to the volume of the `i-th` item (`v[i - 1]`), we consider whether to include the item or not.
+- We take the maximum of either not including the item (`dp[i - 1][j]`) or including it (`dp[i - 1][j - v[i - 1]] + w[i - 1]`).
+- Finally, `dp[N][V]` gives the maximum value that can be achieved with all `N` items and a backpack capacity of `V`.
 
 */

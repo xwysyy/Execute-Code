@@ -1,0 +1,47 @@
+{
+    "test_cases": [
+        {
+            "handle": "0",
+            "name": "Test #0",
+            "input": "cases/0.in",
+            "output": "cases/0.out"
+        },
+        {
+            "handle": "1",
+            "name": "Test #1",
+            "input": "cases/1.in",
+            "output": "cases/1.out"
+        },
+        {
+            "handle": "2",
+            "name": "Test #2",
+            "input": "cases/2.in",
+            "output": "cases/2.out"
+        },
+        {
+            "handle": "3",
+            "name": "Test #3",
+            "input": "cases/3.in",
+            "output": "cases/3.out"
+        },
+        {
+            "handle": "4",
+            "name": "Test #4",
+            "input": "cases/4.in",
+            "output": "cases/4.out"
+        },
+        {
+            "handle": "5",
+            "name": "Test #5",
+            "input": "cases/5.in",
+            "output": "cases/5.out"
+        }
+    ],
+    "time_limit": 1000,
+    "memory_limit": 5000,
+    "real_memory_limit": 640,
+    "real_time_limit": 2000,
+    "file_size_limit": 52428800,
+    "uid": -1,
+    "strict_mode": true
+}

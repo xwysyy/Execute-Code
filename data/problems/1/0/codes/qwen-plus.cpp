@@ -17,7 +17,6 @@ int main() {
         cin >> v[i] >> w[i];
     }
 
-    // dp[j] represents the maximum value that can be obtained with a capacity of j
     vector<int> dp(V + 1, 0);
 
     for (int i = 0; i < N; ++i) {
@@ -27,12 +26,9 @@ int main() {
     }
 
     cout << dp[V] << endl;
-
     return 0;
 }
 
 /*
-
-This code snippet solves the 0/1 Knapsack problem using dynamic programming. It reads the number of items and the backpack's capacity from the standard input, then iterates through each item to fill the `dp` array with the maximum values that can be achieved for each capacity up to \(V\). Finally, it outputs the maximum value that can be achieved with the given capacity \(V\).
 
 */
