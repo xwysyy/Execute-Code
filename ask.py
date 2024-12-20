@@ -39,6 +39,8 @@ def ask(name: str):
     """
     调用所有启用的大模型api生成指定问题的代码, name为问题名称
     """
+    if not os.path.exists(problem_path):
+        os.makedirs(problem_path)
     path = f'{problem_path}/{name}'
     if not os.path.exists(path):
         raise ValueError('Problem not found')

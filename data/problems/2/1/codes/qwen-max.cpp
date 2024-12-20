@@ -15,21 +15,24 @@ int main() {
         cin >> v[i] >> w[i];
     }
     
-    // dp[j] represents the maximum value that can be achieved with a capacity of j
-    vector<int> dp(V + 1, 0);
+    vector<vector<int>> dp(N + 1, vector<int>(V + 1, 0));
     
-    for (int i = 0; i < N; ++i) {
-        for (int j = V; j >= v[i]; --j) {
-            dp[j] = max(dp[j], dp[j - v[i]] + w[i]);
+    for(int i = 1; i <= N; ++i) {
+        for(int j = 0; j <= V; ++j) {
+            if (v[i-1] > j) {
+                dp[i][j] = dp[i-1][j];
+            } else {
+                dp[i][j] = max(dp[i-1][j], dp[i-1][j-v[i-1]] + w[i-1]);
+            }
         }
     }
     
-    cout << dp[V] << endl;
+    cout << dp[N][V] << endl;
     return 0;
 }
 
 /*
 
-This C++ program solves the 0/1 Knapsack problem using dynamic programming. The `dp` array is used to store the maximum value that can be achieved for each capacity from 0 to V. The outer loop iterates over each item, and the inner loop updates the `dp` array in reverse order to ensure that each item is only considered once.
+This code uses dynamic programming to solve the 0/1 knapsack problem. It initializes a 2D vector `dp` where `dp[i][j]` represents the maximum value that can be achieved with the first `i` items and a backpack capacity of `j`. The solution iterates over each item and each possible volume, updating the `dp` table based on whether including the current item would increase the total value without exceeding the capacity. Finally, it outputs the maximum value that can be achieved with all `N` items and a backpack capacity of `V`.
 
 */

@@ -33,9 +33,12 @@ int main() {
 /*
 
 ### Explanation:
-- **Input Reading**: The first line reads `N` (number of items) and `V` (backpack capacity). The next `N` lines read the volume `v[i]` and value `w[i]` of each item.
-- **Dynamic Programming Array**: `dp[j]` represents the maximum value that can be achieved with a backpack capacity of `j`.
-- **DP Update**: For each item, update the `dp` array in reverse order to ensure that each item is used only once.
-- **Output**: The final result is `dp[V]`, which is the maximum value that can be achieved with the given capacity.
+- **Input**: The first line contains `N` (number of items) and `V` (backpack capacity). The next `N` lines contain the volume `v[i]` and value `w[i]` of each item.
+- **Dynamic Programming Array `dp`**: `dp[j]` represents the maximum value that can be achieved with a backpack capacity of `j`.
+- **Nested Loop**: The outer loop iterates over each item, and the inner loop iterates over the capacity from `V` down to `v[i]` to ensure each item is used at most once.
+- **Transition**: `dp[j] = max(dp[j], dp[j - v[i]] + w[i])` updates the maximum value by either including or excluding the current item.
+- **Output**: The final result is `dp[V]`, which is the maximum value achievable with the given capacity.
+
+This code efficiently solves the problem within the given constraints.
 
 */

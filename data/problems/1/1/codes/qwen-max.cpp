@@ -17,16 +17,13 @@ int main() {
         cin >> v[i] >> w[i];
     }
     
-    // DP table: dp[i][j] represents the maximum value that can be obtained with the first i items and a capacity of j
     vector<vector<int>> dp(N + 1, vector<int>(V + 1, 0));
     
-    for (int i = 1; i <= N; ++i) {
-        for (int j = 0; j <= V; ++j) {
+    for(int i = 1; i <= N; ++i) {
+        for(int j = 0; j <= V; ++j) {
             if (v[i-1] > j) {
-                // If the current item's volume is more than the current capacity, we cannot include this item
                 dp[i][j] = dp[i-1][j];
             } else {
-                // Otherwise, we take the maximum of including or not including the current item
                 dp[i][j] = max(dp[i-1][j], dp[i-1][j-v[i-1]] + w[i-1]);
             }
         }
@@ -38,6 +35,6 @@ int main() {
 
 /*
 
-This code uses dynamic programming to solve the 0/1 knapsack problem. The `dp` table is used to store the maximum value that can be achieved with a given number of items and a given capacity. The final result, which is the maximum value that can be achieved with all items and the full capacity, is stored in `dp[N][V]`.
+This code implements a solution using dynamic programming to solve the 0/1 Knapsack problem. The `dp` array is used to store the maximum value that can be achieved with a given capacity and a subset of items. The final answer, which is the maximum value that can be achieved with the full set of items and the full capacity, is stored in `dp[N][V]`.
 
 */
