@@ -3,7 +3,7 @@ import yaml
 import concurrent.futures
 from openai import OpenAI
 from dotenv import load_dotenv
-from init import model_path, problem_path
+from init import model_path, problem_path, data_path
 
 load_dotenv()
 with open(model_path, 'r', encoding='utf-8') as file:
@@ -12,7 +12,8 @@ models_list = [
     model for model in list(models_config.keys()) 
     if models_config[model].get('enabled', False) 
 ]
-
+with open(f'{data_path}/prompt.txt', 'r', encoding='utf-8') as f:
+    prompt = f.read()
 def get_code(question: str, model: str, api_key: str, base_url: str):
     """
     调用指定大模型api生成指定问题的代码, question为问题描述, model为大模型名称
@@ -23,7 +24,7 @@ def get_code(question: str, model: str, api_key: str, base_url: str):
     client = OpenAI(api_key = api_key, base_url = base_url)
     chat_completion = client.chat.completions.create(
         messages = [
-            {"role": "system", "content": "You are a C++ programmer, please just give me the code to solve the problem."},
+            {"role": "system", "content": prompt},
             {"role": "user","content": question}
         ],
         model = model,

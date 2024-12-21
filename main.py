@@ -135,6 +135,5 @@ def create_problem(op: bool = True):
 
 if __name__ == '__main__':
     print(f'Enabled models: {models_list}')
-    # create_problem()
-    run('1/0','deepseek-chat')
+    create_problem()
 
