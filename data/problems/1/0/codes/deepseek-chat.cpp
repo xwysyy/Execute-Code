@@ -37,9 +37,9 @@ int main() {
 ### Explanation:
 - **Input Reading**: The first line reads `N` (number of items) and `V` (backpack capacity). The next `N` lines read the volume `v[i]` and value `w[i]` of each item.
 - **Dynamic Programming Array**: `dp[j]` represents the maximum value that can be achieved with a backpack capacity of `j`.
-- **DP Update**: For each item, update the `dp` array in reverse order to ensure that each item is used only once.
+- **DP Update**: For each item, update the `dp` array from `V` down to `v[i]` to ensure each item is used at most once.
 - **Output**: The final result is `dp[V]`, which is the maximum value that can be achieved with the given capacity.
 
-This code efficiently solves the problem within the given constraints.
+This solution has a time complexity of \(O(N \times V)\) and a space complexity of \(O(V)\), which is efficient given the constraints.
 
 */

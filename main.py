@@ -111,8 +111,8 @@ def process_row(row):
             ask(tem_name)
             run_all(tem_name)
         else:
-            tem_model_list = [model for model in models_list if os.path.exists(f'{problem_level_path}/codes/{model}.cpp')]
-            if tem_model_list is not None:
+            tem_model_list = [model for model in models_list if not os.path.exists(f'{problem_level_path}/codes/{model}.cpp')]
+            if tem_model_list:
                 print(f'{tem_name} models changed')
                 ask(tem_name, tem_model_list)
                 run_all(tem_name, code_list=tem_model_list)
@@ -135,5 +135,6 @@ def create_problem(op: bool = True):
 
 if __name__ == '__main__':
     print(f'Enabled models: {models_list}')
-    create_problem()
+    # create_problem()
+    run('1/0','deepseek-chat')
 

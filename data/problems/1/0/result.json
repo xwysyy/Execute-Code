@@ -4,37 +4,37 @@
             "handle": "0",
             "result": "Accepted",
             "time_used": 1,
-            "memory_used": 32
+            "memory_used": 24
         },
         {
             "handle": "1",
             "result": "Accepted",
             "time_used": 1,
-            "memory_used": 40
+            "memory_used": 16
         },
         {
             "handle": "2",
             "result": "Accepted",
-            "time_used": 3,
-            "memory_used": 40
+            "time_used": 1,
+            "memory_used": 28
         },
         {
             "handle": "3",
             "result": "Accepted",
-            "time_used": 2,
-            "memory_used": 40
+            "time_used": 1,
+            "memory_used": 32
         },
         {
             "handle": "4",
             "result": "Accepted",
-            "time_used": 4,
-            "memory_used": 36
+            "time_used": 2,
+            "memory_used": 32
         },
         {
             "handle": "5",
             "result": "Accepted",
             "time_used": 1,
-            "memory_used": 36
+            "memory_used": 28
         }
     ],
     "gpt-4o-mini": [

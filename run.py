@@ -39,7 +39,9 @@ def run(problem: str, code: str):
     res = json.loads(res.stdout)
 
     with open(f'{problem_path}/{problem}/problem.json', 'r') as f:
-        real_memory_limit = json.load(f)['real_memory_limit']
+        tem_problem_json = json.load(f)
+        real_memory_limit = tem_problem_json['real_memory_limit']
+        test_cases_num = len(tem_problem_json['test_cases'])
     
     res = res['data']['test_cases']
     
@@ -60,6 +62,16 @@ def run(problem: str, code: str):
             'time_used': time_used,
             'memory_used': memory_used
         })
+    
+    if len(res_data) != test_cases_num:
+        len_diff = test_cases_num - len(res_data)
+        for i in range(len_diff):
+            res_data.append({
+                'handle': f'{len(res_data)+i}',
+                'result': 'Wrong Answer',
+                'time_used': 0,
+                'memory_used': 0
+            })
     
     with lock:
         result_file = f'{problem_path}/{problem}/result.json'
