@@ -106,15 +106,15 @@ def process_row(row):
             os.system(f'bash {problem_level_path}/generate/generate.sh')
             print(f'{tem_name} changed')
             ask(tem_name)
-            # run_all(tem_name)
         else:
-            tem_model_list = [model for model in models_list if not os.path.exists(f'{problem_level_path}/codes/{model}.cpp')]
+            tem_model_list = [model for model in models_list if not os.path.exists(f'{problem_level_path}/codes/{model}.h')]                    
             if tem_model_list:
                 print(f'{tem_name} models changed')
                 ask(tem_name, tem_model_list)
-                # run_all(tem_name, code_list=tem_model_list)
+        #         run_all(tem_name, code_list=tem_model_list)
             else:
                 print(f'{tem_name} not changed')
+        run_all(tem_name)
                 
 
 def create_problem(op: bool = True):

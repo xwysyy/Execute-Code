@@ -1,43 +1,41 @@
-#ifndef GPT-4O-MINI_H
-#define GPT-4O-MINI_H
+#ifndef GPT_4O_MINI_H
+#define GPT_4O_MINI_H
 #include <bits/stdc++.h>
 using namespace std;
 
 /*
 
-To solve the 0/1 Knapsack problem as described, we can implement a dynamic programming approach. Below is the updated code for the `solve` function in the `Solution` class, which calculates the maximum value that can be achieved without exceeding the backpack's capacity.
-
 */
-
-#include <vector>
-#include <algorithm>
 
 class Solution
 {
 public:
     int solve(int N, int V, std::vector<int> &v, std::vector<int> &w)
     {
-        std::vector<int> dp(V + 1, 0); // DP array to store maximum values
+        // Create a DP array to store the maximum value for each capacity 
+        std::vector<int> dp(V + 1, 0);
 
+        // Iterate through each item 
         for (int i = 0; i < N; i++)
         {
-            for (int j = V; j >= v[i]; j--) // Traverse backwards to avoid overwriting
+            // Traverse the dp array backwards to avoid overwriting values 
+            for (int j = V; j >= v[i]; j--)
             {
                 dp[j] = std::max(dp[j], dp[j - v[i]] + w[i]);
             }
         }
-        
-        return dp[V]; // Maximum value for the full capacity }
+
+        // The maximum value for the full capacity V
+        return dp[V];
+    }
 };
 
 /*
 
-### Explanation of the Updates:
-- **Dynamic Programming Array**: We use a 1D array `dp` to store the maximum value for each capacity from `0` to `V`.
-- **Nested Loops**: The outer loop iterates through each item, and the inner loop iterates backwards through the capacities to ensure that each item is only considered once.
-- **Max Value Calculation**: For each item, we update the `dp` array to reflect the maximum value achievable for each capacity.
-
-This implementation efficiently computes the maximum value that can be carried in the backpack while adhering to the constraints provided.
+### Explanation of the Code:
+- We create a dynamic programming array `dp` where `dp[j]` represents the maximum value that can be achieved with a backpack capacity of `j`.
+- We iterate through each item and update the `dp` array from the back to the front to ensure that each item is only considered once.
+- Finally, we return `dp[V]`, which contains the maximum value that can be achieved with the given backpack capacity `V`.
 
 */
 

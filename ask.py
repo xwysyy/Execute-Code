@@ -32,10 +32,14 @@ def get_code(question: str, model: str, api_key: str, base_url: str):
     )
     
     code = chat_completion.choices[0].message.content
+    code = '```cpp\nclass Solution' + code.split('class Solution')[-1] 
     code = '/*\n\n' + code + '\n\n*/'
     code = code.replace('```cpp', '*/\n')
     code = code.replace('```', '\n/*')
-    code = f'#ifndef {model.upper()}_H\n#define {model.upper()}_H\n#include <bits/stdc++.h>\nusing namespace std;\n\n{code}\n\n#endif'
+    tem_name = model.replace('-', '_').upper()
+    code = f'#ifndef {tem_name}_H\n#define {tem_name}_H\n#include <bits/stdc++.h>\nusing namespace std;\n\n{code}\n\n#endif'
+
+
 
     return code
 

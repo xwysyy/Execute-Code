@@ -1,27 +1,25 @@
-#ifndef GPT-4O-MINI_H
-#define GPT-4O-MINI_H
+#ifndef GPT_4O_MINI_H
+#define GPT_4O_MINI_H
 #include <bits/stdc++.h>
 using namespace std;
 
 /*
 
-To solve the 0/1 Knapsack problem as described, we can implement a dynamic programming approach. Below is the implementation of the `solve` function in the `Solution` class, which calculates the maximum value that can be achieved without exceeding the backpack's capacity.
-
 */
-
-#include <vector>
-#include <algorithm>
 
 class Solution
 {
 public:
     int solve(int N, int V, std::vector<int> &v, std::vector<int> &w)
     {
-        // Create a DP array to store the maximum value for each capacity std::vector<int> dp(V + 1, 0);
+        // Create a DP array to store the maximum value for each capacity 
+        std::vector<int> dp(V + 1, 0);
 
-        // Iterate through each item for (int i = 0; i < N; i++)
+        // Iterate through each item 
+        for (int i = 0; i < N; i++)
         {
-            // Traverse the dp array backwards to avoid overwriting values for (int j = V; j >= v[i]; j--)
+            // Traverse the dp array backwards to avoid overwriting values 
+            for (int j = V; j >= v[i]; j--)
             {
                 dp[j] = std::max(dp[j], dp[j - v[i]] + w[i]);
             }

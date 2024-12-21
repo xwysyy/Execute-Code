@@ -1,58 +1,55 @@
-#ifndef QWEN-PLUS_H
-#define QWEN-PLUS_H
+#ifndef QWEN_PLUS_H
+#define QWEN_PLUS_H
 #include <bits/stdc++.h>
 using namespace std;
 
 /*
 
-To solve this problem, we can use dynamic programming to find the maximum value that can be obtained without exceeding the backpack's capacity. This is a classic 0/1 Knapsack problem.
-
-Here’s how you can implement it:
-
-1. Create a DP table where `dp[j]` represents the maximum value that can be obtained with a total volume of `j`.
-2. Initialize the DP table with zeros.
-3. Iterate over each item and update the DP table from right to left (to avoid using an item more than once).
-4. For each item, if its volume is less than or equal to the current capacity `j`, update the DP table by considering whether to include the item or not.
-
-Here's the complete implementation:
-
 */
-
-#include <vector>
-using namespace std;
 
 class Solution {
 public:
     int solve(int N, int V, vector<int>& v, vector<int>& w) {
-        // Initialize the DP table with zeros
-        vector<int> dp(V + 1, 0);
-        
-        // Iterate over each item
-        for (int i = 0; i < N; ++i) {
-            // Update the DP table from right to left
-            for (int j = V; j >= v[i]; --j) {
-                // Update dp[j] by considering whether to include item i
-                dp[j] = max(dp[j], dp[j - v[i]] + w[i]);
+        // Initialize a DP table with dimensions (N+1) x (V+1)
+        vector<vector<int>> dp(N + 1, vector<int>(V + 1, 0));
+
+        // Fill the DP table
+        for (int i = 1; i <= N; ++i) {
+            for (int j = 0; j <= V; ++j) {
+                if (v[i - 1] > j) {
+                    // If the current item's volume is greater than the current capacity,
+                    // we cannot include this item.
+                    dp[i][j] = dp[i - 1][j];
+                } else {
+                    // Otherwise, take the maximum of including or excluding the current item.
+                    dp[i][j] = max(dp[i - 1][j], dp[i - 1][j - v[i - 1]] + w[i - 1]);
+                }
             }
         }
-        
-        // The answer is the maximum value that can be obtained with volume V
-        return dp[V];
+
+        // The answer will be in dp[N][V]
+        return dp[N][V];
     }
 };
 
 /*
 
 ### Explanation:
-- **Initialization**: We initialize a DP array `dp` of size `V + 1` with all elements set to 0. This array will store the maximum value that can be achieved for each possible volume from 0 to `V`.
-  
-- **Iterating Over Items**: We iterate over each item from `0` to `N-1`. For each item, we update the DP table in reverse order (from `V` down to the volume of the current item). This ensures that each item is only used once.
+1. **Initialization**:
+   - We initialize a 2D vector `dp` of size `(N+1) x (V+1)` filled with zeros. This table will store the maximum value that can be achieved for each subproblem.
 
-- **Updating DP Table**: For each volume `j`, we check if including the current item would yield a higher value than the previously computed value for that volume. If so, we update `dp[j]`.
+2. **Filling the DP Table**:
+   - For each item `i` from 1 to `N` and each possible volume `j` from 0 to `V`:
+     - If the volume of the current item `v[i-1]` is greater than the current capacity `j`, then we cannot include this item, so `dp[i][j]` remains the same as `dp[i-1][j]`.
+     - Otherwise, we have two choices: either include the current item or exclude it. We choose the option that gives the maximum value:
+       - Including the item: `dp[i-1][j - v[i-1]] + w[i-1]`
+       - Excluding the item: `dp[i-1][j]`
+     - We set `dp[i][j]` to the maximum of these two values.
 
-- **Result**: Finally, `dp[V]` contains the maximum value that can be obtained without exceeding the backpack's capacity `V`.
+3. **Result**:
+   - The final result, which is the maximum value that can be obtained, is stored in `dp[N][V]`.
 
-This approach ensures that we efficiently compute the maximum value while adhering to the constraints provided.
+This approach ensures that we explore all possible combinations of items while keeping track of the best solution at each step, leading to an optimal solution within the given constraints.
 
 */
 

@@ -3,7 +3,7 @@ import concurrent.futures
 import os
 import json
 import threading
-from init import problem_path, parent_path
+from init import problem_path
 
 mp = {
     0: 'Accepted',
@@ -23,58 +23,69 @@ def run(problem: str, code: str):
     """
     测评某道题目指定大模型代码, name为题目名称, code为待测试代码
     """
-    path1 = f'{parent_path}/deer-executor'
-    if not os.path.exists(path1):
-        raise ValueError('Deer Executor not found')
-    path2 = f'{problem_path}/{problem}/problem.json'
-    if not os.path.exists(path2):
-        raise ValueError('Problem not found')
-    path3 = f'{problem_path}/{problem}/codes/{code}.cpp'
-    if not os.path.exists(path3):
-        raise ValueError('Code not found')
-    path = f'{path1} run {path2} {path3}'
-    path_with_detail = f'{path1} run --detail {path2} {path3}'
-
-    res = subprocess.run(path_with_detail, shell=True, capture_output=True)
-    res = json.loads(res.stdout)
-
-    with open(f'{problem_path}/{problem}/problem.json', 'r') as f:
+    path = f'{problem_path}/{problem}'
+    if not os.path.exists(f'{path}/codes/{code}.h'):
+        raise ValueError('Code or Problem not found')
+    
+    with open(f'{path}/problem.json', 'r') as f:
         tem_problem_json = json.load(f)
-        real_memory_limit = tem_problem_json['real_memory_limit']
-        test_cases_num = len(tem_problem_json['test_cases'])
+        time_limit = (int)(tem_problem_json['time_limit'])
+        memory_limit = (int)(tem_problem_json['memory_limit'])
+        test_case_num = (int)(tem_problem_json['test_case_num'])
     
-    res = res['data']['test_cases']
-    
+    path_generate = f'{path}/generate'
+    os.system(f'cp {path}/codes/{code}.h {path_generate}/test_{code}.h')
+    os.system(f'cp {path_generate}/test.cpp {path_generate}/test_{code}.cpp')
+    os.system(f'sed -i "s/#include \\"std.h\\"/#include \\"test_{code}.h\\"/g" {path_generate}/test_{code}.cpp')
+    sign = os.system(f'g++ {path_generate}/test_{code}.cpp -o {path_generate}/test_{code}')
     res_data = []
-    for item in res:
-        handle = item['handle']
-        result = mp[item['judge_result']]
-        memory_used = max(0, (int)(item['memory_used']) - 500)
-        if memory_used > (int)(real_memory_limit):
-            if result == 'Accepted':
-                result = 'Memory Limit Exceeded'
-            elif result == 'Time Limit Exceeded':
-                result = 'Time Limit Exceeded / Memory Limit Exceeded'
-        time_used = item['time_used']
-        res_data.append({
-            'handle': handle,
-            'result': result,
-            'time_used': time_used,
-            'memory_used': memory_used
-        })
-    
-    if len(res_data) != test_cases_num:
-        len_diff = test_cases_num - len(res_data)
-        for i in range(len_diff):
+    if sign != 0:
+        for i in range(test_case_num):
             res_data.append({
-                'handle': f'{len(res_data)+i}',
-                'result': 'Wrong Answer',
+                'case': f'{len(res_data)+i}',
+                'result': 'Compile Error',
                 'time_used': 0,
                 'memory_used': 0
             })
-    
+    else:
+        for i in range(test_case_num):
+            shell = f'{path_generate}/test_{code} {i} < {path}/cases/{i}.in > {path_generate}//test_{code}{i}.out'
+            os.system(shell)
+            shell = f'diff {path_generate}/test_{code}{i}.out {path}/cases/{i}.out'
+            sign = os.system(shell)
+            if sign != 0:
+                res_data.append({
+                    'case': f'{i}',
+                    'result': 'Wrong Answer',
+                    'time_used': 0,
+                    'memory_used': 0
+                })
+            else:
+                with open(f'{path_generate}/test_{code}_result{i}.txt', 'r') as f:
+                    time_before = (int)(f.readline())
+                    memory_before = (int)(f.readline())
+                    time_after = (int)(f.readline())
+                    memory_after = (int)(f.readline())
+                    time_used = time_after - time_before
+                    memory_used = memory_after - memory_before
+                tem_result = 'Accepted'
+                if time_used > time_limit:
+                    tem_result = 'Time Limit Exceeded'
+                if memory_used > memory_limit:
+                    if tem_result == 'Accepted':
+                        tem_result = 'Memory Limit Exceeded'
+                    else:
+                        tem_result = 'Time Limit Exceeded / Memory Limit Exceeded'
+                res_data.append({
+                    'case': f'{i}',
+                    'result': tem_result,
+                    'time_used': time_used,
+                    'memory_used': memory_used
+                })
+    os.system(f'rm -f {path_generate}/test_{code}*')
+
     with lock:
-        result_file = f'{problem_path}/{problem}/result.json'
+        result_file = f'{path}/result.json'
         if os.path.getsize(result_file) == 0:
             file_data = {}
         else:
@@ -89,6 +100,7 @@ def run(problem: str, code: str):
         with open(result_file, 'w') as f:
             json.dump(file_data, f, indent=4)
 
+
 def run_all(problem: str, op: bool = True, code_list: list = None):
     """
     测评某道题目所有大模型代码, name为题目名称, op表示是否多线程
@@ -98,7 +110,7 @@ def run_all(problem: str, op: bool = True, code_list: list = None):
         raise ValueError('Codes not found')
     if code_list is None:
         code_list = os.listdir(path)
-        code_list = [code[:-4] for code in code_list]
+        code_list = [code[:-2] for code in code_list]
 
     if op == True:
         with concurrent.futures.ThreadPoolExecutor() as executor:
@@ -106,3 +118,7 @@ def run_all(problem: str, op: bool = True, code_list: list = None):
     else:
         for code in code_list:
             run(problem, code)
+
+if __name__ == '__main__':
+    run_all('1/1')
+    # run_all('1/2')

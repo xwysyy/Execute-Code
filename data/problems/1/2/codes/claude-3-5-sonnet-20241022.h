@@ -1,11 +1,9 @@
-#ifndef CLAUDE-3-5-SONNET-20241022_H
-#define CLAUDE-3-5-SONNET-20241022_H
+#ifndef CLAUDE_3_5_SONNET_20241022_H
+#define CLAUDE_3_5_SONNET_20241022_H
 #include <bits/stdc++.h>
 using namespace std;
 
 /*
-
-To solve this problem, we can use dynamic programming. This is a classic 0/1 knapsack problem. Here's the implementation of the `solve` function:
 
 */
 
@@ -43,12 +41,12 @@ This solution uses a 1D dynamic programming approach to solve the 0/1 knapsack p
    - Include the current item: the value becomes `dp[j - v[i]] + w[i]`
    We take the maximum of these two choices.
 
-5. After considering all items for all capacities, `dp[V]` gives us the maximum value that can be achieved with the given knapsack capacity.
+5. After considering all items for all possible capacities, `dp[V]` gives us the maximum value that can be achieved with the given knapsack capacity.
 
 This solution satisfies the constraints:
 - It works for the given ranges of N, V, v[i], and w[i].
 - The time complexity is O(N*V), which should be within the 1000 ms time limit for the given constraints.
-- The space complexity is O(V), which should be within the 64 KB memory limit.
+- The space complexity is O(V), which uses at most 64 KB of memory for the given constraints (1000 * 4 bytes = 4000 bytes < 64 KB).
 
 */
 
