@@ -35,9 +35,9 @@ def get_code(question: str, model: str, api_key: str, base_url: str):
     code = code.replace('```', '\n/*')
     return code
 
-def ask(name: str):
+def ask(name: str, models_list: list = models_list):
     """
-    调用所有启用的大模型api生成指定问题的代码, name为问题名称
+    调用所有启用的大模型api生成指定问题的代码, name为问题名称, models_list为大模型列表, 默认为启用的大模型列表, 可以指定模型
     """
     path = f'{problem_path}/{name}'
     if not os.path.exists(path):

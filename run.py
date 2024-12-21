@@ -77,19 +77,20 @@ def run(problem: str, code: str):
         with open(result_file, 'w') as f:
             json.dump(file_data, f, indent=4)
 
-def run_all(problem: str, op: bool = True):
+def run_all(problem: str, op: bool = True, code_list: list = None):
     """
     测评某道题目所有大模型代码, name为题目名称, op表示是否多线程
     """
     path = f'{problem_path}/{problem}/codes'
     if not os.path.exists(path):
         raise ValueError('Codes not found')
-    codes = os.listdir(path)
-    codes = [code[:-4] for code in codes]
+    if code_list is None:
+        code_list = os.listdir(path)
+        code_list = [code[:-4] for code in code_list]
 
     if op == True:
         with concurrent.futures.ThreadPoolExecutor() as executor:
-            executor.map(run, [problem] * len(codes), codes)
+            executor.map(run, [problem] * len(code_list), code_list)
     else:
-        for code in codes:
+        for code in code_list:
             run(problem, code)

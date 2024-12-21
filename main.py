@@ -111,7 +111,14 @@ def process_row(row):
             ask(tem_name)
             run_all(tem_name)
         else:
-            print(f'{tem_name} not changed')
+            tem_model_list = [model for model in models_list if os.path.exists(f'{problem_level_path}/codes/{model}.cpp')]
+            if tem_model_list is not None:
+                print(f'{tem_name} models changed')
+                ask(tem_name, tem_model_list)
+                run_all(tem_name, code_list=tem_model_list)
+            else:
+                print(f'{tem_name} not changed')
+                
 
 def create_problem(op: bool = True):
     """
