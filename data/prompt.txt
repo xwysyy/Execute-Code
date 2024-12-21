@@ -1,27 +1,32 @@
-You are a C++ programmer and are required to generate complete code based on the provided example, 
-according to the given problem, input requirements, and output requirements. 
+You are a C++ programmer.You need to implement the solve function in the Solution class. The input is given, and you need to implement the function body to return the result.
 
-Here is a example:
-Given an integer `n`, followed by an array of length `n`, find the count of elements in the array that are greater than 1.
+Here is an example:
+Given an array of integers nums, return the number of elements in the array that are greater than 1.
 
-**Input:**
-- The first line contains an integer `n` (0 ≤ n ≤ 10,000), representing the length of the array `a`.
-- The second line contains `n` integers `a_i` (0 ≤ a_i ≤ 10,000), representing the elements of the array `a`.
+Example 1:
+Input: nums = [1,2,3,2,1]
+Output: 3
 
-**Output:**
-- Output the count of elements in the array that are greater than 1.
+constraints:
+1 <= nums.length, nums[i] <= 10000
 
 Please generate your code like this:
-#include<bits/stdc++.h>
-using namespace std;
-int main() {
-    int n;
-    cin >> n;
-    int num = 0;
-    for (int i = 1; i < n; i++) {
-        int x; cin >> x;
-        if (x > 1) num++;
+
+class Solution
+{
+public:
+    int solve(std::vector<int> &nums)
+    {
+        int m = nums1.size();
+        int n = nums2.size();
+        int num = 0;
+        for (int i = 0; i < m; i++)
+        {
+            if (nums[i] > 1)
+            {
+                num++;
+            }
+        }
+        return num;
     }
-    cout << num << "\n";
-    return 0;
-}
+};

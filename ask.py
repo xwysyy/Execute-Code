@@ -14,6 +14,7 @@ models_list = [
 ]
 with open(f'{data_path}/prompt.txt', 'r', encoding='utf-8') as f:
     prompt = f.read()
+
 def get_code(question: str, model: str, api_key: str, base_url: str):
     """
     调用指定大模型api生成指定问题的代码, question为问题描述, model为大模型名称
@@ -34,6 +35,8 @@ def get_code(question: str, model: str, api_key: str, base_url: str):
     code = '/*\n\n' + code + '\n\n*/'
     code = code.replace('```cpp', '*/\n')
     code = code.replace('```', '\n/*')
+    code = f'#ifndef {model.upper()}_H\n#define {model.upper()}_H\n#include <bits/stdc++.h>\nusing namespace std;\n\n{code}\n\n#endif'
+
     return code
 
 def ask(name: str, models_list: list = models_list):
@@ -62,12 +65,13 @@ def ask(name: str, models_list: list = models_list):
             raise ValueError('API Key not found')
         base_url = models_config[model]['base_url']
         cpp_code = get_code(problem, model, api_key, base_url)
-        with open(f'{path}/{model}.cpp', 'w', encoding='utf-8') as f:
-            for chunk in [cpp_code[i:i+1024] for i in range(0, len(cpp_code), 1024)]:
-                f.write(chunk)
+        with open(f'{path}/{model}.h', 'w', encoding='utf-8') as f:
+            f.write(cpp_code)
+            # for chunk in [cpp_code[i:i+1024] for i in range(0, len(cpp_code), 1024)]:
+                # f.write(chunk)
 
     with concurrent.futures.ThreadPoolExecutor() as executor:
         executor.map(save_code, models_list)
 
 if __name__ == '__main__':
-    print(f'Enabled models: {models_list}')
+    print(f'Enabled models: {models_list}') 

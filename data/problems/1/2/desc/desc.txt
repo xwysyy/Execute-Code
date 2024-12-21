@@ -1,15 +1,13 @@
-There are **N** items and a **backpack with a capacity of V**. Each item can only be used once.  
+Given N, V, an array v of length N, and an array w of length N:
+There are N items and a backpack with a capacity of V. Each item can only be used once.
+The volume of the i-th item is v[i], and the value is w[i].
+Determine which items to put into the backpack so that the total volume of these items does not exceed the backpack's capacity, and the total value is maximized. Return the maximum value.
 
-The **volume** of the i-th item is `v[i]`, and its **value** is `w[i]`.  
+Example 1:
+Input: N = 3, V = 4, v = [4, 3, 1], w = [1, 2, 1]
+Output: 2
 
-The problem is to determine which items to put into the backpack so that the total volume of the selected items does not exceed the backpack's capacity, and their total value is maximized.  
-
-Output the **maximum value** that can be achieved.  
-
-**Input**:
-- The first line contains two integers, **N** and **V**.
-- The next **N** lines each contain two integers, `v[i]` and `w[i]`.
-- \( 0 < N, V, v[i], w[i] \leq \text{10} \)
-
-**Time limit**: \(\text{1000} ms\)  
-**Memory limit**: \(\text{6400} KB\)
+Constraints:
+0 < N, V, v[i], w[i] ≤ 1000
+Time limit: 1000 ms
+Memory limit: 64 KB

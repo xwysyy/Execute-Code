@@ -24,6 +24,8 @@ def process_row(row):
     memory_limit = list(map(int, row['memory_limit'].split()))
     std = row['std']
     generator = row['generator']
+    test_cpp = row['test']
+    std = f'#ifndef STD_H\n#define STD_H\n#include <bits/stdc++.h>\nusing namespace std;\n\n{std}\n\n#endif'
 
     # 设定单个数据范围测试点数目为2
     test_data_num = 2
@@ -57,19 +59,22 @@ def process_row(row):
                 with open(full_path, 'w', encoding='utf-8') as f:
                     f.write(cur_content)
                 flag = True 
+                
+        new_desc = desc
+        new_desc_zh = desc_zh
+        new_desc = new_desc.replace('@data', str(data[level]))
+        new_desc_zh = new_desc_zh.replace('@data', str(data[level]))
+        new_desc = new_desc.replace('@time_limit', str(time_limit))
+        new_desc_zh = new_desc_zh.replace('@time_limit', str(time_limit))
+        new_desc = new_desc.replace('@memory_limit', str(memory_limit[level]))
+        new_desc_zh = new_desc_zh.replace('@memory_limit', str(memory_limit[level]))
 
-        desc = desc.replace('@data', str(data[level]))
-        desc_zh = desc_zh.replace('@data', str(data[level]))
-        desc = desc.replace('@time_limit', str(time_limit))
-        desc_zh = desc_zh.replace('@time_limit', str(time_limit))
-        desc = desc.replace('@memory_limit', str(memory_limit[level]))
-        desc_zh = desc_zh.replace('@memory_limit', str(memory_limit[level]))
- 
         operate_file('generate/generator.cpp', generator)
-        operate_file('generate/std.cpp', std)
-        operate_file('desc/desc.txt', desc)
+        operate_file('generate/std.h', std)
+        operate_file('desc/desc.txt', new_desc)
+        operate_file('generate/test.cpp', test_cpp)
         with open(f'{problem_level_path}/desc/desc_zh.txt', 'w', encoding='utf-8') as f:
-            f.write(desc_zh)
+            f.write(new_desc_zh)
 
         def operate_json(file_path: str, new_content: dict):
             full_path = f'{problem_level_path}/{file_path}'
@@ -92,16 +97,8 @@ def process_row(row):
         with open(f'{problem_level_path}/problem.json', 'r', encoding='utf-8') as f:
             problem_json_file = json.load(f)
         problem_json_file['time_limit'] = int(time_limit)
-        problem_json_file['memory_limit'] = max(int(memory_limit[level])+500,5000)
-        problem_json_file['real_memory_limit'] = int(memory_limit[level])
-        problem_json_file['test_cases']=[]
-        for order in range(len(data) * 2):
-            problem_json_file["test_cases"].append({
-                "handle": f'{order}',
-                "name": f'Test #{order}',
-                "input": f'cases/{order}.in',
-                "output": f'cases/{order}.out'
-            })
+        problem_json_file['memory_limit'] = int(memory_limit[level])
+        problem_json_file['test_case_num'] = test_data_num
         operate_json('problem.json', problem_json_file)
 
         tem_name = f'{id}/{level}'
@@ -109,13 +106,13 @@ def process_row(row):
             os.system(f'bash {problem_level_path}/generate/generate.sh')
             print(f'{tem_name} changed')
             ask(tem_name)
-            run_all(tem_name)
+            # run_all(tem_name)
         else:
             tem_model_list = [model for model in models_list if not os.path.exists(f'{problem_level_path}/codes/{model}.cpp')]
             if tem_model_list:
                 print(f'{tem_name} models changed')
                 ask(tem_name, tem_model_list)
-                run_all(tem_name, code_list=tem_model_list)
+                # run_all(tem_name, code_list=tem_model_list)
             else:
                 print(f'{tem_name} not changed')
                 
