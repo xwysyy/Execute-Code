@@ -41,10 +41,10 @@ int main() {
 - **Input Reading**: The first line reads `N` (number of items) and `V` (backpack capacity). The next `N` lines read the volume `v[i]` and value `w[i]` of each item.
 - **Dynamic Programming Table**: `dp[i][j]` represents the maximum value that can be achieved using the first `i` items and a backpack capacity of `j`.
 - **DP Transition**:
-  - If the current capacity `j` is less than the volume of the `i-th` item, we cannot include it, so `dp[i][j] = dp[i-1][j]`.
-  - Otherwise, we have two choices: either include the `i-th` item or not. We take the maximum of these two choices: `dp[i][j] = max(dp[i-1][j], dp[i-1][j-v[i-1]] + w[i-1])`.
-- **Output**: The final result is stored in `dp[N][V]`, which is the maximum value that can be achieved with all `N` items and a backpack capacity of `V`.
+  - If we do not include the `i-th` item, the value remains `dp[i-1][j]`.
+  - If we include the `i-th` item, the value becomes `dp[i-1][j - v[i-1]] + w[i-1]`, provided `j >= v[i-1]`.
+- **Result**: The final result is stored in `dp[N][V]`, which is the maximum value achievable with all `N` items and a capacity of `V`.
 
-This solution has a time complexity of \(O(N \times V)\) and a space complexity of \(O(N \times V)\), which is efficient given the constraints \(0 < N, V, v[i], w[i] \leq 10\).
+This code efficiently solves the problem within the given constraints.
 
 */

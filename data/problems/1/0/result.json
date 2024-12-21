@@ -1,60 +1,22 @@
 {
-    "qwen-plus": [
-        {
-            "handle": "0",
-            "result": "Accepted",
-            "time_used": 2,
-            "memory_used": 8
-        },
-        {
-            "handle": "1",
-            "result": "Accepted",
-            "time_used": 1,
-            "memory_used": 4
-        },
-        {
-            "handle": "2",
-            "result": "Accepted",
-            "time_used": 2,
-            "memory_used": 12
-        },
-        {
-            "handle": "3",
-            "result": "Accepted",
-            "time_used": 1,
-            "memory_used": 0
-        },
-        {
-            "handle": "4",
-            "result": "Accepted",
-            "time_used": 2,
-            "memory_used": 20
-        },
-        {
-            "handle": "5",
-            "result": "Accepted",
-            "time_used": 9,
-            "memory_used": 16
-        }
-    ],
     "deepseek-chat": [
         {
             "handle": "0",
             "result": "Accepted",
-            "time_used": 2,
-            "memory_used": 12
+            "time_used": 1,
+            "memory_used": 32
         },
         {
             "handle": "1",
             "result": "Accepted",
             "time_used": 1,
-            "memory_used": 8
+            "memory_used": 40
         },
         {
             "handle": "2",
             "result": "Accepted",
-            "time_used": 2,
-            "memory_used": 36
+            "time_used": 3,
+            "memory_used": 40
         },
         {
             "handle": "3",
@@ -65,14 +27,14 @@
         {
             "handle": "4",
             "result": "Accepted",
-            "time_used": 3,
-            "memory_used": 336
+            "time_used": 4,
+            "memory_used": 36
         },
         {
             "handle": "5",
             "result": "Accepted",
-            "time_used": 22,
-            "memory_used": 2940
+            "time_used": 1,
+            "memory_used": 36
         }
     ],
     "gpt-4o-mini": [
@@ -80,95 +42,133 @@
             "handle": "0",
             "result": "Accepted",
             "time_used": 2,
-            "memory_used": 12
+            "memory_used": 16
         },
         {
             "handle": "1",
             "result": "Accepted",
             "time_used": 2,
-            "memory_used": 8
-        },
-        {
-            "handle": "2",
-            "result": "Accepted",
-            "time_used": 1,
-            "memory_used": 16
-        },
-        {
-            "handle": "3",
-            "result": "Accepted",
-            "time_used": 2,
-            "memory_used": 16
-        },
-        {
-            "handle": "4",
-            "result": "Accepted",
-            "time_used": 2,
-            "memory_used": 16
-        },
-        {
-            "handle": "5",
-            "result": "Accepted",
-            "time_used": 9,
             "memory_used": 28
-        }
-    ],
-    "qwen-coder-plus": [
-        {
-            "handle": "0",
-            "result": "Accepted",
-            "time_used": 2,
-            "memory_used": 16
-        },
-        {
-            "handle": "1",
-            "result": "Accepted",
-            "time_used": 2,
-            "memory_used": 12
         },
         {
             "handle": "2",
             "result": "Accepted",
             "time_used": 2,
-            "memory_used": 44
+            "memory_used": 40
         },
         {
             "handle": "3",
             "result": "Accepted",
-            "time_used": 2,
-            "memory_used": 48
+            "time_used": 3,
+            "memory_used": 36
         },
         {
             "handle": "4",
             "result": "Accepted",
             "time_used": 2,
-            "memory_used": 332
+            "memory_used": 36
         },
         {
             "handle": "5",
             "result": "Accepted",
-            "time_used": 20,
-            "memory_used": 2936
+            "time_used": 2,
+            "memory_used": 40
         }
     ],
     "qwen-max": [
         {
             "handle": "0",
             "result": "Accepted",
+            "time_used": 1,
+            "memory_used": 28
+        },
+        {
+            "handle": "1",
+            "result": "Accepted",
             "time_used": 2,
-            "memory_used": 12
+            "memory_used": 24
+        },
+        {
+            "handle": "2",
+            "result": "Accepted",
+            "time_used": 1,
+            "memory_used": 24
+        },
+        {
+            "handle": "3",
+            "result": "Accepted",
+            "time_used": 1,
+            "memory_used": 28
+        },
+        {
+            "handle": "4",
+            "result": "Accepted",
+            "time_used": 4,
+            "memory_used": 32
+        },
+        {
+            "handle": "5",
+            "result": "Accepted",
+            "time_used": 2,
+            "memory_used": 36
+        }
+    ],
+    "qwen-plus": [
+        {
+            "handle": "0",
+            "result": "Accepted",
+            "time_used": 1,
+            "memory_used": 20
         },
         {
             "handle": "1",
             "result": "Accepted",
             "time_used": 1,
-            "memory_used": 12
+            "memory_used": 28
         },
         {
             "handle": "2",
             "result": "Accepted",
-            "time_used": 2,
-            "memory_used": 36
+            "time_used": 1,
+            "memory_used": 68
+        },
+        {
+            "handle": "3",
+            "result": "Accepted",
+            "time_used": 1,
+            "memory_used": 32
+        },
+        {
+            "handle": "4",
+            "result": "Accepted",
+            "time_used": 6,
+            "memory_used": 932
+        },
+        {
+            "handle": "5",
+            "result": "Accepted",
+            "time_used": 3,
+            "memory_used": 180
+        }
+    ],
+    "qwen-coder-plus": [
+        {
+            "handle": "0",
+            "result": "Accepted",
+            "time_used": 1,
+            "memory_used": 28
+        },
+        {
+            "handle": "1",
+            "result": "Accepted",
+            "time_used": 1,
+            "memory_used": 32
+        },
+        {
+            "handle": "2",
+            "result": "Accepted",
+            "time_used": 1,
+            "memory_used": 80
         },
         {
             "handle": "3",
@@ -179,14 +179,14 @@
         {
             "handle": "4",
             "result": "Accepted",
-            "time_used": 3,
-            "memory_used": 340
+            "time_used": 4,
+            "memory_used": 928
         },
         {
             "handle": "5",
             "result": "Accepted",
-            "time_used": 20,
-            "memory_used": 2928
+            "time_used": 2,
+            "memory_used": 180
         }
     ]
 }

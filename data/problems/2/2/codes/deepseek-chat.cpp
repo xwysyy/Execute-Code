@@ -19,15 +19,18 @@ int main() {
         cin >> v[i] >> w[i];
     }
 
-    vector<int> dp(V + 1, 0);
+    vector<vector<int>> dp(N + 1, vector<int>(V + 1, 0));
 
-    for (int i = 0; i < N; ++i) {
-        for (int j = V; j >= v[i]; --j) {
-            dp[j] = max(dp[j], dp[j - v[i]] + w[i]);
+    for (int i = 1; i <= N; ++i) {
+        for (int j = 0; j <= V; ++j) {
+            dp[i][j] = dp[i - 1][j];
+            if (j >= v[i - 1]) {
+                dp[i][j] = max(dp[i][j], dp[i - 1][j - v[i - 1]] + w[i - 1]);
+            }
         }
     }
 
-    cout << dp[V] << endl;
+    cout << dp[N][V] << endl;
 
     return 0;
 }
@@ -36,10 +39,11 @@ int main() {
 
 ### Explanation:
 - **Input Reading**: The first line reads `N` (number of items) and `V` (backpack capacity). The next `N` lines read the volume `v[i]` and value `w[i]` of each item.
-- **Dynamic Programming Array**: `dp[j]` represents the maximum value that can be achieved with a backpack capacity of `j`.
-- **DP Update**: For each item, update the `dp` array in reverse order to ensure that each item is used only once.
-- **Output**: The final result is `dp[V]`, which is the maximum value that can be achieved with the given backpack capacity.
-
-This code efficiently solves the problem within the given constraints.
+- **Dynamic Programming Table**: `dp[i][j]` represents the maximum value that can be achieved using the first `i` items and a backpack capacity of `j`.
+- **DP Transition**:
+  - If we do not include the `i-th` item, the value remains `dp[i-1][j]`.
+  - If we include the `i-th` item, we add its value `w[i-1]` to `dp[i-1][j - v[i-1]]`.
+  - We take the maximum of these two options.
+- **Output**: The final result is `dp[N][V]`, which gives the maximum value that can be achieved with the given constraints.
 
 */

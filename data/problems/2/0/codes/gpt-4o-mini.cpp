@@ -1,7 +1,5 @@
 /*
 
-Here is the C++ code to solve the 0/1 Knapsack problem based on the given constraints:
-
 */
 
 #include <iostream>
@@ -32,15 +30,12 @@ int main() {
     return 0;
 }
 
-/*
+/* 
 
 ### Explanation:
-- The code begins by reading the number of items (`N`) and the volume capacity of the backpack (`V`).
-- It then reads the volumes and values of the items into vectors `v` and `w`.
-- `dp[j]` is used to store the maximum value that can be attained with a capacity of `j`.
-- We iterate over each item and update the `dp` array in reverse order to prevent overwriting results from the current iteration.
-- Finally, the maximum value achievable with the full capacity `V` is printed. 
-
-You can easily compile and run this code with any C++ compiler.
+- This code implements the 0/1 Knapsack problem using dynamic programming.
+- It reads the number of items and the backpack capacity, then the volume and value of each item.
+- It uses a `dp` array to store the maximum value achievable for each capacity from `0` to `V`.
+- The nested loop updates the `dp` array based on whether to include each item or not, ensuring that the total volume does not exceed the capacity.
 
 */

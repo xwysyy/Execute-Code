@@ -1,11 +1,12 @@
 /*
 
-Here is the C++ code to solve the 0/1 Knapsack problem using dynamic programming:
+Sure, here's a C++ implementation using dynamic programming to solve the 0/1 Knapsack problem:
 
 */
 
 #include <iostream>
 #include <vector>
+#include <algorithm>
 
 using namespace std;
 
@@ -13,20 +14,29 @@ int main() {
     int N, V;
     cin >> N >> V;
 
-    vector<int> v(N), w(N);
+    vector<int> v(N);
+    vector<int> w(N);
+
     for (int i = 0; i < N; ++i) {
         cin >> v[i] >> w[i];
     }
 
-    vector<int> dp(V + 1, 0);
+    // Initialize the DP table
+    vector<vector<int>> dp(N + 1, vector<int>(V + 1, 0));
 
-    for (int i = 0; i < N; ++i) {
-        for (int j = V; j >= v[i]; --j) {
-            dp[j] = max(dp[j], dp[j - v[i]] + w[i]);
+    // Fill the DP table
+    for (int i = 1; i <= N; ++i) {
+        for (int j = 0; j <= V; ++j) {
+            if (v[i - 1] <= j) {
+                dp[i][j] = max(dp[i - 1][j], dp[i - 1][j - v[i - 1]] + w[i - 1]);
+            } else {
+                dp[i][j] = dp[i - 1][j];
+            }
         }
     }
 
-    cout << dp[V] << endl;
+    // The answer is in dp[N][V]
+    cout << dp[N][V] << endl;
 
     return 0;
 }
@@ -34,10 +44,11 @@ int main() {
 /*
 
 ### Explanation:
-- We use a 1D dynamic programming array `dp` where `dp[j]` represents the maximum value that can be achieved with a knapsack capacity of `j`.
-- For each item, we iterate backwards through the possible capacities from `V` down to the volume of the current item `v[i]`.
-- This backward iteration ensures that each item is only considered once per capacity.
-- We update `dp[j]` to be the maximum of its current value or the value obtained by including the current item (`dp[j - v[i]] + w[i]`).
-- Finally, `dp[V]` will contain the maximum value that can be achieved with the full capacity `V`.
+- **Input Reading**: We read the number of items `N` and the capacity of the backpack `V`. Then we read the volume and weight of each item.
+- **DP Table Initialization**: We create a 2D vector `dp` where `dp[i][j]` represents the maximum value that can be achieved with the first `i` items and a backpack capacity of `j`.
+- **DP Table Filling**: We iterate over each item and each possible capacity of the backpack. For each item, we decide whether to include it in the knapsack or not based on whether including it results in a higher value than excluding it.
+- **Result**: The maximum value that can be achieved with all `N` items and a backpack capacity of `V` is stored in `dp[N][V]`.
+
+This solution efficiently computes the result within the given constraints.
 
 */
