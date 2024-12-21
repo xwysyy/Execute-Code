@@ -5,7 +5,7 @@ using namespace std;
 
 /*
 
-Here’s the implementation of the `solve` function in the `Solution` class to solve the 0/1 Knapsack problem based on your requirements:
+To solve the 0/1 Knapsack problem as described, we can implement a dynamic programming approach. Below is the implementation of the `solve` function in the `Solution` class, which calculates the maximum value that can be achieved without exceeding the backpack's capacity.
 
 */
 
@@ -17,11 +17,9 @@ class Solution
 public:
     int solve(int N, int V, std::vector<int> &v, std::vector<int> &w)
     {
-        // Create a DP array to store the maximum value for each capacity
-        std::vector<int> dp(V + 1, 0);
-        
-        // Iterate through each item 
-        for (int i = 0; i < N; i++)
+        // Create a DP array to store the maximum value for each capacity std::vector<int> dp(V + 1, 0);
+
+        // Iterate through each item for (int i = 0; i < N; i++)
         {
             // Traverse the dp array backwards
             for (int j = V; j >= v[i]; j--)
@@ -30,18 +28,20 @@ public:
                 dp[j] = std::max(dp[j], dp[j - v[i]] + w[i]);
             }
         }
-        
-        // The maximum value for the full capacity V return dp[V];
+
+        // The maximum value for the full capacity V
+        return dp[V];
     }
 };
 
 /*
 
 ### Explanation of the Code:
-- A dynamic programming array `dp` is created to store the maximum value that can be achieved for each capacity from `0` to `V`.
-- For each item, we iterate through the capacities in reverse to ensure that each item is only considered once.
-- The maximum value is updated based on whether including the current item yields a higher value than excluding it.
-- Finally, the maximum value for the backpack's full capacity `V` is returned.
+- We create a dynamic programming array `dp` where `dp[j]` represents the maximum value that can be achieved with a backpack capacity of `j`.
+- We iterate through each item and update the `dp` array in reverse order to ensure that each item is only considered once.
+- Finally, we return `dp[V]`, which contains the maximum value that can be achieved with the given backpack capacity `V`. 
+
+This implementation efficiently computes the result while adhering to the constraints provided.
 
 */
 

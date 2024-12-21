@@ -5,7 +5,7 @@ using namespace std;
 
 /*
 
-To solve this problem, we can use a classic dynamic programming approach known as the "0/1 Knapsack Problem." The idea is to maintain a DP table where `dp[j]` represents the maximum value that can be achieved with a knapsack capacity of `j`.
+To solve this problem, we can use a dynamic programming approach known as the "0/1 Knapsack Problem" solution. This problem involves determining the maximum value that can be obtained by selecting a subset of items such that the total weight (or volume, in this case) does not exceed the given capacity.
 
 Here's the implementation of the `solve` function in the `Solution` class:
 
@@ -23,17 +23,17 @@ public:
         std::vector<int> dp(V + 1, 0);
 
         // Iterate over each item
-        for (int i = 0; i < N; ++i)
+        for (int i = 0; i < N; i++)
         {
-            // Traverse the DP array backwards to avoid overwriting values
-            for (int j = V; j >= v[i]; --j)
+            // Traverse the dp array backwards to avoid using the same item multiple times
+            for (int j = V; j >= v[i]; j--)
             {
-                // Update the DP array with the maximum value achievable
+                // Update the dp array with the maximum value obtainable
                 dp[j] = std::max(dp[j], dp[j - v[i]] + w[i]);
             }
         }
 
-        // The maximum value that can be achieved with capacity V is stored in dp[V]
+        // The answer will be the maximum value obtainable with the full capacity V
         return dp[V];
     }
 };
@@ -41,15 +41,24 @@ public:
 /*
 
 ### Explanation:
-1. **Initialization**: We initialize a DP array `dp` of size `V + 1` with all elements set to 0. This array will store the maximum value that can be achieved for each possible knapsack capacity from 0 to `V`.
 
-2. **Iterate Over Items**: For each item `i`, we consider its volume `v[i]` and value `w[i]`.
+1. **Dynamic Programming Array (`dp`)**:
+   - We use a 1D array `dp` where `dp[j]` represents the maximum value that can be obtained with a knapsack capacity of `j`.
 
-3. **Update DP Array**: We iterate over the DP array from the back (`j = V` to `j = v[i]`) to ensure that each item is only considered once per capacity. For each capacity `j`, we update `dp[j]` to be the maximum of its current value or the value obtained by including the current item (`dp[j - v[i]] + w[i]`).
+2. **Initialization**:
+   - Initialize the `dp` array with zeros. This means initially, with zero capacity, the maximum value is zero.
 
-4. **Result**: After processing all items, the maximum value that can be achieved with the full knapsack capacity `V` is stored in `dp[V]`.
+3. **Iterate Over Items**:
+   - For each item `i`, we consider whether to include it in the knapsack or not.
 
-This approach ensures that we efficiently compute the solution within the given constraints.
+4. **Update DP Array**:
+   - We iterate over the `dp` array in reverse order (from `V` to `v[i]`). This ensures that each item is only considered once per capacity.
+   - For each capacity `j`, we update `dp[j]` to be the maximum of its current value or the value obtained by including the current item `i` (which is `dp[j - v[i]] + w[i]`).
+
+5. **Result**:
+   - After processing all items, `dp[V]` contains the maximum value that can be obtained with the full capacity `V`.
+
+This approach ensures that we efficiently compute the maximum value without exceeding the given volume constraint, adhering to the time and memory constraints provided.
 
 */
 

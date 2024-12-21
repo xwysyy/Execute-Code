@@ -5,7 +5,7 @@ using namespace std;
 
 /*
 
-This problem is a classic example of the 0/1 Knapsack problem, where you need to maximize the value of items without exceeding the backpack's capacity. We can solve this using dynamic programming.
+This problem is a classic example of the 0/1 Knapsack problem, where you need to maximize the value of items without exceeding the backpack's capacity. The solution typically involves dynamic programming.
 
 Here's the implementation of the `solve` function:
 
@@ -22,13 +22,14 @@ public:
 
         // Iterate over each item
         for (int i = 0; i < N; ++i) {
-            // Update the DP array in reverse to prevent using the same item multiple times
+            // Iterate over the capacity from V down to v[i]
             for (int j = V; j >= v[i]; --j) {
+                // Update the dp array to include the current item if it increases the value
                 dp[j] = std::max(dp[j], dp[j - v[i]] + w[i]);
             }
         }
 
-        // The maximum value will be in dp[V]
+        // The answer is the maximum value we can get with the full capacity
         return dp[V];
     }
 };
@@ -36,31 +37,44 @@ public:
 /*
 
 ### Explanation:
-1. **DP Array Initialization**: We initialize a DP array `dp` of size `V + 1` with all elements set to 0. `dp[j]` will store the maximum value that can be achieved with a backpack capacity of `j`.
 
-2. **Iterating Over Items**: We iterate over each item. For each item, we update the DP array in reverse order (from `V` to `v[i]`). This ensures that each item is only used once.
+1. **Dynamic Programming Array (`dp`)**:
+   - `dp[j]` represents the maximum value that can be achieved with a backpack capacity of `j`.
+   - Initialize all values in `dp` to 0 because with 0 capacity, the maximum value is 0.
 
-3. **Updating DP Array**: For each capacity `j`, we decide whether to include the current item or not. If we include the item, the value becomes `dp[j - v[i]] + w[i]`. We take the maximum of this value and the current value `dp[j]`.
+2. **Iterating Over Items**:
+   - For each item `i`, iterate over the capacity `j` from `V` down to `v[i]`. This ensures that each item is considered only once (0/1 property).
 
-4. **Result**: After processing all items, the maximum value that can be achieved with the backpack capacity `V` is stored in `dp[V]`.
+3. **Updating the DP Array**:
+   - For each capacity `j`, decide whether to include the current item `i` or not.
+   - If we include the item, the value becomes `dp[j - v[i]] + w[i]`.
+   - If we don't include the item, the value remains `dp[j]`.
+   - We take the maximum of these two options.
+
+4. **Result**:
+   - The maximum value that can be achieved with the full capacity `V` is stored in `dp[V]`.
 
 ### Example Walkthrough:
-For the input `N = 3, V = 4, v = [4, 3, 1], w = [1, 2, 1]`:
-- Initialize `dp = [0, 0, 0, 0, 0]`.
-- Process the first item (volume 4, value 1):
-  - Update `dp[4] = max(0, 0 + 1) = 1`.
-- Process the second item (volume 3, value 2):
-  - Update `dp[3] = max(0, 0 + 2) = 2`.
-  - Update `dp[4] = max(1, 0 + 2) = 2`.
-- Process the third item (volume 1, value 1):
-  - Update `dp[1] = max(0, 0 + 1) = 1`.
-  - Update `dp[2] = max(0, 1 + 1) = 2`.
-  - Update `dp[3] = max(2, 1 + 1) = 2`.
-  - Update `dp[4] = max(2, 1 + 1) = 2`.
 
-The final `dp` array is `[0, 1, 2, 2, 2]`, and the maximum value is `dp[4] = 2`.
+For the input:
+- `N = 3`
+- `V = 4`
+- `v = [4, 3, 1]`
+- `w = [1, 2, 1]`
 
-This solution efficiently solves the problem within the given constraints.
+The `dp` array evolves as follows:
+
+- Initialize `dp = [0, 0, 0, 0, 0]`
+- After processing the first item (volume 4, value 1):
+  - `dp = [0, 0, 0, 0, 1]`
+- After processing the second item (volume 3, value 2):
+  - `dp = [0, 0, 0, 2, 2]`
+- After processing the third item (volume 1, value 1):
+  - `dp = [0, 1, 1, 2, 3]`
+
+The final result is `dp[4] = 3`, which is the maximum value that can be achieved without exceeding the backpack's capacity.
+
+However, the example provided in the problem statement expects the output to be `2`. This discrepancy might be due to a different interpretation of the problem or constraints. The above solution follows the standard 0/1 Knapsack approach and should work correctly for most cases.
 
 */
 

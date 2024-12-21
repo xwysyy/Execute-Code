@@ -98,7 +98,7 @@ def process_row(row):
             problem_json_file = json.load(f)
         problem_json_file['time_limit'] = int(time_limit)
         problem_json_file['memory_limit'] = int(memory_limit[level])
-        problem_json_file['test_case_num'] = test_data_num
+        problem_json_file['test_case_num'] = len(data) * 2
         operate_json('problem.json', problem_json_file)
 
         tem_name = f'{id}/{level}'

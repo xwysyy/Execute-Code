@@ -43,7 +43,7 @@ gpt-4-turbo:
   <<: *ephone_base
 
 claude-3-5-sonnet-20241022:
-  enabled: false
+  enabled: true
   <<: *ephone_base
 
 gemini-1.5-pro:

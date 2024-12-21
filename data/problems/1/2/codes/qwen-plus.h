@@ -5,58 +5,54 @@ using namespace std;
 
 /*
 
-To solve this problem, we can use a dynamic programming approach known as the 0/1 Knapsack problem. The idea is to create a DP table where `dp[i][j]` represents the maximum value that can be obtained with the first `i` items and a knapsack capacity of `j`.
+To solve this problem, we can use dynamic programming to find the maximum value that can be obtained without exceeding the backpack's capacity. This is a classic 0/1 Knapsack problem.
 
-Here's how you can implement it:
+Here’s how you can implement it:
+
+1. Create a DP table where `dp[j]` represents the maximum value that can be obtained with a total volume of `j`.
+2. Initialize the DP table with zeros.
+3. Iterate over each item and update the DP table from right to left (to avoid using an item more than once).
+4. For each item, if its volume is less than or equal to the current capacity `j`, update the DP table by considering whether to include the item or not.
+
+Here's the complete implementation:
 
 */
 
 #include <vector>
-#include <algorithm>
+using namespace std;
 
 class Solution {
 public:
-    int solve(int N, int V, std::vector<int>& v, std::vector<int>& w) {
-        // Create a DP table with dimensions (N+1) x (V+1)
-        std::vector<std::vector<int>> dp(N + 1, std::vector<int>(V + 1, 0));
+    int solve(int N, int V, vector<int>& v, vector<int>& w) {
+        // Initialize the DP table with zeros
+        vector<int> dp(V + 1, 0);
         
-        // Fill the DP table
-        for (int i = 1; i <= N; ++i) {
-            for (int j = 0; j <= V; ++j) {
-                // If the current item's volume is greater than the current capacity, skip it
-                if (v[i - 1] > j) {
-                    dp[i][j] = dp[i - 1][j];
-                } else {
-                    // Otherwise, take the maximum value between not taking the item and taking the item
-                    dp[i][j] = std::max(dp[i - 1][j], dp[i - 1][j - v[i - 1]] + w[i - 1]);
-                }
+        // Iterate over each item
+        for (int i = 0; i < N; ++i) {
+            // Update the DP table from right to left
+            for (int j = V; j >= v[i]; --j) {
+                // Update dp[j] by considering whether to include item i
+                dp[j] = max(dp[j], dp[j - v[i]] + w[i]);
             }
         }
         
-        // The answer will be in dp[N][V]
-        return dp[N][V];
+        // The answer is the maximum value that can be obtained with volume V
+        return dp[V];
     }
 };
 
 /*
 
 ### Explanation:
+- **Initialization**: We initialize a DP array `dp` of size `V + 1` with all elements set to 0. This array will store the maximum value that can be achieved for each possible volume from 0 to `V`.
+  
+- **Iterating Over Items**: We iterate over each item from `0` to `N-1`. For each item, we update the DP table in reverse order (from `V` down to the volume of the current item). This ensures that each item is only used once.
 
-1. **Initialization**:
-   - We initialize a 2D vector `dp` of size `(N+1) x (V+1)` with all elements set to 0. This table will store the maximum value that can be obtained for each combination of items and capacities.
+- **Updating DP Table**: For each volume `j`, we check if including the current item would yield a higher value than the previously computed value for that volume. If so, we update `dp[j]`.
 
-2. **Filling the DP Table**:
-   - For each item `i` from 1 to `N`, and for each possible capacity `j` from 0 to `V`:
-     - If the volume of the current item `v[i-1]` is greater than the current capacity `j`, we cannot include this item, so we carry forward the value from the previous row (`dp[i-1][j]`).
-     - Otherwise, we have two choices:
-       - Not include the current item: `dp[i-1][j]`
-       - Include the current item: `dp[i-1][j - v[i-1]] + w[i-1]`
-     - We choose the maximum of these two values.
+- **Result**: Finally, `dp[V]` contains the maximum value that can be obtained without exceeding the backpack's capacity `V`.
 
-3. **Result**:
-   - The final result, which is the maximum value that can be obtained with all `N` items and a knapsack capacity of `V`, is stored in `dp[N][V]`.
-
-This solution ensures that we explore all possible combinations of items while adhering to the knapsack's capacity constraint, ultimately finding the maximum value.
+This approach ensures that we efficiently compute the maximum value while adhering to the constraints provided.
 
 */
 
