@@ -4,25 +4,25 @@
             "case": "0",
             "result": "Accepted",
             "time_used": 0,
-            "memory_used": 16
+            "memory_used": 24
         },
         {
             "case": "1",
             "result": "Accepted",
             "time_used": 1,
-            "memory_used": 24
+            "memory_used": 16
         },
         {
             "case": "2",
             "result": "Accepted",
-            "time_used": 0,
-            "memory_used": 24
+            "time_used": 1,
+            "memory_used": 16
         },
         {
             "case": "3",
             "result": "Accepted",
             "time_used": 0,
-            "memory_used": 20
+            "memory_used": 28
         },
         {
             "case": "4",
@@ -34,7 +34,7 @@
             "case": "5",
             "result": "Accepted",
             "time_used": 3,
-            "memory_used": 464
+            "memory_used": 472
         }
     ],
     "gpt-4o-mini": [
@@ -42,13 +42,13 @@
             "case": "0",
             "result": "Accepted",
             "time_used": 0,
-            "memory_used": 16
+            "memory_used": 24
         },
         {
             "case": "1",
             "result": "Accepted",
             "time_used": 0,
-            "memory_used": 16
+            "memory_used": 20
         },
         {
             "case": "2",
@@ -59,8 +59,8 @@
         {
             "case": "3",
             "result": "Accepted",
-            "time_used": 0,
-            "memory_used": 20
+            "time_used": 1,
+            "memory_used": 12
         },
         {
             "case": "4",
@@ -72,7 +72,7 @@
             "case": "5",
             "result": "Accepted",
             "time_used": 1,
-            "memory_used": 20
+            "memory_used": 12
         }
     ],
     "qwen-coder-plus": [
@@ -86,19 +86,19 @@
             "case": "1",
             "result": "Accepted",
             "time_used": 0,
-            "memory_used": 24
+            "memory_used": 16
         },
         {
             "case": "2",
             "result": "Accepted",
             "time_used": 0,
-            "memory_used": 16
+            "memory_used": 20
         },
         {
             "case": "3",
             "result": "Accepted",
             "time_used": 0,
-            "memory_used": 16
+            "memory_used": 12
         },
         {
             "case": "4",
@@ -110,7 +110,7 @@
             "case": "5",
             "result": "Accepted",
             "time_used": 1,
-            "memory_used": 12
+            "memory_used": 16
         }
     ],
     "deepseek-chat": [
@@ -124,18 +124,18 @@
             "case": "1",
             "result": "Accepted",
             "time_used": 0,
-            "memory_used": 16
+            "memory_used": 24
         },
         {
             "case": "2",
             "result": "Accepted",
             "time_used": 0,
-            "memory_used": 12
+            "memory_used": 20
         },
         {
             "case": "3",
             "result": "Accepted",
-            "time_used": 0,
+            "time_used": 1,
             "memory_used": 20
         },
         {
@@ -156,37 +156,37 @@
             "case": "0",
             "result": "Accepted",
             "time_used": 0,
-            "memory_used": 24
+            "memory_used": 16
         },
         {
             "case": "1",
             "result": "Accepted",
             "time_used": 0,
-            "memory_used": 24
+            "memory_used": 16
         },
         {
             "case": "2",
             "result": "Accepted",
             "time_used": 0,
-            "memory_used": 12
+            "memory_used": 20
         },
         {
             "case": "3",
             "result": "Accepted",
             "time_used": 0,
-            "memory_used": 20
+            "memory_used": 12
         },
         {
             "case": "4",
             "result": "Accepted",
-            "time_used": 3,
+            "time_used": 4,
             "memory_used": 16
         },
         {
             "case": "5",
             "result": "Accepted",
             "time_used": 1,
-            "memory_used": 12
+            "memory_used": 20
         }
     ],
     "claude-3-5-sonnet-20241022": [
@@ -194,7 +194,7 @@
             "case": "0",
             "result": "Accepted",
             "time_used": 0,
-            "memory_used": 16
+            "memory_used": 24
         },
         {
             "case": "1",
@@ -218,7 +218,45 @@
             "case": "4",
             "result": "Accepted",
             "time_used": 2,
+            "memory_used": 24
+        },
+        {
+            "case": "5",
+            "result": "Accepted",
+            "time_used": 1,
+            "memory_used": 12
+        }
+    ],
+    "std": [
+        {
+            "case": "0",
+            "result": "Accepted",
+            "time_used": 0,
             "memory_used": 16
+        },
+        {
+            "case": "1",
+            "result": "Accepted",
+            "time_used": 0,
+            "memory_used": 16
+        },
+        {
+            "case": "2",
+            "result": "Accepted",
+            "time_used": 0,
+            "memory_used": 20
+        },
+        {
+            "case": "3",
+            "result": "Accepted",
+            "time_used": 0,
+            "memory_used": 12
+        },
+        {
+            "case": "4",
+            "result": "Accepted",
+            "time_used": 3,
+            "memory_used": 20
         },
         {
             "case": "5",

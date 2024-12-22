@@ -71,6 +71,8 @@ def process_row(row):
 
         operate_file('generate/generator.cpp', generator)
         operate_file('generate/std.h', std)
+        with open(f'{problem_level_path}/codes/std.h', 'w', encoding='utf-8') as f:
+            f.write(std)
         operate_file('desc/desc.txt', new_desc)
         operate_file('generate/test.cpp', test_cpp)
         with open(f'{problem_level_path}/desc/desc_zh.txt', 'w', encoding='utf-8') as f:
