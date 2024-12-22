@@ -1,0 +1,5 @@
+chardet==3.0.4
+openai==1.58.1
+pandas==2.2.3
+python-dotenv==1.0.1
+PyYAML==6.0.2
