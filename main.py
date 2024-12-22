@@ -16,6 +16,8 @@ def process_row(row):
     """
     处理单行数据的函数，负责完成每个问题的创建和生成。
     """
+    if not os.path.exists(problem_path):
+        os.makedirs(problem_path)
     id = row['id']
     desc = row['desc']
     desc_zh = row['desc_zh']

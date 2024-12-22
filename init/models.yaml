@@ -47,7 +47,7 @@ claude-3-5-sonnet-20241022:
   <<: *ephone_base
 
 gemini-1.5-pro:
-  enabled: false
+  enabled: true
   <<: *ephone_base
 
 moonshot-v1-8k:
@@ -66,6 +66,7 @@ gpt-4o-mini:
 gpt-4o:
   enabled: true
   <<: *agicto_base
+  
 #
 # gemini-pro:
 #   enabled: false
