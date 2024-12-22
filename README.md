@@ -22,6 +22,11 @@
 
 * 返回的代码部分缺少换行符，导致无法编译。
 * bash脚本如果执行失败，可能是因为设置的是crlf换行符，需要转换为lf。
+  > 确保文件的换行符是lf
+  > ```shell
+  > echo 'export FILEFORMAT=unix' >> ~/.bashrc
+  > source ~/.bashrc
+  > ```
 
 # todo
 
