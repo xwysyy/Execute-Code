@@ -4,6 +4,7 @@ import concurrent.futures
 from openai import OpenAI
 from dotenv import load_dotenv
 from init import model_path, problem_path, data_path
+import re
 
 load_dotenv()
 with open(model_path, 'r', encoding='utf-8') as file:
@@ -36,10 +37,9 @@ def get_code(question: str, model: str, api_key: str, base_url: str):
     code = '/*\n\n' + code + '\n\n*/'
     code = code.replace('```cpp', '*/\n')
     code = code.replace('```', '\n/*')
-    tem_name = model.replace('-', '_').upper()
+    # 把非数字字母下划线的字符替换成_
+    tem_name = re.sub(r'[^a-zA-Z0-9_]', '_', model).upper()  
     code = f'#ifndef {tem_name}_H\n#define {tem_name}_H\n#include <bits/stdc++.h>\nusing namespace std;\n\n{code}\n\n#endif'
-
-
 
     return code
 
