@@ -1,0 +1,7 @@
+.env
+__pycache__
+.vscode
+data/problems
+models.yaml
+data/data.csv
+test.py

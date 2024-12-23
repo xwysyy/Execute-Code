@@ -1,0 +1,34 @@
+You are a C++ programmer.You need to implement the solve function in the Solution class. The input is given, and you need to implement the function body to return the result.
+
+Here is an example:
+Given an array of integers nums, return the number of elements in the array that are greater than 1.
+
+The main function of the solution is defined as:  
+`int solve(vector<int> &nums)`  
+where:
+- `nums` is the array of integers
+- return the number of elements in the array that are greater than 1
+
+Example 1:
+Input: nums = [1,2,3,2,1]
+Output: 3
+Explanation: The elements greater than 1 are [2,3,2]
+
+constraints:
+1 <= nums.length, nums[i] <= 10000
+
+Please generate your code like this:
+
+class Solution
+{
+public:
+    int solve(vector<int> &nums)
+    {
+        int n = nums.size();
+        int num = 0;
+        for (int i = 0; i < m; i++)
+            if (nums[i] > 1)
+                num++;
+        return num;
+    }
+};
