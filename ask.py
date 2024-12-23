@@ -33,10 +33,8 @@ def get_code(question: str, model: str, api_key: str, base_url: str):
     )
     
     code = chat_completion.choices[0].message.content
-    code = '```cpp\nclass Solution' + code.split('class Solution')[-1] 
-    code = '/*\n\n' + code + '\n\n*/'
-    code = code.replace('```cpp', '*/\n')
-    code = code.replace('```', '\n/*')
+    code = 'class Solution' + code.split('class Solution')[-1] 
+    code = code.split('```')[0]
     tem_name = re.sub(r'[^a-zA-Z0-9_]', '_', model).upper()
     code = f'#ifndef {tem_name}_H\n#define {tem_name}_H\n#include <bits/stdc++.h>\nusing namespace std;\n\n{code}\n\n#endif'
 
@@ -78,3 +76,4 @@ def ask(name: str, models_list: list = models_list):
 
 if __name__ == '__main__':
     print(f'Enabled models: {models_list}') 
+    ask('cf1/0')
