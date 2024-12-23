@@ -35,6 +35,8 @@ def process_row(row: dict):
     for level in range(len(memory_limit)):
         # 判断该题目配置内容是否修改或者是否新创建
         flag = False
+        # 判断测试数据是否修改
+        flag1 = False
 
         problem_level_path = f'{problem_path}/{id}/{level}'
         if not os.path.exists(problem_level_path):
@@ -57,6 +59,8 @@ def process_row(row: dict):
                         f.write(cur_content)
                         f.truncate()
                         if file_path != 'desc/desc.txt':
+                            nonlocal flag1
+                            flag1 = True
                             os.system(f'bash {problem_level_path}/generate/generate.sh')
                         else:
                             flag = True
@@ -115,6 +119,9 @@ def process_row(row: dict):
             os.system(f'bash {problem_level_path}/generate/generate.sh')
             print(f'{tem_name} changed')
             ask(tem_name)
+            run_all(tem_name)
+        elif flag1 is True:
+            print(f'{tem_name} test changed')
             run_all(tem_name)
         else:
             tem_model_list = [model for model in models_list if not os.path.exists(f'{problem_level_path}/codes/{model}.h')]                    
