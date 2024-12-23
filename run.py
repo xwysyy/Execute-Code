@@ -5,18 +5,6 @@ import json
 import threading
 from init import problem_path
 
-mp = {
-    0: 'Accepted',
-    1: 'Presentation Error',
-    2: 'Time Limit Exceeded',
-    3: 'Memory Limit Exceeded',
-    4: 'Wrong Answer',
-    5: 'Runtime Error',
-    6: 'Output Limit Exceeded',
-    7: 'Compile Error',
-    8: 'System Error'
-}
-
 lock = threading.Lock()
 
 def run(problem: str, code: str):
@@ -49,8 +37,17 @@ def run(problem: str, code: str):
             })
     else:
         for i in range(test_case_num):
-            shell = f'{path_generate}/test_{code} {i} < {path}/cases/{i}.in > {path_generate}//test_{code}{i}.out'
-            os.system(shell)
+            shell = f'{path_generate}/test_{code} {i} < {path}/cases/{i}.in > {path_generate}/test_{code}{i}.out'
+            shell_res = subprocess.run(shell, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
+            stderr = shell_res.stderr
+            if "CPU time limit exceeded" in stderr:
+                res_data.append({
+                    'case': f'{i}',
+                    'result': 'Time Limit Exceeded',
+                    'time_used': 2000,
+                    'memory_used': 0
+                })
+                continue
             shell = f'diff {path_generate}/test_{code}{i}.out {path}/cases/{i}.out > /dev/null 2>&1'
             sign = os.system(shell)
             if sign != 0:
