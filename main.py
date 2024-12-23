@@ -12,9 +12,9 @@ from concurrent.futures import ThreadPoolExecutor
 with open(data_path + '/data.csv', 'rb') as f:
     encoding = chardet.detect(f.read())['encoding']
 
-def process_row(row):
+def process_row(row: dict):
     """
-    处理单行数据的函数，负责完成每个问题的创建和生成。
+    处理单行数据的函数，负责完成每个问题的创建和生成, row为字典类型
     """
     if not os.path.exists(problem_path):
         os.makedirs(problem_path)
@@ -123,11 +123,18 @@ def process_row(row):
         run_all(tem_name)
                 
 
-def create_problem(op: bool = True):
+def create_problem(name: str = None, op: bool = True):
     """
-    读取数据并使用并发/非并发处理每一行。
+    读取数据并使用并发/非并发处理每一行, name为是否指定题目名字, op为是否并发处理
     """
     df = pd.read_csv(f'{data_path}/data.csv', encoding=encoding)
+
+    if name:
+        df = df[df['id'] == name]
+        if df.empty:
+            raise Exception(f'Problem {name} not found')
+        process_row(df.to_dict(orient='records')[0])
+        return
 
     if op is True:
         with ThreadPoolExecutor() as executor:
@@ -138,5 +145,5 @@ def create_problem(op: bool = True):
 
 if __name__ == '__main__':
     print(f'Enabled models: {models_list}')
-    create_problem()
+    create_problem(name='cf10')
 
