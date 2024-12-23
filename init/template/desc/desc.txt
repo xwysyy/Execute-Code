@@ -34,4 +34,4 @@ The maximum value of items that can be put in the backpack is 2. One optimal sel
 # Constraints:  
 - \(0 < N, V, v[i], w[i] \leq @data\)  
 - Time limit: @time_limit ms  
-- Memory limit: @space_limit KB  
+- Memory limit: @memory_limit KB  

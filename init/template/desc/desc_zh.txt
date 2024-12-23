@@ -34,4 +34,4 @@ w = [1, 2, 1]
 # 约束条件  
 - \(0 < N, V, v[i], w[i] \leq @data\)  
 - 时间限制：@time_limit ms  
-- 内存限制：@space_limit KB  
+- 内存限制：@memory_limit KB  
