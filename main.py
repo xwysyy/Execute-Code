@@ -22,7 +22,7 @@ def process_row(row: dict):
     desc = row['desc']
     desc_zh = row['desc_zh']
     data = list(map(int, row['data'].split()))
-    time_limit = row['time_limit']
+    time_limit = int(row['time_limit'])
     memory_limit = list(map(int, row['memory_limit'].split()))
     std = row['std']
     generator = row['generator']
@@ -112,15 +112,15 @@ def process_row(row: dict):
             os.system(f'bash {problem_level_path}/generate/generate.sh')
             print(f'{tem_name} changed')
             ask(tem_name)
+            run_all(tem_name)
         else:
             tem_model_list = [model for model in models_list if not os.path.exists(f'{problem_level_path}/codes/{model}.h')]                    
             if tem_model_list:
                 print(f'{tem_name} models changed')
                 ask(tem_name, tem_model_list)
-                # run_all(tem_name, code_list=tem_model_list)
+                run_all(tem_name, code_list=tem_model_list)
             else:
                 print(f'{tem_name} not changed')
-        run_all(tem_name)
                 
 
 def create_problem(name: str = None, op: bool = True):
@@ -145,5 +145,5 @@ def create_problem(name: str = None, op: bool = True):
 
 if __name__ == '__main__':
     print(f'Enabled models: {models_list}')
-    create_problem(name='cf10')
+    create_problem(op=False)
 
