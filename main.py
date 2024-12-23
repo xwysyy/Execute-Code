@@ -53,13 +53,13 @@ def process_row(row: dict):
                 with open(full_path, 'r+', encoding='utf-8') as f:
                     pre_content = f.read()
                     if pre_content != cur_content:
-                        if file_path == 'generate/generator.cpp':
-                            os.system(f'bash {problem_level_path}/generate/generate.sh')
-                        else:
-                            flag = True
                         f.seek(0)
                         f.write(cur_content)
                         f.truncate()
+                        if file_path != 'desc/desc.txt':
+                            os.system(f'bash {problem_level_path}/generate/generate.sh')
+                        else:
+                            flag = True
             except FileNotFoundError:
                 with open(full_path, 'w', encoding='utf-8') as f:
                     f.write(cur_content)
