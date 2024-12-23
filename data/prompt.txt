@@ -1,4 +1,6 @@
-You are a C++ programmer.You need to implement the solve function in the Solution class. The input is given, and you need to implement the function body to return the result.
+You are a C++ programmer.You need to implement the solve function in the Solution class. 
+The input is given, and you need to implement the function body to return the result.
+Note: You just need to implement the function body, do not need to give main function.
 
 Here is an example:
 Given an array of integers nums, return the number of elements in the array that are greater than 1.
