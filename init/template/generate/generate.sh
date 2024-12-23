@@ -11,10 +11,10 @@ do
         value=$(echo $row | jq -r --arg key "$key" '.[$key]')
         params+=($value)
     done
-    $path/generator "${params[@]}" > $path/../cases/$i.in
+    $path/generator "${params[@]}" $i > $path/../cases/$i.in
     $path/std $i < $path/../cases/$i.in > $path/../cases/$i.out
     ((i++))
-    $path/generator "${params[@]}" > $path/../cases/$i.in
+    $path/generator "${params[@]}" $i > $path/../cases/$i.in
     $path/std $i < $path/../cases/$i.in > $path/../cases/$i.out
     ((i++))
 done
