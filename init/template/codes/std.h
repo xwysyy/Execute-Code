@@ -5,7 +5,7 @@ using namespace std;
 class Solution
 {
 public:
-    int solve(int N, int V, vector<int> &v, vector<int> &w)
+    int solve(int &N, int &V, vector<int> &v, vector<int> &w)
     {
      vector<int>dp(V+1);
      for(int i=1;i<=N;i++)
