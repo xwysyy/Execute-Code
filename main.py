@@ -65,7 +65,7 @@ def process_row(row):
         new_desc = desc
         new_desc_zh = desc_zh
         new_desc = new_desc.replace('@data', str(data[len(memory_limit)-1]))
-        new_desc_zh = new_desc_zh.replace('@data', str(data[level]))
+        new_desc_zh = new_desc_zh.replace('@data', str(data[len(memory_limit)-1]))
         new_desc = new_desc.replace('@time_limit', str(time_limit))
         new_desc_zh = new_desc_zh.replace('@time_limit', str(time_limit))
         new_desc = new_desc.replace('@memory_limit', str(memory_limit[level]))
