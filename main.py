@@ -117,7 +117,7 @@ def process_row(row):
             if tem_model_list:
                 print(f'{tem_name} models changed')
                 ask(tem_name, tem_model_list)
-        #         run_all(tem_name, code_list=tem_model_list)
+                # run_all(tem_name, code_list=tem_model_list)
             else:
                 print(f'{tem_name} not changed')
         run_all(tem_name)
