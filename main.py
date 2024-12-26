@@ -157,5 +157,5 @@ def create_problem(name: str = None, op: bool = True):
 
 if __name__ == '__main__':
     print(f'Enabled models: {models_list}')
-    create_problem('cf7')
+    create_problem()
 
