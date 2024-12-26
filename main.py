@@ -27,6 +27,8 @@ def process_row(row: dict):
     std = row['std']
     generator = row['generator']
     test_cpp = row['test']
+    if not all([desc, desc_zh, data, time_limit, memory_limit, std, generator, test_cpp]):
+        raise Exception(f'Problem {id} not complete')
     std = f'#ifndef STD_H\n#define STD_H\n#include <bits/stdc++.h>\nusing namespace std;\n\n{std}\n\n#endif'
 
     # 设定单个数据范围测试点数目为2
@@ -61,7 +63,6 @@ def process_row(row: dict):
                         if file_path != 'desc/desc.txt':
                             nonlocal flag1
                             flag1 = True
-                            os.system(f'bash {problem_level_path}/generate/generate.sh')
                         else:
                             flag = True
             except FileNotFoundError:
@@ -111,7 +112,7 @@ def process_row(row: dict):
             problem_json_file = json.load(f)
         problem_json_file['time_limit'] = int(time_limit)
         problem_json_file['memory_limit'] = int(memory_limit[level])
-        problem_json_file['test_case_num'] = len(data) * 2
+        problem_json_file['test_case_num'] = len(data) * test_data_num
         operate_json('problem.json', problem_json_file)
 
         tem_name = f'{id}/{level}'
@@ -121,6 +122,7 @@ def process_row(row: dict):
             ask(tem_name)
             run_all(tem_name)
         elif flag1 is True:
+            os.system(f'bash {problem_level_path}/generate/generate.sh')
             print(f'{tem_name} test changed')
             run_all(tem_name)
         else:
@@ -155,5 +157,5 @@ def create_problem(name: str = None, op: bool = True):
 
 if __name__ == '__main__':
     print(f'Enabled models: {models_list}')
-    create_problem(op=False)
+    create_problem('cf7')
 
