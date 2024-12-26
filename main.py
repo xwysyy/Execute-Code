@@ -149,7 +149,7 @@ def create_problem(name: str = None, op: bool = True):
         return
 
     if op is True:
-        with ThreadPoolExecutor() as executor:
+        with ThreadPoolExecutor(max_workers=2) as executor:
             executor.map(process_row, df.to_dict(orient='records'))
     else:
         for _, row in df.iterrows():

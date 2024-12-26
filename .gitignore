@@ -5,3 +5,4 @@ data/problems
 models.yaml
 data/data.csv
 test.py
+*.log
