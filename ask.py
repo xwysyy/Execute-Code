@@ -33,7 +33,7 @@ def get_code(question: str, model: str, api_key: str, base_url: str):
     )
     
     code = chat_completion.choices[0].message.content
-    code = 'class Solution' + code.split('class Solution')[-1] 
+    code = 'class Solution ' + code.split('class Solution ')[-1] 
     code = code.split('```')[0]
     tem_name = re.sub(r'[^a-zA-Z0-9_]', '_', model).upper()
     code = f'#ifndef {tem_name}_H\n#define {tem_name}_H\n#include <bits/stdc++.h>\nusing namespace std;\n\n{code}\n\n#endif'
