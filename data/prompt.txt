@@ -19,7 +19,10 @@ Explanation: The elements greater than 1 are [2,3,2]
 constraints:
 1 <= nums.length, nums[i] <= 10000
 
-Please generate your code like this:
+Only the portion between the last "\nclass Solution" and the end of the code block "```" is preserved when the code is intercepted.
+Please do not write code in class accidentally, and do not have excess parts.
+
+Please generate your code like this(Your functions must be encapsulated in "class Solution"):
 
 class Solution
 {
