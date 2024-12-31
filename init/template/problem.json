@@ -1,5 +1,10 @@
 {
-    "test_case_num": 6,
     "time_limit": 1000,
-    "memory_limit": 6550
+    "memory_limit": [
+        6400,
+        640,
+        64
+    ],
+    "cate": "dp",
+    "difficulty": "easy"
 }

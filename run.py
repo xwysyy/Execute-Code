@@ -21,11 +21,11 @@ def run(problem: str, code: str):
         memory_limit = (int)(tem_problem_json['memory_limit'])
         test_case_num = (int)(tem_problem_json['test_case_num'])
     
-    path_generate = f'{path}/generate'
-    os.system(f'cp {path}/codes/{code}.h {path_generate}/test_{code}.h')
-    os.system(f'cp {path_generate}/test.cpp {path_generate}/test_{code}.cpp')
-    os.system(f'sed -i "s/#include \\"std.h\\"/#include \\"test_{code}.h\\"/g" {path_generate}/test_{code}.cpp')
-    sign = os.system(f'g++ {path_generate}/test_{code}.cpp -o {path_generate}/test_{code}')
+    path_exec = f'{path}/exec'
+    os.system(f'cp {path}/codes/{code}.h {path_exec}/test_{code}.h')
+    os.system(f'cp {path_exec}/test.cpp {path_exec}/test_{code}.cpp')
+    os.system(f'sed -i "s/#include \\"std.h\\"/#include \\"test_{code}.h\\"/g" {path_exec}/test_{code}.cpp')
+    sign = os.system(f'g++ {path_exec}/test_{code}.cpp -o {path_exec}/test_{code}')
     res_data = []
     if sign != 0:
         for i in range(test_case_num):
@@ -37,7 +37,7 @@ def run(problem: str, code: str):
             })
     else:
         for i in range(test_case_num):
-            shell = f'{path_generate}/test_{code} {i} < {path}/cases/{i}.in > {path_generate}/test_{code}{i}.out'
+            shell = f'{path_exec}/test_{code} {i} < {path}/cases/{i}.in > {path_exec}/test_{code}{i}.out'
             shell_res = subprocess.run(shell, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
             stderr = shell_res.stderr
             if "CPU time limit exceeded" in stderr:
@@ -48,7 +48,7 @@ def run(problem: str, code: str):
                     'memory_used': 0
                 })
                 continue
-            shell = f'diff {path_generate}/test_{code}{i}.out {path}/cases/{i}.out > /dev/null 2>&1'
+            shell = f'diff {path_exec}/test_{code}{i}.out {path}/cases/{i}.out > /dev/null 2>&1'
             sign = os.system(shell)
             if sign != 0:
                 res_data.append({
@@ -58,7 +58,7 @@ def run(problem: str, code: str):
                     'memory_used': 0
                 })
             else:
-                with open(f'{path_generate}/test_{code}_result{i}.txt', 'r') as f:
+                with open(f'{path_exec}/test_{code}_result{i}.txt', 'r') as f:
                     time_before = (int)(f.readline())
                     memory_before = (int)(f.readline())
                     time_after = (int)(f.readline())
@@ -79,7 +79,7 @@ def run(problem: str, code: str):
                     'time_used': time_used,
                     'memory_used': memory_used
                 })
-    os.system(f'rm -f {path_generate}/test_{code}*')
+    os.system(f'rm -f {path_exec}/test_{code}*')
 
     with lock:
         result_file = f'{path}/result.json'

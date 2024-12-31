@@ -67,7 +67,6 @@ def ask(name: str, models_list: list = models_list):
         base_url = models_config[model]['base_url']
         cpp_code = get_code(problem, model, api_key, base_url)
         with open(f'{path}/{model}.h', 'w', encoding='utf-8') as f:
-            # f.write(cpp_code)
             for chunk in [cpp_code[i:i+1024] for i in range(0, len(cpp_code), 1024)]:
                 f.write(chunk)
 
@@ -76,4 +75,3 @@ def ask(name: str, models_list: list = models_list):
 
 if __name__ == '__main__':
     print(f'Enabled models: {models_list}') 
-    # ask('cf1/0')
