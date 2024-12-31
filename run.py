@@ -117,5 +117,4 @@ def run_all(problem: str, op: bool = True, code_list: list = None):
             run(problem, code)
 
 if __name__ == '__main__':
-    run_all('1/1')
-    # run_all('1/2')
+    pass
