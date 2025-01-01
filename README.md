@@ -10,13 +10,13 @@
 * 请参照模版配置`data/data.csv`内容
 * 在`data/prompt.txt`中配置大模型生成代码的prompt。
 * 在`main.py`中，读取`data/data.csv`中的题目，并调用api生成代码，进行评测。
+* 需要提供`data/test_cases.zip`文件，用于读取测试用例。
 * 假设题目名称为`test`，并进入到`data/problems/test`目录下。
   * `problem.json`是题目测试的基本信息。
   * `result.json`是测试结果。
   * `cases`是测试用例。
   * `code`是大模型生成的代码。
   * `desc`是题目描述。
-  * `generate`用于生成测试用例以及测试代码。
 
 # 可能会出现的问题：
 
