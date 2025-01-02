@@ -1,0 +1,32 @@
+# Problem Statement
+You are given a string $s$, consisting of lowercase Latin letters and/or question marks.
+
+A tandem repeat is a string of an even length such that its first half is equal to its second half.
+
+A string $a$ is a substring of a string $b$ if $a$ can be obtained from $b$ by the deletion of several (possibly, zero or all) characters from the beginning and several (possibly, zero or all) characters from the end.
+
+Your goal is to replace each question mark with some lowercase Latin letter in such a way that the length of the longest substring that is a tandem repeat is maximum possible.
+
+The main function of the solution is defined as:  
+```cpp
+class Solution {
+public:
+    int solve(string &s) {
+        // write your code here
+    }
+};
+```
+where:  
+- the return value is the length of the longest substring that is a tandem repeat
+
+# Example 1:  
+- Input:  
+s = "?????"
+- Output:  
+4
+
+# Constraints:  
+- $1 \leq s.length \leq 5000$
+- s consists of lowercase Latin letters or question marks
+- Time limit: 1000 ms  
+- Memory limit: 640 KB  

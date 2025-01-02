@@ -1,0 +1,35 @@
+# Problem Statement
+You are given a binary array$^{\dagger}$ of length $n$. You are allowed to perform one operation on it **at most once**. In an operation, you can choose any element and flip it: turn a $0$ into a $1$ or vice-versa.
+
+What is the maximum number of inversions$^{\ddagger}$ the array can have after performing **at most one** operation?
+
+$^\dagger$ A binary array is an array that contains only zeroes and ones.
+
+$^\ddagger$ The number of inversions in an array is the number of pairs of indices $i,j$ such that $i<j$ and $a_i > a_j$.
+
+The main function of the solution is defined as: 
+```cpp
+class Solution {
+public:
+    long long solve(int &n, vector<int> &a) {   
+        // write your code here
+    }
+};
+```
+Where:  
+- `n` is an integer representing the length of the array.  
+- `a` is a binary array of length $n$.  
+- The function should return a 64-bit integer, representing the maximum number of inversions in the array after performing at most one operation.
+
+# Example 1:  
+- Input:  
+n = 4  
+a = [1, 0, 1, 0]
+- Output:  
+3
+
+# Constraints:  
+- $1 \leq n \leq 100000$ 
+- $0 \leq a_i \leq 1$ 
+- Time limit: 1000 ms  
+- Memory limit: 64 KB  

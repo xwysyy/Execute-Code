@@ -1,0 +1,38 @@
+# Problem Statement:
+You are given $n$ of integers $a_1, a_2, \ldots, a_n$. Process $q$ queries of two types:
+
+-   query of the form "0 $x_j$": add the value $x_j$ to all even elements of the array $a$,
+-   query of the form "1 $x_j$": add the value $x_j$ to all odd elements of the array $a$.
+
+Note that when processing the query, we look specifically at the odd/even value of $a_i$, not its index.
+
+After processing each query, print the sum of the elements of the array $a$.
+
+The main function of the solution is defined as: 
+```cpp
+vector<long long> solve(int &n, int &q, vector<int> &a, vector<pair<int, int>> &queries) {
+    // write your code here
+}
+```
+Where:  
+- `n` is an integer representing the size of the array $a$.  
+- `q` is an integer representing the number of queries.  
+- `a` is a vector of integers, representing the initial array.  
+- `queries` is a vector of pairs, where each pair represents a query of the given type and value.  
+- The function should return a vector of long long integers, representing the sum of the array after processing each query.
+
+# Example 1:
+- Input:  
+n = 1  
+q = 1  
+a = [1]  
+queries = [(1, 1)]
+- Output:  
+[2]
+
+# Constraints:
+- $1 \leq n, q \leq 100000$  
+- $1 \leq a[i] \leq 10^9$  
+- $1 \leq x_j \leq 10^4$
+- Time limit: 1000 ms  
+- Memory limit: 6400 KB

@@ -1,0 +1,36 @@
+# Problem Statement
+In the snake exhibition, there are $n$ rooms (numbered $0$ to $n - 1$) arranged in a circle, with a snake in each room. The rooms are connected by $n$ conveyor belts, and the $i$\-th conveyor belt connects the rooms $i$ and $(i+1) \bmod n$. In the other words, rooms $0$ and $1$, $1$ and $2$, $\ldots$, $n-2$ and $n-1$, $n-1$ and $0$ are connected with conveyor belts.
+
+The $i$\-th conveyor belt is in one of three states:
+
+-   If it is clockwise, snakes can only go from room $i$ to $(i+1) \bmod n$.
+-   If it is anticlockwise, snakes can only go from room $(i+1) \bmod n$ to $i$.
+-   If it is off, snakes can travel in either direction.
+
+Each snake wants to leave its room and come back to it later. A room is **returnable** if the snake there can leave the room, and later come back to it using the conveyor belts. How many such **returnable** rooms are there?
+
+The main function of the solution is:
+```cpp
+class Solution {
+public:
+    int solve(int &n, string &s) {
+        // write your code here
+    }
+};
+```
+where:
+- `n` is the number of rooms,
+- `s` is a string of length $n$ that represents the state of each conveyor belt. If the $i$-th conveyor belt is clockwise, `s[i] = '>'`; if it is counterclockwise, `s[i] = '<'`; if it is off, `s[i] = '-'`.
+- The return value is the number of returnable rooms.
+
+# Example 1  
+- Input:  
+n = 5
+s = ">>>>>"
+- Output:  
+5
+
+# Constraints  
+- $2 \leq n \leq 100000$
+- Time limit: 1000 ms  
+- Memory limit: 64 KB  

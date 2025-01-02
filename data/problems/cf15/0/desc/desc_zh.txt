@@ -1,0 +1,35 @@
+# 题面
+序列 $[s_1, s_2, \ldots, s_d]$ 的得分定义为 $\displaystyle \frac{s_1\cdot s_2\cdot \ldots \cdot s_d}{d!}$ ，其中 $d!=1\cdot 2\cdot \ldots \cdot d$ 。其中，空序列的得分为 $1$ 。
+
+对于序列 $[s_1, s_2, \ldots, s_d]$ ，设 $m$ 为其所有子序列中的最大得分。其代价定义为得分为 $m$ 的子序列的最大长度。
+
+给你一个长度为 $n$ 的非递减**序列 $[a_1, a_2, \ldots, a_n]$ 。换句话说，满足条件 $a_1 \leq a_2 \leq \ldots \leq a_n$ 。对于每个 $k=1, 2, \ldots , n$ ，求序列 $[a_1, a_2, \ldots , a_k]$ 的代价。
+
+如果 $x$ 可以从 $y$ 中删除几个（可能是零个或全部）元素而得到，则序列 $x$ 是序列 $y$ 的子序列。
+
+solution的主函数如下：  
+```cpp
+class Solution {
+public:
+    vector<int> solve(int &n, vector<int> &a) {   
+        // write your code here
+    }
+};
+```
+其中：  
+- `n` 表示数组的长度。
+- `a` 是一个长度为 `n` 的数组，保证是非递减的。
+- 函数应返回一个整数，表示按照上述规则得到的每个子序列的代价。
+
+# 示例 1  
+- 输入：  
+n = 3
+a = [1, 2, 3]
+- 输出：  
+[1, 1, 2]
+
+# 约束条件  
+- $1 \leq n \leq 100000$
+- $1 \leq a_i \leq n$
+- 时间限制：1000 ms  
+- 内存限制：6400 KB  

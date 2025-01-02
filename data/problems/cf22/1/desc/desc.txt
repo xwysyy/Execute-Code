@@ -1,0 +1,40 @@
+# Problem Statement
+You are given an $n \times m$ grid $a$ of non-negative integers. The value $a_{i,j}$ represents the depth of water at the $i$\-th row and $j$\-th column.
+
+A lake is a set of cells such that:
+
+-   each cell in the set has $a_{i,j} > 0$, and
+-   there exists a path between any pair of cells in the lake by going up, down, left, or right a number of times and without stepping on a cell with $a_{i,j} = 0$.
+
+The volume of a lake is the sum of depths of all the cells in the lake.
+
+Find the largest volume of a lake in the grid.
+
+The main function of the solution is defined as:  
+```cpp
+class Solution {
+public:
+    int solve(int &n, int &m, vector<vector<int>> &a) {   
+        // write your code here
+    }
+};
+```
+where:  
+- return value is the largest volume of a lake
+
+# Example 1:  
+- Input:  
+n = 3, m = 3
+a = [
+  [1, 2, 0],
+  [3, 4, 0],
+  [0, 0, 5]
+]
+- Output:  
+10 
+
+# Constraints:  
+- $1 \leq n * m \leq 1000000$  
+- $0 \leq a[i] \leq 10^3$
+- Time limit: 1000 ms  
+- Memory limit: 12800 KB  

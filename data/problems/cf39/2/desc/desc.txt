@@ -1,0 +1,38 @@
+# Problem Statement
+There is a grid, consisting of $2$ rows and $n$ columns. The rows are numbered from $1$ to $2$ from top to bottom. The columns are numbered from $1$ to $n$ from left to right. Each cell of the grid contains an arrow pointing either to the left or to the right. No arrow points outside the grid.
+
+There is a robot that starts in a cell $(1, 1)$. Every second, the following two actions happen one after another:
+
+1.  Firstly, the robot moves left, right, down or up (**it can't try to go outside the grid, and can't skip a move**);
+2.  then it moves along the arrow that is placed in the current cell (the cell it ends up after its move).
+
+Your task is to determine whether the robot can reach the cell $(2, n)$.
+
+The main function of the solution is defined as:  
+```cpp
+class Solution {
+public:
+    string solve(int &n, string &s1, string &s2) {   
+        // write your code here
+    }
+};
+```
+where:  
+- `s1` is a string of length $n$, representing the directions of the arrows in the first row
+- `s2` is a string of length $n$, representing the directions of the arrows in the second row
+- return "YES" or "NO"
+
+# Example 1:  
+- Input:  
+n = 4
+s1 =">><<"
+s2 =">>><"
+- Output:  
+YES
+
+# Constraints:  
+- $1 \leq n \leq 100000$
+- n is even
+- No arrow points outside the grid
+- Time limit: 1000 ms  
+- Memory limit: 64 KB  

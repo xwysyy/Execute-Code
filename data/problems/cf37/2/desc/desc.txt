@@ -1,0 +1,35 @@
+# Problem Statement
+Rudolf has a string $s$ of length $n$. Rudolf considers the string $s$ to be ugly if it contains the substring$^\dagger$ "pie" or the substring "map", otherwise the string $s$ will be considered beautiful.
+
+For example, "ppiee", "mmap", "dfpiefghmap" are ugly strings, while "mathp", "ppiiee" are beautiful strings.
+
+Rudolf wants to shorten the string $s$ by removing some characters to make it beautiful.
+
+The main character doesn't like to strain, so he asks you to make the string beautiful by removing the minimum number of characters. He can remove characters from **any** positions in the string (not just from the beginning or end of the string).
+
+$^\dagger$ String $a$ is a substring of $b$ if there exists a **consecutive** segment of characters in string $b$ equal to $a$.
+
+The main function of the solution is defined as:  
+```cpp
+class Solution {
+public:
+    int solve(int &n, string &s) {   
+        // write your code here
+    }
+};
+```
+where:  
+- the return value is the minimum number of characters to be removed to make the string beautiful
+
+# Example 1:  
+- Input:  
+n = 9
+s = "mmapnapie"
+- Output:  
+2
+
+# Constraints:  
+- $1 \leq n \leq 1000000$
+- $s[i]$ is a lowercase letter
+- Time limit: 1000 ms  
+- Memory limit: 64 KB  

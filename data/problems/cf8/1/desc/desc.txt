@@ -1,0 +1,48 @@
+# Problem Statement:
+An integer array $a_1, a_2, \ldots, a_n$ is being transformed into an array of lowercase English letters using the following prodecure:
+
+While there is at least one number in the array:
+
+-   Choose any number $x$ from the array $a$, and any letter of the English alphabet $y$.
+-   Replace all occurrences of number $x$ with the letter $y$.
+
+For example, if we initially had an array $a = [2, 3, 2, 4, 1]$, then we could transform it the following way:
+
+-   Choose the number $2$ and the letter c. After that $a = [c, 3, c, 4, 1]$.
+-   Choose the number $3$ and the letter a. After that $a = [c, a, c, 4, 1]$.
+-   Choose the number $4$ and the letter t. After that $a = [c, a, c, t, 1]$.
+-   Choose the number $1$ and the letter a. After that $a = [c, a, c, t, a]$.
+
+After the transformation all letters are united into a string, in our example we get the string "cacta".
+
+Having the array $a$ and the string $s$ determine if the string $s$ could be got from the array $a$ after the described transformation?
+
+The main function of the solution is defined as: 
+```cpp
+class Solution {
+public:
+    string solve(int &n, vector<int> &a, string &s) {   
+        // write your code here
+    }
+};
+```
+
+Where:  
+- `n` is an integer representing the length of the array and string.  
+- `a` is an integer array.  
+- `s` is a string consisting of lowercase English letters.  
+- The return value is "YES" if the string $s$ could be got from the array $a$ after the described transformation, otherwise return "NO".
+
+# Example 1:
+- Input:  
+n = 5  
+a = [2, 3, 2, 4, 1]  
+s = "cacta"
+- Output:  
+YES
+
+# Constraints:
+- $1 \leq n \leq 100000$  
+- $1 \leq a[i] \leq n$  
+- Time limit: 1000 ms  
+- Memory limit: 640 KB

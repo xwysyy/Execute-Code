@@ -1,0 +1,450 @@
+{
+    "gemini-1.5-pro": [
+        {
+            "case": "0",
+            "result": "Wrong Answer",
+            "time_used": 0,
+            "memory_used": 0
+        },
+        {
+            "case": "1",
+            "result": "Accepted",
+            "time_used": 0,
+            "memory_used": 24
+        },
+        {
+            "case": "2",
+            "result": "Accepted",
+            "time_used": 1,
+            "memory_used": 16
+        },
+        {
+            "case": "3",
+            "result": "Wrong Answer",
+            "time_used": 0,
+            "memory_used": 0
+        },
+        {
+            "case": "4",
+            "result": "Wrong Answer",
+            "time_used": 0,
+            "memory_used": 0
+        },
+        {
+            "case": "5",
+            "result": "Wrong Answer",
+            "time_used": 0,
+            "memory_used": 0
+        },
+        {
+            "case": "6",
+            "result": "Time Limit Exceeded",
+            "time_used": 2000,
+            "memory_used": 0
+        },
+        {
+            "case": "7",
+            "result": "Time Limit Exceeded",
+            "time_used": 2000,
+            "memory_used": 0
+        },
+        {
+            "case": "8",
+            "result": "Time Limit Exceeded",
+            "time_used": 2000,
+            "memory_used": 0
+        }
+    ],
+    "claude-3-5-sonnet-20241022": [
+        {
+            "case": "0",
+            "result": "Accepted",
+            "time_used": 0,
+            "memory_used": 24
+        },
+        {
+            "case": "1",
+            "result": "Accepted",
+            "time_used": 1,
+            "memory_used": 24
+        },
+        {
+            "case": "2",
+            "result": "Accepted",
+            "time_used": 0,
+            "memory_used": 28
+        },
+        {
+            "case": "3",
+            "result": "Accepted",
+            "time_used": 72,
+            "memory_used": 44
+        },
+        {
+            "case": "4",
+            "result": "Accepted",
+            "time_used": 26,
+            "memory_used": 32
+        },
+        {
+            "case": "5",
+            "result": "Accepted",
+            "time_used": 21,
+            "memory_used": 24
+        },
+        {
+            "case": "6",
+            "result": "Time Limit Exceeded",
+            "time_used": 2000,
+            "memory_used": 0
+        },
+        {
+            "case": "7",
+            "result": "Time Limit Exceeded",
+            "time_used": 2000,
+            "memory_used": 0
+        },
+        {
+            "case": "8",
+            "result": "Time Limit Exceeded",
+            "time_used": 2000,
+            "memory_used": 0
+        }
+    ],
+    "std": [
+        {
+            "case": "0",
+            "result": "Accepted",
+            "time_used": 0,
+            "memory_used": 28
+        },
+        {
+            "case": "1",
+            "result": "Accepted",
+            "time_used": 0,
+            "memory_used": 16
+        },
+        {
+            "case": "2",
+            "result": "Accepted",
+            "time_used": 0,
+            "memory_used": 24
+        },
+        {
+            "case": "3",
+            "result": "Accepted",
+            "time_used": 4,
+            "memory_used": 56
+        },
+        {
+            "case": "4",
+            "result": "Accepted",
+            "time_used": 3,
+            "memory_used": 48
+        },
+        {
+            "case": "5",
+            "result": "Accepted",
+            "time_used": 3,
+            "memory_used": 72
+        },
+        {
+            "case": "6",
+            "result": "Accepted",
+            "time_used": 540,
+            "memory_used": 124
+        },
+        {
+            "case": "7",
+            "result": "Accepted",
+            "time_used": 380,
+            "memory_used": 136
+        },
+        {
+            "case": "8",
+            "result": "Accepted",
+            "time_used": 432,
+            "memory_used": 128
+        }
+    ],
+    "gpt-4o": [
+        {
+            "case": "0",
+            "result": "Wrong Answer",
+            "time_used": 0,
+            "memory_used": 0
+        },
+        {
+            "case": "1",
+            "result": "Accepted",
+            "time_used": 1,
+            "memory_used": 16
+        },
+        {
+            "case": "2",
+            "result": "Accepted",
+            "time_used": 1,
+            "memory_used": 28
+        },
+        {
+            "case": "3",
+            "result": "Accepted",
+            "time_used": 3,
+            "memory_used": 300
+        },
+        {
+            "case": "4",
+            "result": "Accepted",
+            "time_used": 2,
+            "memory_used": 184
+        },
+        {
+            "case": "5",
+            "result": "Accepted",
+            "time_used": 2,
+            "memory_used": 160
+        },
+        {
+            "case": "6",
+            "result": "Memory Limit Exceeded",
+            "time_used": 615,
+            "memory_used": 33892
+        },
+        {
+            "case": "7",
+            "result": "Memory Limit Exceeded",
+            "time_used": 368,
+            "memory_used": 24860
+        },
+        {
+            "case": "8",
+            "result": "Memory Limit Exceeded",
+            "time_used": 446,
+            "memory_used": 26328
+        }
+    ],
+    "deepseek-chat": [
+        {
+            "case": "0",
+            "result": "Accepted",
+            "time_used": 1,
+            "memory_used": 16
+        },
+        {
+            "case": "1",
+            "result": "Accepted",
+            "time_used": 0,
+            "memory_used": 16
+        },
+        {
+            "case": "2",
+            "result": "Accepted",
+            "time_used": 1,
+            "memory_used": 24
+        },
+        {
+            "case": "3",
+            "result": "Accepted",
+            "time_used": 2,
+            "memory_used": 52
+        },
+        {
+            "case": "4",
+            "result": "Accepted",
+            "time_used": 2,
+            "memory_used": 44
+        },
+        {
+            "case": "5",
+            "result": "Accepted",
+            "time_used": 2,
+            "memory_used": 80
+        },
+        {
+            "case": "6",
+            "result": "Accepted",
+            "time_used": 249,
+            "memory_used": 156
+        },
+        {
+            "case": "7",
+            "result": "Accepted",
+            "time_used": 177,
+            "memory_used": 152
+        },
+        {
+            "case": "8",
+            "result": "Accepted",
+            "time_used": 202,
+            "memory_used": 144
+        }
+    ],
+    "qwen-plus": [
+        {
+            "case": "0",
+            "result": "Accepted",
+            "time_used": 0,
+            "memory_used": 16
+        },
+        {
+            "case": "1",
+            "result": "Accepted",
+            "time_used": 0,
+            "memory_used": 16
+        },
+        {
+            "case": "2",
+            "result": "Accepted",
+            "time_used": 1,
+            "memory_used": 16
+        },
+        {
+            "case": "3",
+            "result": "Accepted",
+            "time_used": 3,
+            "memory_used": 300
+        },
+        {
+            "case": "4",
+            "result": "Accepted",
+            "time_used": 2,
+            "memory_used": 184
+        },
+        {
+            "case": "5",
+            "result": "Accepted",
+            "time_used": 2,
+            "memory_used": 160
+        },
+        {
+            "case": "6",
+            "result": "Memory Limit Exceeded",
+            "time_used": 744,
+            "memory_used": 35944
+        },
+        {
+            "case": "7",
+            "result": "Memory Limit Exceeded",
+            "time_used": 410,
+            "memory_used": 24852
+        },
+        {
+            "case": "8",
+            "result": "Memory Limit Exceeded",
+            "time_used": 585,
+            "memory_used": 28364
+        }
+    ],
+    "gpt-4o-mini": [
+        {
+            "case": "0",
+            "result": "Accepted",
+            "time_used": 0,
+            "memory_used": 16
+        },
+        {
+            "case": "1",
+            "result": "Accepted",
+            "time_used": 1,
+            "memory_used": 16
+        },
+        {
+            "case": "2",
+            "result": "Accepted",
+            "time_used": 0,
+            "memory_used": 24
+        },
+        {
+            "case": "3",
+            "result": "Accepted",
+            "time_used": 3,
+            "memory_used": 300
+        },
+        {
+            "case": "4",
+            "result": "Accepted",
+            "time_used": 2,
+            "memory_used": 184
+        },
+        {
+            "case": "5",
+            "result": "Accepted",
+            "time_used": 3,
+            "memory_used": 160
+        },
+        {
+            "case": "6",
+            "result": "Memory Limit Exceeded",
+            "time_used": 762,
+            "memory_used": 33892
+        },
+        {
+            "case": "7",
+            "result": "Memory Limit Exceeded",
+            "time_used": 441,
+            "memory_used": 24860
+        },
+        {
+            "case": "8",
+            "result": "Memory Limit Exceeded",
+            "time_used": 494,
+            "memory_used": 28376
+        }
+    ],
+    "qwen-max": [
+        {
+            "case": "0",
+            "result": "Wrong Answer",
+            "time_used": 0,
+            "memory_used": 0
+        },
+        {
+            "case": "1",
+            "result": "Wrong Answer",
+            "time_used": 0,
+            "memory_used": 0
+        },
+        {
+            "case": "2",
+            "result": "Accepted",
+            "time_used": 1,
+            "memory_used": 24
+        },
+        {
+            "case": "3",
+            "result": "Wrong Answer",
+            "time_used": 0,
+            "memory_used": 0
+        },
+        {
+            "case": "4",
+            "result": "Wrong Answer",
+            "time_used": 0,
+            "memory_used": 0
+        },
+        {
+            "case": "5",
+            "result": "Wrong Answer",
+            "time_used": 0,
+            "memory_used": 0
+        },
+        {
+            "case": "6",
+            "result": "Wrong Answer",
+            "time_used": 0,
+            "memory_used": 0
+        },
+        {
+            "case": "7",
+            "result": "Wrong Answer",
+            "time_used": 0,
+            "memory_used": 0
+        },
+        {
+            "case": "8",
+            "result": "Wrong Answer",
+            "time_used": 0,
+            "memory_used": 0
+        }
+    ]
+}

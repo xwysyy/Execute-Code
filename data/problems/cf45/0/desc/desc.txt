@@ -1,0 +1,28 @@
+# Problem Statement
+A girl is preparing for her birthday and wants to buy the most beautiful bouquet. There are a total of $n$ flowers in the store, each of which is characterized by the number of petals, and a flower with $k$ petals costs $k$ coins. The girl has decided that the difference in the number of petals between any two flowers she will use in her bouquet should not exceed one. At the same time, the girl wants to assemble a bouquet with the maximum possible number of petals. Unfortunately, she only has $m$ coins, and she cannot spend more. What is the maximum total number of petals she can assemble in the bouquet?
+
+The main function of the solution is defined as:  
+```cpp
+class Solution {
+public:
+    long long solve(int &n, long long &m, vector<int> &a) {   
+        // write your code here
+    }
+};
+```
+where:  
+- The return value is the maximum total number of petals that can be assembled in the bouquet. Note that the answer may be very large and should be stored in a 64-bit integer type.
+
+# Example 1:  
+- Input:  
+n = 5, m = 10
+a = [1, 1, 2, 2, 3]
+- Output:  
+7
+
+# Constraints:  
+- $1 \leq n \leq 100000$
+- $1 \leq m \leq 10^18$
+- $1 \leq a[i] \leq 10^9$ 
+- Time limit: 1000 ms  
+- Memory limit: 6400 KB  

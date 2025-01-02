@@ -1,0 +1,35 @@
+# Problem Statement
+Stalin Sort is a humorous sorting algorithm designed to eliminate elements which are out of place instead of bothering to sort them properly, lending itself to an $\mathcal{O}(n)$ time complexity.
+
+It goes as follows: starting from the second element in the array, if it is strictly smaller than the previous element (ignoring those which have already been deleted), then delete it. Continue iterating through the array until it is sorted in non-decreasing order. For example, the array $[1, 4, 2, 3, 6, 5, 5, 7, 7]$ becomes $[1, 4, 6, 7, 7]$ after a Stalin Sort.
+
+We define an array as vulnerable if you can sort it in **non-increasing** order by repeatedly applying a Stalin Sort to **any of its subarrays$^{\text{∗}}$**, as many times as is needed.
+
+Given an array $a$ of $n$ integers, determine the minimum number of integers which must be removed from the array to make it vulnerable.
+
+$^{\text{∗}}$An array $a$ is a subarray of an array $b$ if $a$ can be obtained from $b$ by the deletion of several (possibly, zero or all) elements from the beginning and several (possibly, zero or all) elements from the end.
+
+The main function of the solution is defined as:  
+```cpp
+class Solution {
+public:
+    int solve(int &n, vector<int> &a) {   
+        // write your code here
+    }
+};
+```
+where:  
+- the return value is the minimum number of integers to be removed to make the array vulnerable
+
+# Example 1:  
+- Input:  
+n = 7
+a = [3, 6, 4, 9, 2, 5, 2]
+- Output:  
+2
+
+# Constraints:  
+- $1 \leq n \leq 10000$
+- $1 \leq a[i] \leq 10^9$ 
+- Time limit: 1000 ms  
+- Memory limit: 6400 KB  

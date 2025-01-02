@@ -1,0 +1,32 @@
+# Problem Statement:
+You had $n$ positive integers $a_1, a_2, \dots, a_n$ arranged in a circle. For each pair of neighboring numbers ($a_1$ and $a_2$, $a_2$ and $a_3$, ..., $a_{n - 1}$ and $a_n$, and $a_n$ and $a_1$), you wrote down: are the numbers in the pair equal or not.
+
+Unfortunately, you've lost a piece of paper with the array $a$. Moreover, you are afraid that even information about equality of neighboring elements may be inconsistent. So, you are wondering: is there any array $a$ which is consistent with information you have about equality or non-equality of corresponding pairs?
+
+The main function of the solution is defined as: 
+```cpp
+class Solution {
+public:
+    string solve(int &n, string &s) {   
+        // write your code here
+    }
+};
+```
+Where:  
+- `n` is an integer representing the number of elements in the array.  
+- `s` is a string consisting of the characters 'N' and 'E', where:  
+  - 'E' indicates the two adjacent numbers are equal.  
+  - 'N' indicates the two adjacent numbers are not equal.  
+- The return value is "YES" if there exists an array $a$ consistent with the information you have, otherwise, it is "NO".
+
+# Example 1: 
+- Input:  
+n = 3  
+s = "EEE"
+- Output:  
+YES
+
+# Constraints:
+- $2 \leq n \leq 100000$
+- Time limit: 1000 ms
+- Memory limit: 6400 KB

@@ -1,0 +1,38 @@
+# Problem Statement
+Sakurako's exams are over, and she did excellently. As a reward, she received a permutation $p$. Kosuke was not entirely satisfied because he failed one exam and did not receive a gift. He decided to sneak into her room (thanks to the code for her lock) and spoil the permutation so that it becomes simple.
+
+A permutation $p$ is considered simple if for every $i$ $(1\le i \le n)$ one of the following conditions holds:
+
+-   $p_i=i$
+-   $p_{p_i}=i$
+
+For example, the permutations $[1, 2, 3, 4]$, $[5, 2, 4, 3, 1]$, and $[2, 1]$ are simple, while $[2, 3, 1]$ and $[5, 2, 1, 4, 3]$ are not.
+
+In one operation, Kosuke can choose indices $i,j$ $(1\le i,j\le n)$ and swap the elements $p_i$ and $p_j$.
+
+Sakurako is about to return home. Your task is to calculate the minimum number of operations that Kosuke needs to perform to make the permutation simple.
+
+The main function of the solution is defined as:  
+```cpp
+class Solution {
+public:
+    int solve(int &n, vector<int> &p) {   
+        // write your code here
+    }
+};
+```
+where:  
+- the return value is the minimum number of operations needed to make the permutation simple
+
+# Example 1:  
+- Input:  
+n = 5
+p = [1, 2, 3, 4, 5]
+- Output:  
+0
+
+# Constraints:  
+- $1 \leq n \leq 1000000$
+- $1 \leq p[i] \leq n$ 
+- Time limit: 1000 ms  
+- Memory limit: 6400 KB  

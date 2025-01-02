@@ -1,0 +1,27 @@
+# Problem Statement:
+Given an array $a$ of $n$ elements, print any value that appears at least three times or print -1 if there is no such value.
+
+The main function of the solution is defined as: 
+```cpp
+class Solution {
+public:
+    int solve(int &n, vector<int> &a) {   
+        // write your code here
+    }
+};
+```
+Where:  
+- return the minimum value that appears at least three times, or -1 if there is no such value.
+
+# Example 1:
+- Input:  
+n = 5  
+a = [1, 2, 3, 2, 2]
+- Output:  
+2
+
+# Constraints:
+- $0 \leq n \leq 100000$
+- $1 \leq  a[i] \leq n$ 
+- Time limit: 1000 ms  
+- Memory limit: 64 KB

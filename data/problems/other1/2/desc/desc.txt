@@ -1,0 +1,35 @@
+# Problem Statement
+Given $N$, $V$, an array $v$ of length $N$ representing the volume of items, and an array $w$ of length $N$ representing the value of items:  
+There are $N$ items and a backpack with a capacity of $V$. Each item can only be used once.  
+The $i$-th item has a volume of $v[i]$ and a value of $w[i]$.  
+
+Determine which items to put in the backpack such that the **total volume does not exceed the backpack's capacity** and the **total value is maximized**. Return the maximum total value.
+
+The solution's main function is:  
+```cpp
+class Solution {
+public:
+    int solve(int &N, int &V, vector<int> &v, vector<int> &w) {   
+        // write your code here
+    }
+};
+```
+where:  
+- `N` is the number of items,  
+- `V` is the capacity of the backpack,  
+- `v` is the array of item volumes,  
+- `w` is the array of item values.  
+
+# Example 1  
+- Input:  
+N = 3  
+V = 4  
+v = [4, 3, 1]  
+w = [1, 2, 1]  
+- Output:  
+2
+
+# Constraints:  
+- $1 \leq N, V, v[i], w[i] \leq 10000$  
+- Time limit: 1000 ms  
+- Memory limit: 64 KB  

@@ -1,0 +1,36 @@
+# Problem Statement
+Sakurako really loves alternating strings. She calls a string $s$ of lowercase Latin letters an alternating string if characters in the even positions are the same, if characters in the odd positions are the same, and the length of the string is **even**.
+
+For example, the strings 'abab' and 'gg' are alternating, while the strings 'aba' and 'ggwp' are not.
+
+As a good friend, you decided to gift such a string, but you couldn't find one. Luckily, you can perform two types of operations on the string:
+
+1.  Choose an index $i$ and delete the $i$\-th character from the string, which will reduce the length of the string by $1$. This type of operation can be performed **no more than $1$ time**;
+2.  Choose an index $i$ and replace $s_i$ with any other letter.
+
+Since you are in a hurry, you need to determine the minimum number of operations required to make the string an alternating one.
+
+The main function of the solution is defined as:  
+```cpp
+class Solution {
+public:
+    int solve(int &n, string &s) {
+        // write your code here
+    }
+};
+```
+where:  
+- `n`: the length of the string, `s`: a string of lowercase Latin letters
+- return: the minimum number of operations required to make the string an alternating one
+
+# Example 1:  
+- Input:  
+n = 2
+s = "ca"
+- Output:  
+0
+
+# Constraints:  
+- $1 \leq n \leq 100000$
+- Time limit: 1000 ms  
+- Memory limit: 6400 KB  

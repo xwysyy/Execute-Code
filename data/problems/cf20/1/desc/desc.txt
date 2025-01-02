@@ -1,0 +1,36 @@
+# Problem Statement
+Mushroom Filippov cooked himself a meal and while having his lunch, he decided to watch a video on TubeTube. He can not spend more than $t$ seconds for lunch, so he asks you for help with the selection of video.
+
+The TubeTube feed is a list of $n$ videos, indexed from $1$ to $n$. The $i$\-th video lasts $a_i$ seconds and has an entertainment value $b_i$. Initially, the feed is opened on the first video, and Mushroom can skip to the next video in $1$ second (if the next video exists). Mushroom can skip videos any number of times (including zero).
+
+Help Mushroom choose **one** video that he can open and watch in $t$ seconds. If there are several of them, he wants to choose the most entertaining one. Print the index of any appropriate video, or $-1$ if there is no such.
+
+The main function of the solution is defined as:  
+```cpp
+class Solution {
+public:
+    int solve(int &n, int &t, vector<int> &a, vector<int> &b) {   
+        // write your code here
+    }
+};
+```
+where:  
+- `n` is the number of videos
+- `t` is the lunch time
+- `a` is the duration of the videos
+- `b` is the entertainment value of the videos
+
+# Example 1:  
+- Input:  
+n = 5 
+t = 9
+a = [1, 5, 7, 6, 6]
+b = [3, 4, 7, 1, 9]
+- Output:  
+3
+
+# Constraints:  
+- $1 \leq n \leq 100000$  
+- $1 \leq a[i], b[i], t \leq 10^9$
+- Time limit: 1000 ms  
+- Memory limit: 640 KB  

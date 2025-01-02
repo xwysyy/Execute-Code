@@ -1,0 +1,33 @@
+# Problem Statement
+Given an array $a$ consisting of $n$ elements, find the maximum possible sum the array can have after performing the following operation **any number of times**:
+
+- Choose $2$ **adjacent** elements and flip both of their signs. In other words choose an index $i$ such that $1 \leq i \leq n - 1$ and assign $a_i = -a_i$ and $a_{i+1} = -a_{i+1}$.
+
+Note that the answer may be large, so use a 64-bit integer type.
+
+The main function of the solution is defined as: 
+```cpp
+class Solution {
+public:
+    long long solve(int &n, vector<int> &a) {   
+        // write your code here
+    }
+};
+```
+Where:  
+- `n` is the length of the array.  
+- `a` is an array of length \(n\).  
+- The function should return a 64-bit integer representing the maximum sum of the array after performing the above operation any number of times.
+
+# Example 1  
+- Input:  
+n = 3
+a = [-1, -1, -1]
+- Output:  
+1
+
+# Constraints  
+- $2 \leq n \leq 100000$  
+- $-10^9 \leq a_i \leq 10^9$  
+- Time limit: 1000 ms  
+- Memory limit: 640 KB  

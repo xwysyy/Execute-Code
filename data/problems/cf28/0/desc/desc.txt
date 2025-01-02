@@ -1,0 +1,39 @@
+# Problem Statement
+You are given two strings $a$ and $b$ of equal length, consisting of only characters 0 and/or 1; both strings start with character 0 and end with character 1.
+
+You can perform the following operation any number of times (possibly zero):
+
+-   choose one of the strings and two **equal** characters in it; then turn all characters between them into those characters.
+
+Formally, you choose one of these two strings (let the chosen string be $s$), then pick two integers $l$ and $r$ such that $1 \le l < r \le |s|$ and $s_l = s_r$, then replace every character $s_i$ such that $l < i < r$ with $s_l$.
+
+For example, if the chosen string is 010101, you can transform it into one of the following strings by applying one operation:
+-   010001 if you choose $l = 3$ and $r = 5$;
+-   010111 if you choose $l = 4$ and $r = 6$;
+
+You have to determine if it's possible to make the given strings equal by applying this operation any number of times.
+
+The main function of the solution is defined as:  
+```cpp
+class Solution {
+public:
+    string solve(string &a, string &b) {   
+        // write your code here
+    }
+};
+```
+where:  
+- return value: "YES" or "NO"
+
+# Example 1:  
+- Input:  
+a = "01010001"
+b = "01110101"
+- Output:  
+YES
+
+# Constraints:  
+- $1 \leq a.length \leq 1000000$
+- a.length == b.length 
+- Time limit: 1000 ms  
+- Memory limit: 6400 KB  

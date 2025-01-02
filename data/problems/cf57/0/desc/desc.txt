@@ -1,0 +1,34 @@
+# Problem Statement
+Arseniy came up with another business plan — to sell soda from a vending machine! For this, he purchased a machine with $n$ shelves, as well as $k$ bottles, where the $i$\-th bottle is characterized by the brand index $b_i$ and the cost $c_i$.
+
+You can place any number of bottles on each shelf, but all bottles on the same shelf must be of the same brand.
+
+Arseniy knows that all the bottles he puts on the shelves of the machine will be sold. Therefore, he asked you to calculate the **maximum** amount he can earn.
+
+The main function of the solution is defined as:  
+```cpp
+class Solution {
+public:
+    int solve(int &n, int &k, vector<pair<int, int>> &b) {
+        // write your code here
+    }
+};
+```
+where:  
+- `n`: the number of shelves, `k`: the number of bottles
+- `bottle`: the brand index $b_i$ and cost $c_i$ of each bottle
+- return: the maximum amount he can earn
+
+# Example 1:  
+- Input:  
+n = 3, k = 3
+bottle = [(2, 6), (2, 7), (1, 15)]
+- Output:  
+28
+
+# Constraints:  
+- $1 \leq n, k \leq 100000$
+- $1 \leq bottle[i].first \leq k$ 
+- $1 \leq bottle[i].second \leq 10^3$
+- Time limit: 1000 ms  
+- Memory limit: 6400 KB  

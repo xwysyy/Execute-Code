@@ -1,0 +1,32 @@
+# Problem Statement
+You are given a number in binary representation consisting of exactly $n$ bits, possibly, with leading zeroes. For example, for $n = 5$ the number $6$ will be given as $00110$, and for $n = 4$ the number $9$ will be given as $1001$.
+
+Let's fix some integer $i$ such that $1 \le i \le n$. In one operation you can swap any two adjacent bits in the binary representation. Your goal is to find the smallest number of operations you are required to perform to make the number divisible by $2^i$, or say that it is impossible.
+
+Please note that for each $1 \le i \le n$ you are solving the problem independently.
+
+The main function of the solution is defined as:  
+```cpp
+class Solution {
+public:
+    vector<long long> solve(int &n, string &s) {   
+        // write your code here
+    }
+};
+```
+where:  
+- `n` is the number of bits in the binary representation
+- `s` is the binary representation of the number
+- Return an array, where the $i$-th element of the array represents the smallest number of operations required to make the number divisible by $2^i$, and the answer is large, use a $64$-bit integer type.
+
+# Example 1:  
+- Input:  
+n = 2
+s = "01"
+- Output:  
+[1, -1]
+
+# Constraints:  
+- $1 \leq n \leq 100000$ 
+- Time limit: 1000 ms  
+- Memory limit: 3200 KB  

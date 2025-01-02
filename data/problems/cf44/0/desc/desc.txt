@@ -1,0 +1,32 @@
+# Problem Statement
+On another boring day, Egor got bored and decided to do something. But since he has no friends, he came up with a game to play.
+
+Egor has a deck of $n$ cards, the $i$\-th card from the top has a number $a_i$ written on it. Egor wants to play a certain number of rounds until the cards run out. In each round, he takes a non-zero number of cards from the top of the deck and finishes the round. If the sum of the numbers on the cards collected during the round is between $l$ and $r$, inclusive, the round is won; otherwise, it is lost.
+
+Egor knows by heart the order of the cards. Help Egor determine the maximum number of rounds he can win in such a game. Note that Egor is not required to win rounds consecutively.
+
+The main function of the solution is defined as:  
+```cpp
+class Solution {
+public:
+    int solve(int &n, int &l, int &r, vector<int> &a) { 
+        // write your code here
+    }
+};
+```
+where:  
+- the return value is the maximum number of rounds Egor can win
+
+# Example 1:  
+- Input:  
+n = 5, l = 3, r = 10
+a = [2, 1, 11, 3, 7]
+- Output:  
+3
+
+# Constraints:  
+- $1 \leq n \leq 100000$
+- $1 \leq l \leq r \leq 10^9$
+- $1 \leq a[i] \leq 10^9$ 
+- Time limit: 1000 ms  
+- Memory limit: 6400 KB  

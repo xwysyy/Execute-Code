@@ -1,0 +1,33 @@
+# Problem Statement
+Polycarp has $n$ coins, the value of the $i$\-th coin is $a_i$. Polycarp wants to distribute all the coins between his pockets, but he cannot put two coins with the same value into the same pocket.
+
+For example, if Polycarp has got six coins represented as an array $a = [1, 2, 4, 3, 3, 2]$, he can distribute the coins into two pockets as follows: $[1, 2, 3], [2, 3, 4]$.
+
+Polycarp wants to distribute all the coins with the minimum number of used pockets. Help him to do that.
+
+The main function of the solution is defined as:  
+```cpp
+class Solution {
+public:
+    int solve(int &n, vector<int> &a) {   
+        // write your code here
+    }
+};
+```
+where:  
+- `n` is the number of coins  
+- `a` is the array of coin values  
+- return the minimum number of pockets needed
+
+# Example 1:  
+- Input:
+n = 6  
+a = [1, 2, 4, 3, 3, 2]
+- Output: 
+2
+
+# Constraints:  
+- $1 \leq n \leq 100000$  
+- $1 \leq a[i] \leq 10^9$  
+- Time limit: 1000 ms  
+- Memory limit: 6400 KB  

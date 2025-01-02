@@ -1,0 +1,41 @@
+# Problem Statement
+There is a grid, consisting of $2$ rows and $n$ columns. Each cell of the grid is either free or blocked.
+
+A free cell $y$ is reachable from a free cell $x$ if at least one of these conditions holds:
+
+-   $x$ and $y$ share a side;
+-   there exists a free cell $z$ such that $z$ is reachable from $x$ and $y$ is reachable from $z$.
+
+A connected region is a set of free cells of the grid such that all cells in it are reachable from one another, but adding any other free cell to the set violates this rule.
+
+The given grid contains at most $1$ connected region. Your task is to calculate the number of free cells meeting the following constraint:
+
+-   if this cell is blocked, the number of connected regions becomes exactly $3$.
+
+The main function of the solution is defined as:  
+```cpp
+class Solution {
+public:
+    int solve(int &n, string &s1, string &s2) { 
+        // write your code here
+    }
+};
+```
+where:  
+- `s1` and `s2` are two strings of two rows of the grid, each character is `.` or `x`, `.` means free, `x` means blocked
+- return the maximum number of free cells that meet the condition
+
+# Example 1:  
+- Input:  
+- 输入：  
+n = 8
+s1 = ".......x"
+s2 = ".x.xx..."
+- Output:  
+1
+
+# Constraints:  
+- $1 \leq n \leq 1000000$
+- The given grid contains at most $1$ connected region
+- Time limit: 1000 ms  
+- Memory limit: 640 KB  

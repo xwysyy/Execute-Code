@@ -1,0 +1,36 @@
+# Problem Statement:
+Given an array $a=[a_1,a_2,\dots,a_n]$ of $n$ positive integers, you can do operations of two types on it:
+
+1.  Add $1$ to **every** element with an **odd** index. In other words change the array as follows: $a_1 := a_1 +1, a_3 := a_3 + 1, a_5 := a_5+1, \dots$.
+    
+2.  Add $1$ to **every** element with an **even** index. In other words change the array as follows: $a_2 := a_2 +1, a_4 := a_4 + 1, a_6 := a_6+1, \dots$.
+
+Determine if after any number of operations it is possible to make the final array contain only even numbers or only odd numbers. In other words, determine if you can make all elements of the array have the same parity after any number of operations.
+
+Note that you can do operations of both types any number of times (even none). Operations of different types can be performed a different number of times.
+
+The main function of the solution is defined as: 
+```cpp
+class Solution {
+public:
+    string solve(int &n, vector<int> &a) {   
+        // write your code here
+    }
+};
+```
+Where:  
+- The return value is "YES" if it is possible to make all elements of the array have the same parity after any number of operations, and "NO" otherwise.
+
+
+# Example 1:
+- Input:  
+n = 5  
+a = [1000, 1, 1000, 1, 1000]
+- Output:  
+YES
+
+# Constraints:
+- $2 \leq n \leq 100000$
+- $1 \leq a[i] \leq 10^9$ 
+- Time limit: 1000 ms  
+- Memory limit: 32 KB

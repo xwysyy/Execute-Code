@@ -1,0 +1,41 @@
+# Problem Statement
+Monocarp is playing a computer game. Now he wants to complete the first level of this game.
+
+A level is a rectangular grid of $2$ rows and $n$ columns. Monocarp controls a character, which starts in cell $(1, 1)$ — at the intersection of the $1$\-st row and the $1$\-st column.
+
+Monocarp's character can move from one cell to another in one step if the cells are adjacent by side and/or corner. Formally, it is possible to move from cell $(x_1, y_1)$ to cell $(x_2, y_2)$ in one step if $|x_1 - x_2| \le 1$ and $|y_1 - y_2| \le 1$. Obviously, it is prohibited to go outside the grid.
+
+There are traps in some cells. If Monocarp's character finds himself in such a cell, he dies, and the game ends.
+
+To complete a level, Monocarp's character should reach cell $(2, n)$ — at the intersection of row $2$ and column $n$.
+
+Help Monocarp determine if it is possible to complete the level.
+
+Solution Function**  
+The solution's main function is:  
+```cpp
+class Solution {
+public:
+    string solve(int &n, string &s1, string &s2) {
+        // write your code here
+    }
+};
+```
+where:  
+- `n` is an integer representing the number of columns in the grid.
+- `s1` is a string representing the first row of the grid.
+- `s2` is a string representing the second row of the grid.
+- The function should return a string: `"YES"` if it is possible to complete the level, or `"NO"` otherwise.
+
+# Example 1  
+- Input:  
+n = 6
+s1 = 010101
+s2 = 101010
+- Output:  
+YES
+
+**Constraints**  
+- $3 \leq n \leq 100000$
+- Time limit: 1000 ms  
+- Memory limit: 6400 KB  

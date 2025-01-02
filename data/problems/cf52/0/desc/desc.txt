@@ -1,0 +1,35 @@
+# Problem Statement
+During her journey with Kosuke, Sakurako and Kosuke found a valley that can be represented as a matrix of size $n \times n$, where at the intersection of the $i$\-th row and the $j$\-th column is a mountain with a height of $a_{i,j}$. If $a_{i,j} < 0$, then there is a lake there.
+
+Kosuke is very afraid of water, so Sakurako needs to help him:
+
+-   With her magic, she can select a square area of mountains and increase the height of each mountain on the main diagonal of that area by exactly one.
+
+More formally, she can choose a submatrix with the upper left corner located at $(i, j)$ and the lower right corner at $(p, q)$, such that $p-i=q-j$. She can then add one to each element at the intersection of the $(i + k)$\-th row and the $(j + k)$\-th column, for all $k$ such that $0 \le k \le p-i$.
+
+Determine the minimum number of times Sakurako must use her magic so that there are no lakes.
+
+The main function of the solution is defined as:  
+```cpp
+class Solution {
+public:
+    long long solve(int &n, vector<vector<int>> &a) {   
+        // write your code here
+    }
+};
+```
+where:  
+- the return value is the minimum number of times Sakurako must use her magic, and it is of type long long
+
+# Example 1:  
+- Input:  
+n = 2
+a = [[-1, 2], [3, 0]]
+- Output:  
+1
+
+# Constraints:  
+- $1 \leq n \leq 1000$
+- $-10^5 \leq a[i][j] \leq 10^5$
+- Time limit: 1000 ms  
+- Memory limit: 6400 KB  

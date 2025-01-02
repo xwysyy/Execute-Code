@@ -1,0 +1,31 @@
+# Problem Statement
+You are given a binary array $a$ of $n$ elements, a binary array is an array consisting only of $0$s and $1$s.
+
+A blank space is a segment of **consecutive** elements consisting of only $0$s.
+
+Your task is to find the length of the longest blank space.
+
+The main function of the solution is defined as:  
+```cpp
+class Solution {
+public:
+    int solve(int &n, vector<int> &a) {   
+        // write your code here
+    }
+};
+```
+where:  
+- return the length of the longest blank space.
+
+# Example 1:  
+- Input:  
+n = 5
+a = [1, 0, 0, 1, 0]
+- Output:  
+2
+
+# Constraints:  
+- $1 \leq n \leq 1000000$  
+- $0 \leq a_i \leq 1$
+- Time limit: 1000 ms  
+- Memory limit: 64 KB  

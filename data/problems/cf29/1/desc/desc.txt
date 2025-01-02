@@ -1,0 +1,37 @@
+# Problem Statement
+Luca is in front of a row of $n$ trees. The $i$\-th tree has $a_i$ fruit and height $h_i$.
+
+He wants to choose a contiguous subarray of the array $[h_l, h_{l+1}, \dots, h_r]$ such that for each $i$ ($l \leq i < r$), **$h_i$ is divisible$^{\dagger}$ by $h_{i+1}$**. He will collect all the fruit from each of the trees in the subarray (that is, he will collect $a_l + a_{l+1} + \dots + a_r$ fruits). However, if he collects more than $k$ fruits in total, he will get caught.
+
+What is the maximum length of a subarray Luca can choose so he doesn't get caught?
+
+$^{\dagger}$ $x$ is divisible by $y$ if the ratio $\frac{x}{y}$ is an integer.
+
+The main function of the solution is defined as:  
+```cpp
+class Solution {
+public:
+    int solve(int &n, int &k, vector<int> &a, vector<int> &h) {   
+        // write your code here
+    }
+};
+```
+where:  
+- `n` is the number of trees, `k` is the maximum number of fruits
+- `a` is the array of fruit numbers, `h` is the array of tree heights
+- Return the maximum length
+
+# Example 1:  
+- Input:  
+n = 5, k = 12
+a = [3, 2, 4, 1, 8]
+h = [4, 4, 2, 4, 1]
+- Output:  
+3
+
+# Constraints:  
+- $1 \leq n \leq 100000$  
+- $1 \leq a[i], h[i] \leq 10^3$  
+- $1 \leq k \leq 10^9$  
+- Time limit: 1000 ms  
+- Memory limit: 640 KB  

@@ -1,0 +1,42 @@
+# Problem Statement
+Rudolf and Bernard decided to play a game with their friends. $n$ people stand in a circle and start throwing a ball to each other. They are numbered from $1$ to $n$ in the clockwise order.
+
+Let's call a transition a movement of the ball from one player to his neighbor. The transition can be made clockwise or counterclockwise.
+
+Let's call the clockwise (counterclockwise) distance from player $y_1$ to player $y_2$ the number of transitions clockwise (counterclockwise) that need to be made to move from player $y_1$ to player $y_2$. For example, if $n=7$ then the clockwise distance from $2$ to $5$ is $3$, and the counterclockwise distance from $2$ to $5$ is $4$.
+
+Initially, the ball is with the player number $x$ (players are numbered clockwise). On the $i$\-th move the person with the ball throws it at a distance of $r_i$ ($1 \le r_i \le n - 1$) clockwise or counterclockwise. For example, if there are $7$ players, and the $2$nd player, after receiving the ball, throws it a distance of $5$, then the ball will be caught by either the $7$th player (throwing clockwise) or the $4$th player (throwing counterclockwise). 
+
+The game was interrupted after $m$ throws due to unexpected rain. When the rain stopped, the guys gathered again to continue. However, no one could remember who had the ball. As it turned out, Bernard remembered the distances for each of the throws and the direction for **some** of the throws (clockwise or counterclockwise).
+
+Rudolf asks you to help him and based on the information from Bernard, calculate the numbers of the players who could have the ball after $m$ throws.
+
+The main function of the solution is defined as:  
+```cpp
+class Solution {
+public:
+    int solve(int &n, int &m, int &x, vector<pair<int, char>> &a) {   
+        // write your code here
+    }
+};
+```
+where:  
+- `n`: the number of players, `m`: the number of throws, `x`: the initial player with the ball
+- `a`: the distance and direction of each throw, `a[i].first` represents the distance of the $i$-th throw, `a[i].second` represents the direction of the $i$-th throw, `a[i].second` is '0' for clockwise, '1' for counterclockwise, '?' for unknown
+- return: the number of players who could have the ball
+
+# Example 1:  
+- Input:  
+n = 6, m = 3, x = 2
+a = [(2,'?'), (2,'?'), (2,'?')]
+- Output:  
+3
+
+# Constraints:  
+- $2 \leq n \leq 5000$
+- $1 \leq m \leq 5000$
+- $1 \leq x \leq n$
+- $1 \leq a[i].first \leq n - 1$
+- $a[i].second is '0' or '1' or '?'$
+- Time limit: 1000 ms  
+- Memory limit: 256 KB  
