@@ -6,7 +6,13 @@ Here is an example:
 Given an array of integers nums, return the number of elements in the array that are greater than 1.
 
 The main function of the solution is defined as:  
-`int solve(vector<int> &nums)`  
+class Solution
+{
+public:
+    int solve(vector<int> &nums){
+        // write your code here
+    }
+};
 where:
 - `nums` is the array of integers
 - return the number of elements in the array that are greater than 1
@@ -27,8 +33,7 @@ Please generate your code like this(Your functions must be encapsulated in "clas
 class Solution
 {
 public:
-    int solve(vector<int> &nums)
-    {
+    int solve(vector<int> &nums){
         int n = nums.size();
         int num = 0;
         for (int i = 0; i < m; i++)
