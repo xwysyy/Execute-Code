@@ -12,14 +12,12 @@ def run(problem: str, code: str):
     测评某道题目指定大模型代码, name为题目名称, code为待测试代码
     """
     path = f'{problem_path}/{problem}'
-    if not os.path.exists(f'{path}/codes/{code}.h'):
-        raise ValueError('Code or Problem not found')
-    
     with open(f'{path}/problem.json', 'r') as f:
         tem_problem_json = json.load(f)
         time_limit = (int)(tem_problem_json['time_limit'])
         memory_limit = (int)(tem_problem_json['memory_limit'])
-        test_case_num = (int)(tem_problem_json['test_case_num'])
+
+    test_case_num = 9
     
     path_exec = f'{path}/exec'
     os.system(f'cp {path}/codes/{code}.h {path_exec}/test_{code}.h')
@@ -98,13 +96,19 @@ def run(problem: str, code: str):
             json.dump(file_data, f, indent=4)
 
 
-def run_all(problem: str, op: bool = True, code_list: list = None):
+def run_all(problem: str, op: bool = False, code_list: list = None):
     """
     测评某道题目所有大模型代码, name为题目名称, op表示是否多线程
     """
     path = f'{problem_path}/{problem}/codes'
     if not os.path.exists(path):
         raise ValueError('Codes not found')
+    
+    result_file = f'{problem_path}/{problem}/result.json'
+    if not os.path.exists(result_file):
+        with open(result_file, 'w') as f:
+            f.write('{}')
+
     if code_list is None:
         code_list = os.listdir(path)
         code_list = [code[:-2] for code in code_list]
